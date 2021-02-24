@@ -1,0 +1,102 @@
+[
+    {
+        "sectionTitle": "Your situation",
+        "subTitle": "Tell us a bit about yourself, so we can tailor the results to suit you.",
+        "formAction": "questions2.html",
+        "questions": [
+            {
+                "type": "tel",
+                "subtype": "value",
+                "label": "How much is your property worth?",
+                "name": "propWorth",
+                "placeholder": "",
+                "store": true
+            },
+            {
+                "type": "tel",
+                "subtype": "value",
+                "label": "How much do you have left to pay?",
+                "name": "balanceRemaining",
+                "placeholder": "",
+                "store": true
+            },
+            {
+                "type": "tel",
+                "subtype": "years",
+                "label": "How many years are left on your mortgage?",
+                "name": "yearsRemaining",
+                "placeholder": "",
+                "store": true
+            },
+            {
+                "type": "autocomplete",
+                "data": "providers.json",
+                "label": "Who is your current mortgage with?",
+                "hint": "So you can compare against your current lenders offerings",
+                "name": "currentProvider",
+                "placeholder": "Search for your lender",
+                "store": true
+            },
+            {
+                "type": "tel",
+                "label": "What year were you born?",
+                "hint":"So we only show products that match your situation",
+                "name": "userBirthYear",
+                "placeholder": "",
+                "store": true
+            },
+            {
+                "type": "text",
+                "label": "What's your postcode?",
+                "hint":"So we only show products available where you live",
+                "name": "postcode",
+                "placeholder": "",
+                "store": true
+            },
+            {
+                "type": "radio",
+                "name": "ccjs",
+                "label": "Have you had CCJs, arrears, defaults, bankruptcies or repossessions in the last 5 years?",
+                "answers": [
+                    {
+                        "label": "Yes"
+                    },
+                    {
+                        "label": "No"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Your goal(s)",
+                "name": "goalSelector",
+                "helpText":"This is some helptext",
+                "answers": [
+                    {
+                        "label": "Stay on a good rate"
+                    },
+                    {
+                        "label": "Reduce length of your mortgage"
+                    },
+                    {
+                        "label": "Reduce monthly cost"
+                    },
+                    {
+                        "label": "Overpay when I can"
+                    },
+                    {
+                        "label": "Borrow more"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "questions": [
+            {
+                "type": "submit",
+                "value": "Continue"
+            }
+        ]
+    }
+]
