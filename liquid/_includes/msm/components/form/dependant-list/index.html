@@ -1,0 +1,42 @@
+<li id="{{ include.id }}" class="form-field dependant{{ include.class | prepend: " " }}" data-status="close" data-card="false" data-depend-parent="{{ include.dependParent }}">
+    <div class="dependant__answers">
+        <fieldset>
+        <legend></legend>
+            <ol>
+                <li class="form-field">
+                    <label for="add-first-name">How has the car been modified?</label>
+                    <p class="form-hint">You can add as many modifications as you like.</p>
+                    <div class="form-error-wrap">
+                        <p>This is an error message due to an unanswered question, please fix it and continue</p>
+                    </div>
+                    {% include msm/components/form/help/index.html %}
+
+                    {% include msm/components/form/dropdown/index.html
+                    class="dependant__select"
+                    answers="Body modification=mods|Engine transmission=engine|Wheel tyre=wheel"
+                    default="Select category"
+                    %}
+
+                    {% include msm/components/form/dropdown/index.html
+                    class="dependant__select mods"
+                    answers="Flared wings=four|Bonnet bulge=five|Fibreglass panels=three"
+                    default="Select type"
+                    %}
+
+                    {% include msm/components/form/dropdown/index.html
+                    class="dependant__select engine"
+                    answers="Exhaust system changes=one|Supercharging=two|Transmission changes (man/auto)=three"
+                    default="Select type"
+                    %}
+
+                    {% include msm/components/form/dropdown/index.html
+                    class="dependant__select wheel"
+                    answers="Wheel spacers=one|Alloy wheels=two|Wheel trims=three|Wider wheels=four"
+                    default="Select type"
+                    %}
+                </li>
+            </ol>
+        </fieldset>
+    </div>
+    {% include msm/components/form/card-list/index.html cardType="modifications" %}
+</li>

@@ -1,0 +1,29 @@
+{% assign CSSversion = 0 %}
+
+{% if include.root %}
+    {% assign root = include.root %}
+{% elsif page.trueRoot %}
+    {% assign root = page.trueRoot %}
+{% else %}
+    {% assign root = page.root %}
+{% endif %}
+
+{% for i in (1..999) %}
+    {% capture fileExists %}{% file_exists /assets/msm/components/{{ root }}/v{{ i }}/style.css %}{% endcapture %}
+    {% if fileExists=="true" %}
+        {% assign CSSversion = i %}
+    {% else %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% if CSSversion > 0 %}
+<script>
+    console.log("CSS: {{ root }} - v{{ CSSversion }}")
+</script>
+<link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/msm/components/{{ root }}/v{{ CSSversion }}/style.css">
+{% else %}
+<script>
+    console.log("CSS: {{ root }} - none")
+</script>
+{% endif %}

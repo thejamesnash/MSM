@@ -1,0 +1,11 @@
+{% include gxp/snippets/variables.liquid %}
+
+<div class="form-pseudo-select{{ class | prepend: " " }}">
+    <select id="{{ answerId }}">
+        <option selected disabled>{{ include.default | default: 'Please select' }}</option>
+        {% for a in answers %}
+        <option value="{{ value[forloop.index0] }}">{{ a }}</option>
+        {% endfor %}
+    </select>
+</div>
+<p class="form-input-error">This is an error message that relates directly to the input.</p>

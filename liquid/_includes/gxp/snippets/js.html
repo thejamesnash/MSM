@@ -1,0 +1,27 @@
+{% assign JSversion = 0 %}
+
+{% if page.trueRoot %}
+    {% assign root = page.trueRoot %}
+{% else %}
+    {% assign root = include.root %}
+{% endif %}
+
+{% for i in (1..999) %}
+    {% capture fileExists %}{% file_exists /assets/msm/components/{{ root }}/v{{ i }}/script.js %}{% endcapture %}
+    {% if fileExists=="true" %}
+        {% assign JSversion = i %}
+    {% else %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% if JSversion > 0 %}
+<script type="text/javascript" src="/assets/msm/components/{{ root }}/v{{ JSversion }}/script.js"></script>
+<script>
+    console.log("JS: {{ root }} - v{{ JSversion }}")
+</script>
+{% else %}
+<script>
+    console.log("JS: {{ root }} - none")
+</script>
+{% endif %}

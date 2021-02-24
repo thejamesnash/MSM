@@ -1,0 +1,76 @@
+{% assign origAnswerId = answerId %}
+{% assign suffix = '-1' %}
+
+{% comment %} SETS SUFFIX SHOULD MORE THAN ONE ELEMENT BE USED IN ANSWER {% endcomment %}
+{% if answerId == origAnswerId and duplicate == false %}
+    {% assign duplicate = true %}
+{% elsif answerId == origAnswerId and duplicate == true %}
+    {% capture pCount %}{{ pCount | plus:1 }}{% endcapture %}
+    {% capture suffix %}-{{ pCount }}{% endcapture %}
+{% endif %}
+
+{% comment %} SETS ID FOR EACH ANSWER DEPENDING IF ID HAS BEEN CALLED IN PARENT INCLUDE {% endcomment %}
+{% capture answertype %}{% if include.answer %}{{ include.answer }}{% else %}{{ answertype }}{% endif %}{% endcapture %}
+{% capture id %}{% if include.id %}{{ include.id }}{% elsif id != '' and suffix == '-1' %}{{ id }}{% endif %}{% endcapture %}
+{% capture answerId %}{% if id != '' %}{{ id }}{% elsif answertype %}{{ answertype }}{{ qCount }}{{ suffix }}{% else %}{{ page.root | split: '/' | last }}{{ qCount }}{{ suffix }}{% endif %}{% endcapture %}
+
+{% comment %} SETS VALUES IN QUESTION FIELD {% endcomment %}
+{% capture question %}{{ include.question }}{% endcapture %}
+{% capture hint %}{{ include.hint }}{% endcapture %}
+{% capture error %}{{ include.error | default: 'This is an error message due to an unanswered question, please fix it and continue' }}{% endcapture %}
+
+{% comment %} SETS VALUES IN ANSWER FIELD {% endcomment %}
+{% if include.placeholder %}{% assign placeholder = include.placeholder %}{% endif %}
+{% capture label %}{% if include.label %}{{ include.label }}{% else %}{{ label }}{% endif %}{% endcapture %}
+{% if include.text %}{% capture text %}{{ include.text }}{% endcapture %}{% endif %}
+{% capture class %}{% if include.class %}{{ include.class }}{% else %}{{ class }}{% endif %}{% endcapture %}
+{% if include.value %}{% assign value = include.value %}{% endif %}
+
+{% assign ul = '' %}
+{% if include.ul %}
+{% assign ul = include.ul | split: '|' %}
+{% endif %}
+
+{% comment %} SETS ANSWERS FROM ANSWERS ARRAY {% endcomment %}
+{% if include.answers %}
+    {% assign answers = include.answers | split: '|' %}
+    {% assign array = '' %}
+    {% assign value = '' %}
+    {% assign subval = '' %}
+    {% assign subid = '' %}
+    {% assign subcls = '' %}
+    {% assign depends = '' %}
+
+    {% for a in answers %}
+        {% assign ansVal = a | split: '=' %}
+        {% assign ansSub = a | split: '>' %}
+        {% assign ansId = a | split: '#' %}
+        {% assign ansClass = a | split: '~' %}
+        {% assign ansDep = a | split: '*' %}
+        {% if a contains '=' %}
+            {% assign array = array | append: ansVal[0] | append: '|' %}
+        {% elsif a contains '>' %}
+            {% assign array = array | append: ansSub[0] | append: '|' %}
+        {% elsif a contains '#' %}
+            {% assign array = array | append: ansId[0] | append: '|' %}
+        {% elsif a contains '~' %}
+            {% assign array = array | append: ansClass[0] | append: '|' %}
+        {% elsif a contains '*' %}
+            {% assign array = array | append: ansDep[0] | append: '|' %}
+        {% else %}
+            {% assign array = array | append: a | append: '|' %}
+        {% endif %}
+        {% assign value = value | append: ansVal[1] | append: '|' %}
+        {% assign subval = subval | append: ansSub[1] | append: '|' %}
+        {% assign subid = subid | append: ansId[1] | append: '|' %}
+        {% assign subcls = subcls | append: ansClass[1] | append: '|' %}
+        {% assign depends = depends | append: ansDep[1] | append: '|' %}
+    {% endfor %}
+    {% assign array = array | split: '|' %}
+    {% assign value = value | split: '|' %}
+    {% assign subval = subval | split: '|' %}
+    {% assign subid = subid | split: '|' %}
+    {% assign subcls = subcls | split: '|' %}
+    {% assign depends = depends | split: '|' %}
+    {% assign answers = array %}
+{% endif %}
