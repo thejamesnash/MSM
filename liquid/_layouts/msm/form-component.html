@@ -1,0 +1,27 @@
+---
+layout: form-component
+---
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    </head>
+    <body>
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/msm/global/css/global.css">
+        {% include gxp/snippets/css.html %}
+        <section class="form">
+            <form>
+                <fieldset>
+                    <ol>
+
+                        {{ content }}
+
+                    </ol>
+                </fieldset>
+            </form>
+        </section>
+        {% include gxp/snippets/js.html %}
+    </body>
+</html>

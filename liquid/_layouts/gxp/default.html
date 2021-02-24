@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/gxp/css/gxp.css">
+    </head>
+    <body>
+        {% include gxp/components/site-header/index.html %}
+        {% include gxp/components/search/index.html %}
+        <main>
+            {{ content }}
+        </main>
+        {% include gxp/components/site-footer/index.html %}
+    </body>
+</html>

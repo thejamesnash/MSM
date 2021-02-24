@@ -1,0 +1,26 @@
+---
+layout: component-details
+---
+{% for variable in page.vars limit:1 %}
+    {% assign v = variable | split: "|" %}
+    {% assign join = " " | append: v[0] | append: "=" | append: v[1] %}
+    {% assign varstring = varstring | append: join %}
+{% endfor %}
+
+{% capture x %}{{ varstring }}{% endcapture %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    </head>
+    <body>
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/msm/global/css/global.css">
+        <div class="component-preview">
+            {% include gxp/snippets/css.html root = page.root %}
+            {% include msm/components/{{ page.root }}/index.html %}
+            {% include gxp/snippets/js.html root = page.root %}
+        </div>
+    </body>
+</html>

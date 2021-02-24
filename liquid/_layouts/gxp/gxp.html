@@ -1,0 +1,22 @@
+---
+layout: gxp
+---
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/gxp/css/gxp.css">
+    </head>
+    <body>
+        <div id="searchWrap">
+            <input type="text" id="searchBox" placeholder="Search..." />
+            <ul id="searchResults"></ul>
+            <ul id="relatedResults"></ul>
+        </div>
+        <main>
+            {{ content }}
+        </main>
+        {% include gxp/components/site-footer/index.html %}
+        <script src="/assets/gxp/js/gxp.js"></script>
+    </body>
+</html>

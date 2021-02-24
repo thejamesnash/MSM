@@ -1,0 +1,28 @@
+---
+layout: component
+---
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        {% include gxp/components/site-header/index.html %}
+        <main>
+            {{ content }}
+        </main>
+        {% include gxp/components/site-footer/index.html %}
+
+{% assign CSSversion = 0 %}
+
+{% for i in (1..999) %}
+    {% capture fileExists %}{% file_exists /assets/msm/components/{{ page.root }}/v{{ i }} %}{% endcapture %}
+    {% if fileExists=="true" %}
+        {% assign CSSversion = i %}
+    {% else %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+<link type="text/css" rel="stylesheet" property="stylesheet" href="/src/assets/msm/css/global.css">

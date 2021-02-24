@@ -1,0 +1,43 @@
+---
+title:  "How to use markdown"
+date:   2017-07-21 09:59:00
+author: James Nash
+layout: gxp/post
+published: true
+tags:
+ - howto
+ - prototyping
+---
+
+{% if page.tags %}
+<ul>{% for tag in page.tags %}
+  <li>{{ tag }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+
+# This is an H1
+## This is an H2
+### This is an H3
+#### This is an H4
+##### This is an H5
+###### This is an H6
+
+# This is an H1 with an ID {#header-id}
+
+This is a paragraph
+
+* This is a list item in an unordered list
+* This is also a list item
+* As is this
+
+1. This is a list item in an ordered list
+2. This is also a list item
+3. As is this
+
+
+> This is a blockquote
+
+~~~~~~~~
+This is some code
+~~~~~~~~

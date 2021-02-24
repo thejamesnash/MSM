@@ -1,0 +1,28 @@
+---
+layout: question-set
+---
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/assets/msm/global/css/global.css">
+        {% include gxp/snippets/css.html %}
+    </head>
+    <body>
+        <section class="form">
+            {% include msm/components/form/step-indicator/index.html %}
+            <form>
+                <h1 class="form-title">This is the page title, it can run onto two lines</h1>
+                <h2 class="form-subtitle">This is the page subtitle, it can also run onto two lines.</h2>
+                <p class="form-text">This is introductory text content se quorum aliquip, in fore graviterque do quamquam aut cillum, ubi quo culpa consequat nam proident anim o offendit praesentibus, ad anim et cillum, minim ubi o anim eiusmod ex eu sed noster ingeniis. Sunt laborum ullamco, in laborum iis quamquam. Fugiat ubi probant eu quid.</p>
+
+                {{ content }}
+
+            </form>
+        </section>
+        {% comment %}{% include msm/components/site-footer/index.html %}{% endcomment %}
+        {% include gxp/snippets/js.html %}
+    </body>
+</html>
