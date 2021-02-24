@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 100 100">
+    <defs>
+        <style type="text/css">
+            use { display: none }
+            use:target { display: inline }
+            .cyan, .purple, .pink, .white, .green, .red, .grey  {
+                fill: none;
+                stroke-width: 11;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .cyan {
+                stroke: #00AEEF;
+            }
+            .pink {
+                stroke: #EC008C;
+            }
+            .purple {
+                stroke: #562873;
+            }
+            .white {
+                stroke: #FFF;
+            }
+            .green {
+                stroke: #48A415;
+            }
+            .red {
+                stroke: #ED1C24;
+            }
+            .grey {
+                stroke: #C6CACC;
+            }
+        </style>
+        <symbol id="arrow">
+            <polyline points="41.5,67 58.5,50 41.5,33"/>
+        </symbol>
+        <symbol id="tick">
+            <polyline points="70.5,35.5 41.5,64.5 29.5,52.5"/>
+        </symbol>
+        <symbol id="cross">
+            <line x1="33.5" y1="33.5" x2="66.5" y2="66.5"/>
+            <line x1="66.5" y1="33.5" x2="33.5" y2="66.5"/>
+        </symbol>
+    </defs>
+
+    
+    <use id="cyan-arrow" class="cyan" xlink:href="#arrow"/>
+    <use id="pink-arrow" class="pink" xlink:href="#arrow"/>
+    <use id="green-arrow" class="green" xlink:href="#arrow"/>
+    <use id="purple-arrow" class="purple" xlink:href="#arrow"/>
+    <use id="white-arrow" class="white" xlink:href="#arrow"/>
+    
+    <use id="cyan-tick" class="cyan" xlink:href="#tick"/>
+    <use id="pink-tick" class="pink" xlink:href="#tick"/>
+    <use id="green-tick" class="green" xlink:href="#tick"/>
+    <use id="purple-tick" class="purple" xlink:href="#tick"/>
+    <use id="white-tick" class="white" xlink:href="#tick"/>
+    
+    <use id="cyan-cross" class="cyan" xlink:href="#cross"/>
+    <use id="pink-cross" class="pink" xlink:href="#cross"/>
+    <use id="green-cross" class="green" xlink:href="#cross"/>
+    <use id="purple-cross" class="purple" xlink:href="#cross"/>
+    <use id="white-cross" class="white" xlink:href="#cross"/>
+    <use id="red-cross" class="red" xlink:href="#cross"/>
+    <use id="grey-cross" class="grey" xlink:href="#cross"/>
+    
+    
+    
+</svg>

@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Accordion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="https://msmux.github.io/gxp/static/css/gxp.199450b796dcb9996585bd412c7056e0.css" rel="stylesheet">
+    <style>
+        .accordion {}
+
+        .accordion article {
+            border: 1px solid #dfe3e5;
+            border-width: 1px 0;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 0 #ebf0f2;
+        }
+
+        .accordion article h1 {
+            padding: 16px 56px 16px 20px;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 700;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .accordion article h1:after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: block;
+            border-radius: 50%;
+            background: #C6CACC url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline stroke="#FFF" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" points="70.5,35.5 41.5,64.5 29.5,52.5"/></svg>') 50% no-repeat;
+        }
+
+        .accordion article.complete h1:after {
+            background-color: #48a415;
+        }
+
+        .accordion article>div {
+            margin: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            font-size: 12px;
+            transition: all 0.4s ease-in-out;
+            border-top: 1px solid #FFF;
+            padding-top: 0;
+        }
+
+        .accordion article.open>div {
+            padding-top: 15px;
+            max-height: 1000px;
+            border-top: 1px solid #dfe3e5;
+        }
+        
+        .accordion .accordion-navigation a {
+            display: block;
+            
+        }
+        
+        .accordion a {
+            color: #007fad;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            padding-top: 15px;
+        }
+        
+        .accordion .btn {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 38px;
+            padding: 0;
+            color: #FFF;
+            background-color: #48a415;
+            border-bottom: 2px solid #dfe3e5;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .accordion article > div h1,
+        .accordion article > div h2,
+        .accordion article > div h3 {
+            line-height: 1.5;
+            font-weight: 700;
+            padding-bottom: 10px;
+        }
+
+        .accordion article > div p {
+            line-height: 18px;
+            padding-bottom: 10px;
+        }
+        .accordion article > div ul {}
+        .accordion article > div ul li {
+            padding: 0 0 16px 15px;
+            position: relative;
+        }
+        .accordion article > div ul li:before {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: #00AEEF;
+            border-radius: 50%;
+            display: block;
+            content: '';
+        }
+        .accordion article > div ol {}
+        .accordion article > div ol li {}
+        
+        .accordion .accordion-navigation {
+            padding: 20px 0;
+            border-top: 1px solid #dfe3e5;
+            text-align: center;
+        }
+        
+        .accordion dl {
+            display: flex;
+            flex-wrap: wrap;
+            widht: 100%;
+            font-size: 14px;
+        }
+        .accordion dl dt,
+        .accordion dl dd {
+            padding: 10px 0;
+            border-top: 1px solid #dfe3e5;
+        }
+        .accordion dl dt:first-of-type,
+        .accordion dl dd:first-of-type {
+            border-top: 0 none;
+        }
+        .accordion dl dt {
+            width: calc( 100% - 94px );
+        }
+        .accordion dl dd {
+            width: 64px;
+            text-align: right;
+            padding-right: 30px;
+            position: relative;
+        }
+        .accordion dl dd:after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 10px;
+            right: 0;
+            display: block;
+            border-radius: 50%;
+            border: 1px solid #0083b3;
+            background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13.4"><g fill="#0083b3"><path d="M4.6,0.1C3.3,0.1,2.8,1,2.8,1.6c0,0.3,0.1,0.6,0.2,0.8c0.2,0.2,0.5,0.3,1,0.3c1.1,0,1.7-0.7,1.7-1.5 C5.7,0.5,5.4,0.1,4.6,0.1z"/><path d="M1.9,6.6c0.1,0,0.2,0,0.3,0.1c0.1,0.2,0.1,0.4,0,1l-0.8,3.5c-0.3,1.2-0.2,1.7,0,1.9c0.1,0.1,0.2,0.2,0.5,0.2 c0.6,0,2.3-0.5,4-2.2l-0.1-0.2c-0.6,0.5-1.3,0.7-1.6,0.7c-0.1,0-0.2-0.1-0.3-0.2c-0.1-0.2-0.1-0.5,0-1l1-3.6C5.1,5.6,4.9,5.2,4.8,5 c0-0.1-0.1-0.1-0.3-0.1c-0.7,0-2.6,0.8-4.4,2.2l0.1,0.2C0.8,6.9,1.7,6.6,1.9,6.6z"/></g></svg>') center center no-repeat;
+            background-size: 6px;
+        }
+        .accordion dl strong {
+            font-weight: 700;
+        }
+        
+        .accordion dl div {
+            display: block;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion input[type="checkbox"],
+        .accordion input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            border: 0 none;
+            background-color: transparent;
+            width: 0;
+            height: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        .accordion input[type="checkbox"] + label {
+            color: #566266;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.43;
+            padding-left: 45px;
+            display: block;
+            position: relative;
+        }
+        .accordion input[type="checkbox"] + label:before {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 0 0 #EBF0F2;
+            background-color: #FFF;
+            border: solid 1px #C6CACC;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .accordion input[type="checkbox"]:checked + label:before {
+            background: #FFF url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline stroke="#00AEEF" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" points="70.5,35.5 41.5,64.5 29.5,52.5"/></svg>') 50% no-repeat;
+        }
+        
+        .accordion .label {
+            font-weight: 700;
+        }
+        
+        .accordion .accordion-radios {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .accordion .accordion-radios li {
+            padding: 0 5px 10px 0;
+            width: 50%;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .accordion .accordion-radios li:nth-child(even) {
+            padding: 0 0 10px 5px;
+        }
+        .accordion .accordion-radios li:before {
+            display: none;
+        }
+        .accordion .accordion-radios label {
+            line-height: 50px;
+            border-radius: 4px;
+            background-color: #ebf0f2;
+            box-shadow: 0 2px 0 0 #c6cacc;
+            padding: 0 13px 0 50px;
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #566266;
+            transition: all 0.2s ease-in-out;
+        }
+        .accordion .accordion-radios input:checked + label {
+            background-color: #007fad;
+            color: #FFF;
+            box-shadow: inset 0 2px 0 0 #005778;
+        }
+        .accordion .accordion-radios label:before,
+        .accordion .accordion-radios label:after {
+            content: '';
+            width: 24px;
+            height: 24px;
+            display: block;
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            border-radius: 50%;
+            background-color: #FFF;
+            box-sizing: border-box;
+            border: 1px solid #C6CACC;
+            transition: all 0.2s ease-in-out;
+        }
+        .accordion .accordion-radios label:before {
+            background-color: #FFF;
+            border: 1px solid #C6CACC;
+        }
+        .accordion .accordion-radios label:after {
+            border: 6px solid #007fad;
+            transform-origin: center center;
+            transform: scale(0);
+        }
+        
+        .accordion .accordion-radios input:checked + label:before {
+            border-color: #FFF;
+        }
+        .accordion .accordion-radios input:checked + label:after {
+            transform: scale(0.7);
+        }
+        
+        .overlay {
+            background-color: rgba(0, 87, 120, 0);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .close-trigger {
+            position: absolute;
+            top: 11px;
+            right: calc( 100vw - 20px );
+            width: 20px;
+            height: 20px;
+            display: block;
+
+        }
+        .close-trigger span {
+            overflow: hidden;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .close-trigger:after {
+            display: block;
+            background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF"><line x1="33.5" y1="33.5" x2="66.5" y2="66.5"/><line x1="66.5" y1="33.5" x2="33.5" y2="66.5"/></g></svg>') 50% no-repeat;
+            content: '';
+            width: 24px;
+            height: 24px;
+            border: 8px solid #FFF;
+            border-radius: 50%;
+            background-color: #949899;
+        }
+        .details-slider {
+            height: 100vh;
+            width: calc(100vw - 9px);
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: transparent;
+            z-index: 1;
+            transform: translate3d(100vw,0,0);
+            transition: all 0.2s ease-in-out;
+            
+        }
+        .slider-open .details-slider {
+            transform: translate3d(0,0,0);
+        }
+        .slider-open .overlay {
+            background-color: rgba(0, 87, 120, 0.8);
+            z-index: 0;
+        }
+        
+        .details-slider > div {
+            background-color: #FFF;
+            height: 100vh;
+            overflow: auto;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body class="">
+    <main>
+        <section class="accordion">
+        <article class="open" id="article-1">
+            <h1>First accordion title</h1>
+            <div>
+                <h2>Content title</h2>
+                <p>Would you shut up about the car? Ay, and another thing, how do you know where I live? Let's just say we're related Biff, and that being the case I got a little present for you. (During the following Marty peers up from the back of the car to witness what's going on - he is not seen.) Something that'll make you rich. You wanna be rich, don't ya? Oh yeah, sure, right, that's rich, ha ha, you're gonna make me rich! You see this book? (Marty ducks down again.) This book tells the future. It tells the events of every major sports event til the end of the century. Football, baseball, horse races, boxing...the information in here is worth millions, and I'm giving it to you.</p>
+                <p>I said the keys are in here. (Parking Lot) (George runs out to the car where Loraine is and jerks the car door open.) Hey you, get your damn hands off…(sees that it's BifF) oh. I think you got the wrong car, McFly.</p>
+                <p class="external-link pdf"><a href="#" class="open-slider">View policy documents</a></p>
+                <p class="accordion-navigation"><a class="btn next" href="#article-2">Continue</a></p>
+            </div>
+        </article>
+        <article id="article-2" class="">
+            <h1>Second accordion title</h1>
+            <div>
+                <dl>
+                    <dt>Summary name</dt>
+                    <dd>
+                        <strong>&pound;00.00</strong>
+                        <div>
+                            <p>My involvement in such a social relationship, here in 1885, the result is a disruption of the space-time continuum.</p>
+                        </div>
+                    </dd>
+                    <dt>Another summary</dt>
+                    <dd>
+                        <strong>&pound;00.00</strong>
+                        <div>
+                            <p>My involvement in such a social relationship, here in 1885, the result is a disruption of the space-time continuum.</p>
+                        </div>
+                    </dd>
+                    <dt>Different summary</dt>
+                    <dd>
+                        <strong>&pound;00.00</strong>
+                        <div>
+                            <p>My involvement in such a social relationship, here in 1885, the result is a disruption of the space-time continuum.</p>
+                        </div>
+                    </dd>
+                    <dt>One more summary</dt>
+                    <dd>
+                        <strong>&pound;00.00</strong>
+                        <div>
+                            <p>My involvement in such a social relationship, here in 1885, the result is a disruption of the space-time continuum.</p>
+                        </div>
+                    </dd>
+                </dl>
+                <p class="accordion-navigation">
+                    <a href="#article-3" class="btn next">Continue</a>
+                    <a href="#article-1" class="previous">Back to previous</a>
+                </p>
+            </div>
+        </article>
+        <article id="article-3">
+            <h1>Third accordion title</h1>
+            <div>
+                <p>You sent me a letter. (holds up the letter.) (Doc's Workshop) (A few minutes later) (Doc is reading the letter out loud.) "If my calculations are correct, you will receive this letter immediately after you saw the Delorean struck by lightning. First, let me assure you that I am alive and well. I have been living happily these past eight months in the year 1885. The lightning bolt that hit the Delorean caused a jigowatt overload which scrambled the time circuits, activated the flux capacitor, and sent me back to 1885. </p>
+                <ul>
+                    <li>It's great Doc. Thanks! Doctor Brown?</li>
+                    <li>(She takes out the Cusco FAX from her pocket, holding out for Doc to see.) I brought this note back from the future and...now it's erased!</li>
+                    <li>Of course it's erased! But what does that mean? It means that your future hasn't been written yet.</li>
+                    <li>No one's has. Your future is whatever you make it. So make it a good one. Both of you!</li>
+                </ul>
+                <p class="accordion-navigation">
+                    <a href="#article-4" class="btn next">Continue</a>
+                    <a href="#article-2" class="previous">Back to previous</a>
+                </p>
+            </div>
+        </article>
+        <article id="article-4">
+            <h1>Fourth accordion title</h1>
+            <div>
+                <p>Something inconspicuous! (Mason Street) (Marty is in view, wearing a leather coat, glasses and a hat. Very not inconspicuous. From this point on when Marty and Doc talk, they are on their walkie-talkies (w.t).) (w.t) Doc, come in Doc, this is Marty, over. (v.o) Roger Marty, this is Doc. Are you there?</p>
+                <p>
+                    <input type="checkbox" id="check1" name="check1" />
+                    <label for="check1">I have read and agree with the above Assumptions and Important Statements including the information contained in the links provided.</label>
+                </p>
+                <p class="accordion-navigation">
+                    <a href="#article-5" class="btn next">Continue</a>
+                    <a href="#article-3" class="previous">Back to previous</a>
+                </p>
+            </div>
+        </article>
+        <article id="article-5">
+            <h1>Fourth accordion title</h1>
+            <div>
+                <p class="label">What'd you call me, Griff? Chicken, McFly. </p>
+                <ul class="accordion-radios">
+                    <li>
+                        <input type="radio" id="radio-0-1" name="radio-0" />
+                        <label for="radio-0-1">Option 1</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="radio-0-2" name="radio-0" />
+                        <label for="radio-0-2">Option 2</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="radio-0-3" name="radio-0" />
+                        <label for="radio-0-3">Option 3</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="radio-0-4" name="radio-0" />
+                        <label for="radio-0-4">Option 4</label>
+                    </li>
+                </ul>
+                <p class="accordion-navigation">
+                    <a href="#article-6" class="btn next">Continue</a>
+                    <a href="#article-4" class="previous">Back to previous</a>
+                </p>
+            </div>
+        </article>
+    </section>
+        <div class='overlay'></div>
+        <aside class="details-slider">
+            <button class="close-trigger"><span>Close</span></button>
+            <div>
+                <p>(Marty quietly opens the window. He steps inside, but trips and falls onto the bed. The light is turned on and Marty sees a young girl, Loretta, in his bed! Except it's not his bed, this room is completely different.) Ahh! Ahh! Ahh! Hey, hey, hey, wait, wait a minute, what are you doing in my room? Mom, Dad, help me! Wait a minute, wait a minute, OK, OK!</p>
+                <p>(The lights come on.) Yes, now look. Just take it easy and you'll be fine. And be careful in the future. Future? Have a nice day Mrs McFly. (The officers leave. Jennifer looks around. Upstairs, a teenage girl, Marlene, can be seen walking around. Jennifer looks at a window, there's a picture of a nice garden.)</p>
+                <p>When I was 11, I had diphtheria. I was quarantined for three months, so my father bought me this telescope and put it next to my bed so I could see everything out my window. (pause) Emmett, do you think we'll ever be able to travel to the moon, like we travel across the country on trains? (Doc smiles.) Definitely, although not for another 84 years and not on trains. We'll have space vehicles ... capsules to sail off in rockets - devices that create giant explosions...explosions that are so...powerful that they... (finishing his sentence) ...they break the pull of the earth's gravity and send their projectile through outer space. (Doc stares at her, dumbfounded, and she laughs) Emmett...I read that book too. You're quoting Jules Verne, From The Earth To The Moon. (surprised) You've read Jules Verne?</p>
+                <p>(In Town.) (Marty and Jennifer are sitting in the truck, waiting for a traffic light. No other cars are around.) Marty, that dream I had was so real. It was about the future. It was about us...and you got fired. What do you mean, I got fired? (He notices the sign outside the car on Jennifer's side.) Hilldale. Hilldale! This is where we live...I...I mean, this is, uh, this is where we're gonna live. Someday. (He smiles sheepishly.) (giving Marty a strange look) Marty...it was a dream, wasn't it?</p>
+            </div>
+        </aside>
+    </main>
+    <script>
+        var accordionTrigger = document.body.querySelectorAll('.accordion > article > h1');
+        accordionTrigger.forEach(function(el){
+            el.addEventListener('click',function(evt){
+                var triggerParent = el.parentElement;
+                if( triggerParent.classList.contains('open') ){
+                   triggerParent.classList.remove('open');
+                } else {
+                    triggerParent.classList.add('open');
+                }
+            });
+        });
+        
+        var accordionNavLinks = document.body.querySelectorAll('.accordion .accordion-navigation a');
+        accordionNavLinks.forEach(function(el){
+            el.addEventListener('click',function(evt){
+                console.log(el);
+                evt.preventDefault();
+                var elParent = el.parentElement.parentElement.parentElement;
+                elParent.classList.remove('open');
+                if( el.classList.contains('btn') ){
+                    elParent.classList.add('complete');
+                }
+                setTimeout(function(){
+                    var targetEl = document.getElementById(el.href.split('#')[1]);
+                    if( targetEl ){
+                        targetEl.classList.add('open');   
+                    }
+                    
+                },600);
+            });
+        });
+        
+        var closeTriggers = document.body.querySelectorAll('.close-trigger');
+        closeTriggers.forEach(function(el){
+            el.addEventListener('click',function(){
+                document.body.classList.remove('slider-open');    
+            });
+            
+        });
+        
+        var openTriggers = document.body.querySelectorAll('.open-slider');
+        openTriggers.forEach(function(el){
+            el.addEventListener('click',function(){
+                document.body.classList.add('slider-open');    
+            });
+            
+        });
+        
+    </script>
+</body>
+
+</html>

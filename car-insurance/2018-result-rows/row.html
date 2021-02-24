@@ -1,0 +1,760 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Results table</title>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="../../assets/css/global.css" type="text/css">
+    <style>
+        svg {
+            width: 50px;
+            height: 50px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 11;
+            fill: none;
+        }
+        .results-grid--img img {
+            height: 34px;
+            padding: 0 12px;
+        }
+        .results-grid--img {
+            border-bottom: 2px solid #dfe3e5;
+        }
+        .results-grid--actions {
+            border-bottom: 2px solid #dfe3e5;
+        }
+        .results-grid--totals {
+            color: #566266;
+            font-size: 12px;
+            padding: 12px;
+            border-bottom: 2px solid #dfe3e5;
+        }
+        .results-grid--totals dl {
+            display: flex;
+            flex-wrap: wrap;
+            width: 153px;
+        }
+        .results-grid--totals dt {
+            width: 20%;
+            padding: 1px 0;
+        }
+        .results-grid--totals dd {
+            width: 50%;
+            text-align: left;
+            padding: 1px 0;
+        }
+        .results-grid--totals dt:last-of-type,
+        .results-grid--totals dd:last-of-type {
+            font-weight: 900;
+            color: #2B3133;
+        }
+        
+        .results-grid--extras {
+            padding: 0 12px;
+            background-color: #eaf7fb;
+            border-bottom: 2px solid #dfe3e5;
+            min-width: 70px;
+            text-align: center;
+        }
+        .results-grid--extras p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #2b3133;
+        }
+        .results-grid--extras em {
+            color: #005778;
+            display: block;
+        }
+        .results-grid--extras b {
+            color: #005778;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1;
+        }
+        .results-grid--extras sub {
+            font-size: 12px;
+            position: relative;
+            top: -5px;
+        }
+        
+        section {
+            width: 100vw;
+            overflow: auto;
+            position: relative;
+        }
+        .results-header {
+            background-color: #562873;
+            width: 1000px;
+        }
+        .results-header th {
+            color: #FFF;
+            font-size: 12px;
+            padding: 10px 0;
+        }
+        
+        .results-grid {
+            width: 1000px;
+            height: 100vh;
+            padding-top: 50px;
+            table-layout: fixed;
+            overflow: auto
+        }
+        
+
+        .fix {
+            width: 1000px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            background-color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <section>
+        <table class="fix">
+            <tr class="results-header">
+                <th>Provider</th>
+                <th>Cost</th>
+                <th>Excess</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+        <table class="results-grid">
+            <tr class="results-header">
+                <th>Provider</th>
+                <th>Cost</th>
+                <th>Excess</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Extra</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr><tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="results-grid--img">
+                    <img src="https://admiralgroup.co.uk/sites/default/files_public/styles/medium/public/brand/2017/12//admiral.png" alt="Admiral logo" />
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>1x</dt>
+                        <dd>&pound;37.28</dd>
+                        <dt>11x</dt>
+                        <dd>&pound;28.28</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;1,023.89</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--totals">
+                    <dl>
+                        <dt>Voluntary</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Compulsory</dt>
+                        <dd>&pound;9,150</dd>
+                        <dt>Total:</dt>
+                        <dd>&pound;18,300</dd>
+                    </dl>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#tick" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <svg viewBox="0 0 100 100">
+                        <use xlink:href="#cross" />
+                    </svg>
+                </td>
+                <td class="results-grid--extras">
+                    <p>
+                        <em>Add from</em>
+                        <b>&pound;49<sub>.99</sub></b>
+                    </p>
+                </td>
+                <td class="results-grid--extras">
+                    <p>Enquire</p>
+                </td>
+                <td class="results-grid--actions">
+                    <button>More</button>
+                </td>
+            </tr>
+        </table>
+        <svg viewBox="0 0 100 100">
+            <defs>
+                <polyline id="cross" stroke="#c6cacc" points="33.5 33.5, 66.5 66.5, 50 50, 66.5 33.5, 33.5 66.5" />
+                <polyline id="tick" stroke="#48a415" points="70.5,35.5 41.5,64.5 29.5,52.5" />
+            </defs>
+        </svg>
+    </section>
+</body>
+</html>

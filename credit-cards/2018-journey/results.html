@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Credit cards results</title>
+    </head>
+    <body>
+        
+<script>
+    //gb/money/credit-cards/v1/"
+     var ajax = function (method, url, data, callback) {
+            var request = new XMLHttpRequest();
+            request.open(method, url, true);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200 | request.status == 201 ) {
+                    var response = JSON.parse(request.responseText);
+                    callback(response);
+                }
+            }
+            if( data ){
+                request.send(JSON.stringify(data));    
+            } else {
+                request.send();
+            }
+            
+        };
+    
+    var data = {
+      "smart-search": {
+        "user": {
+          "sourceCode": "MS"
+        },
+        "userAgent": "Chrome",
+        "goalCode": "CC_ALLCARDS",
+        "payload": {
+          "customerDetails": {
+            "titleId": 1,
+            "firstName": "Kulbir",
+            "lastName": "Jeep",
+            "dateOfBirth": "1975-08-14",
+            "employmentStatusId": 3,
+            "employmentContractTypeId": 1,
+            "annualIncome": 50000,
+            "bankCode": 1003,
+            "email": "test@moneysupermarket.com",
+            "immediateCashWithdrawal": true,
+            "maritalStatusId": 1,
+            "additionalHouseholdIncome": 0,
+            "monthlyAccommodationCosts": 800,
+            "numberOfDependants": 0,
+            "childcareCost": 0,
+            "currentResidence": {
+              "yearsAtAddress": 5,
+              "residentialStatusId": 1,
+              "address": {
+                "addressProviderId": 3,
+                "buildingName": "Moneysupermarket House",
+                "county": "Clwyd",
+                "dependantLocality": "Ewloe",
+                "thoroughfare": "St. Davids Park",
+                "town": "Deeside",
+                "country": "GB",
+                "postcode": "CH5 3UZ",
+                "udprn": "04636699",
+                "addressOriginId": 1
+              }
+            }
+          }
+        }
+      }
+    };
+    
+    var logResponse = function(obj){
+        console.log(obj);
+    };
+    
+    var renderResults = function(results){
+        console.info('SERVICE: Got results');
+        console.info('SERVICE: Rendering results');
+    };
+    
+    var getResults = function(d){
+        var enquiryId = d.enquiryId;
+        console.info('SERVICE: Got Enquiry Id - ' + enquiryId);
+        console.info('SERVICE: Getting results');
+        ajax('GET','http://jamesnash-trial-prod.apigee.net/msmcreditcards/gb/money/credit-cards/v1/smart-search/'+ enquiryId +'/results',null, renderResults);
+        //ajax('GET','https://moneysupermarket-dev.apigee.net/gb/money/credit-cards/v1/smart-search/'+ enqId.enquiryId +'/results',null, renderResults);
+    };
+    
+    var getEnquiryId = function(){
+        console.info('SERVICE: Getting Enquiry Id');
+        ajax('POST', 'http://jamesnash-trial-prod.apigee.net/msmcreditcards/gb/money/credit-cards/v1/smart-search', data, getResults);
+    };
+    
+    getEnquiryId();
+    //
+    
+    //var enquiryId = '0323dc9c-da99-4680-bb06-34ba45d7e3ff';
+    var creditCardsResultsUrl = '/gb/money/credit-cards/v1/smart-search/{enquiryId}/results';
+</script>
+    </body>
+</html>

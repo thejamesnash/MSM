@@ -1,0 +1,639 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Phoenix</title>
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width,height=device-height">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body class="loading" data-active-section="0">
+    <aside class="progress">
+        <progress max="100" value="40" id="progress"></progress>
+        <ol>
+            <li class="active"><b>Account setup</b></li>
+            <li><b>Credit file details</b></li>
+            <li><b>Security questions</b></li>
+        </ol>
+    </aside>
+    <section class="active" data-section="0">
+        <div class="panel active" data-section-progress="0" data-section="0" data-complete="false" data-panel="0">
+            <h1>Hello</h1>
+            <h2>Welcome to Project Phoenix</h2>
+            <input type="text" id="userName" data-min="1" placeholder="What's your name?" />
+            <button disabled class="next hidden" data-target="1">Get started</button>
+        </div>
+        <div class="panel unanswered"  data-section-progress="0" data-section="0" data-complete="false" data-panel="1">
+            <h2>Let's talk finances. What do you want help with, <span class="userName">Alan</span>?</h2>
+            <p>I want to&hellip;</p>
+            <ol class="chunk">
+                <li>
+                    <input type="checkbox" name="goal" id="goal1" />
+                    <label for="goal1">Check or improve my credit score and report</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="goal" id="goal2" />
+                    <label for="goal2">Find a credit card</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="goal" id="goal3" />
+                    <label for="goal3">Cut down my debts</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="goal" id="goal5" />
+                    <label for="goal5">Get ready to buy a home</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="goal" id="goal6" />
+                    <label for="goal6">Pay for a holiday</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="goal" id="goal7" />
+                    <label for="goal7">Spread the cost of a big expense</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="goal" id="goal8" />
+                    <label for="goal8">Earn rewards for everyday spending</label>
+                </li>
+            </ol>
+            <p class="actions"><button disabled class="next section" data-target="1">Next</button></p>
+        </div>
+    </section>
+    <section class="unanswered" data-section="1">
+        <header>
+            <h1>Got it, <span class="userName">Alan</span></h1>
+            <h2>Let's keep track of this somewhere secure</h2>
+        </header>
+        <div class="panel active" data-panel="2" data-section-progress="50" data-section="0">
+
+            <ol>
+                <li class="placeholder">
+                    <label for="email"><span>Email address</span></label>
+                    <input type="email" id="email" />
+                </li>
+                <li class="placeholder">
+                    <label for="password"><span>Password</span></label>
+                    <input type="password" id="password" />
+                </li>
+                <li class="check">
+                    <input type="checkbox" id="acceptTerms" />
+                    <label for="acceptTerms">I understand and accept the <a href="#">terms &amp; conditions</a></label>
+                </li>
+                <li class="check">
+                    <input type="checkbox" id="acceptMarketing" />
+                    <label for="acceptMarketing">Send me personalised content, offers and news</label>
+                </li>
+                <li>
+                    <button disabled id="createAccount">Create account</button>
+                </li>
+                <li>
+                    <button class="next section" id="googleSignIn" data-target="2">Connect with Google</button>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="unanswered" data-section="2">
+        <header>
+            <h1>OK, now to match you with your credit file</h1>
+        </header>
+        <div class="panel active" data-section-progress="20" data-section="1" data-complete="false" data-panel="3">
+            <p class="help">Is <span class="userName">Alan</span> your full legal name?</p>
+            <ol>
+                <li>
+                    
+                    <select id="userTitle">
+                        <option>E.g. Mr</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </li>
+                <li class="placeholder">
+                    <label for="userFirstName"><span>First name</span></label>
+                    <input type="text" id="userFirstName"/>
+                </li>
+                <li class="placeholder">
+                    <label for="userLasttName"><span>Last name</span></label>
+                    <input type="text" id="userLastName" />
+                </li>
+                
+                
+                
+            </ol>
+                <p class="actions">
+<!--                    <button class="prev section" data-target="1">Previous DELETE</button>-->
+                    <button disabled class="next" data-target="4">Save and continue</button>
+            </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="30" data-section="1" data-complete="false" data-panel="4">
+            <ol>
+                <li>
+                    <p class="help">What's your date of birth</p>
+                    <ol class="dob">
+                        <li class="placeholder">
+                            <label for="DD"><span>DD</span></label>
+                            <input type="tel" id="dd" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="MM"><span>MM</span></label>
+                            <input type="tel" id="MM" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="YYYY"><span>YYYY</span></label>
+                            <input type="tel" id="YYYY" />
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <p class="actions">
+                    <button class="prev" data-target="3">Back</button>
+                    <button disabled class="next" data-target="5">Save and continue</button>
+            </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="40" data-section="1" data-complete="false" data-panel="5">
+            <ol class="address-wrap">
+                <li data-name="">
+                    <p class="help">Where do you live?</p>
+                    <ol class="address-control">
+                        <li class="placeholder">
+                            <label for="houseNumber1"><span>House name or number</span></label>
+                            <input type="text" id="houseNumber1" data-id="houseNumber" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="postcode1"><span>Postcode</span></label>
+                            <input type="text" id="postcode1" data-id="postcode"/>
+                        </li>
+                    </ol>
+                    <div class="address-replay-wrap">
+                        <h2>Addresses found</h2>
+                        <ul class="addressReplay" id="addressReplay1"></ul>
+                        <p class="address-not-found">Address not here?
+                            <button class="manualAddressTrigger" data-target="7">Enter manually</button>
+                        </p>
+                    </div>
+                    
+                </li>
+                <li data-name="">
+                    <p>Number of years at address</p>
+                    <ol class="chunk short">
+                        <li>
+                            <input type="radio" name="years" id="years0" value="0" />
+                            <label for="years0">0-1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years" id="years1" value="1" />
+                            <label for="years1">1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years" id="years2" value="2" />
+                            <label for="years2">2</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years" id="years3" value="3" />
+                            <label for="years3">3</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years" id="years4" value="4" />
+                            <label for="years4">4</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years" id="years5" value="5" />
+                            <label for="years5">5+</label>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <p class="actions">
+            <button class="prev" data-target="4">Back</button>
+            <button disabled class="next address-duration-accepted section" data-target="3">Save and continue</button>
+            <button disabled class="next address-duration-unacceptable" data-target="6">Save and continue</button>
+            </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="40" data-section="1" data-complete="false" data-panel="6">
+            <ol class="address-wrap">
+                <li data-name="">
+                    <p>Where else have you lived? <small>We need at least 5 years of address history</small></p>
+                    <ol class="address-control">
+                        <li class="placeholder">
+                            <label for="additionalHouseNumber"><span>House name or number</span></label>
+                            <input type="text" id="additionalHouseNumber" data-id="houseNumber"  />
+                        </li>
+                        <li class="placeholder">
+                            <label for="additionalPostcode"><span>Postcode</span></label>
+                            <input type="text" id="additionalPostcode"  data-id="postcode"/>
+                        </li>
+                    </ol>
+                    <div class="address-replay-wrap">
+                        <h2>Addresses found</h2>
+                        <ul class="addressReplay"></ul>
+                        <p class="address-not-found">Address not here?
+                            <button class="manualAddressTrigger" data-target="7">Enter manually</button>
+                        </p>
+                    </div>
+                </li>
+                <li data-name="">
+                    <p>Number of years at address</p>
+                    <ol class="chunk short">
+                        <li>
+                            <input type="radio" name="years1" id="years10" value="0" />
+                            <label for="years10">0-1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years1" id="years11" value="1" />
+                            <label for="years11">1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years1" id="years12" value="2" />
+                            <label for="years12">2</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years1" id="years13" value="3" />
+                            <label for="years13">3</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years1" id="years14" value="4" />
+                            <label for="years14">4</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="years1" id="years15" value="5" />
+                            <label for="years15">5+</label>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <p class="actions">
+            <button class="prev" data-target="5">Back</button>
+            <button disabled class="next section" data-target="3">Save and continue</button>
+            </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="40" data-section="1" data-complete="false" data-panel="7">
+            <p class="help">Where do you live?</p>
+            <ol>
+                <li>
+                    <ol>
+                        <li class="placeholder">
+                            <label for="flatNo"><span>Flat number</span></label>
+                            <input type="text" id="flatNo" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="houseNo"><span>House name or number</span></label>
+                            <input type="text" id="houseNo" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="streetName"><span>Street name</span></label>
+                            <input type="text" id="streetName" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="town"><span>Town or city</span></label>
+                            <input type="text" id="town" />
+                        </li>
+                        <li class="placeholder">
+                            <label for="userPostCode"><span>Postcode</span></label>
+                            <input type="text" id="userPostCode" />
+                        </li>
+                        <li>
+                            <button>Done</button>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <p class="actions">
+            <button class="prev" data-target="5">Back</button>
+            <button disabled class="next section" data-target="3">Save and continue</button>
+            </p>
+        </div>
+    </section>
+    <section class="unanswered" data-section="3">
+        <header>
+            <h1>Not long now, just a few more questions&hellip;</h1>
+        </header>
+        <div class="panel active" data-section-progress="50" data-section="1" data-complete="false" data-panel="8">
+            <p class="help">What's your living situation?</p>
+            <ol class="chunk">
+                <li>
+                    <input type="radio" name="residential" id="living1" value="Homeowner" />
+                    <label for="living1">Homeowner</label>
+                </li>
+                <li>
+                    <input type="radio" name="residential" id="living2" value="Private tenant" />
+                    <label for="living2">Private tenant</label>
+                </li>
+                <li>
+                    <input type="radio" name="residential" id="living3" value="Council tenant" />
+                    <label for="living3">Council tenant</label>
+                </li>
+                <li>
+                    <input type="radio" name="residential" id="living4" value="Living with parents" />
+                    <label for="living4">Living with parents</label>
+                </li>
+            </ol>
+            <p class="actions">
+            <button class="prev section" data-target="2">Back</button>
+            <button disabled class="next" data-target="9" id="livingBtn">Save and continue</button>
+                </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="60" data-section="1" data-complete="false" data-panel="9">
+            <p class="help">How much is your rent?</p>
+            <ol>
+
+                <li class="placeholder pound">
+                    
+                    <label for="rentAmount"><span>Monthly rent</span></label>
+                    <input id="rentAmount" type="tel"  />
+                </li>
+            </ol>
+                <p class="actions">
+                    <button class="prev" data-target="8">Back</button>
+                    <button  disabledclass="next" data-target="10">Save and continue</button>
+                </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="60" data-section="1" data-complete="false" data-panel="20">
+            <p class="help">How much is your mortgage?</p>
+            <ol>
+
+                <li class="placeholder pound">
+                    
+                    <label for="mortgageAmount"><span>Mortgage payment</span></label>
+                    <input id="mortgageAmount" type="tel"  />
+                </li>
+            </ol>
+                <p class="actions">
+                    <button class="prev" data-target="8">Back</button>
+                    <button disabled  class="next" data-target="10">Save and continue</button>
+                </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="70" data-section="1" data-complete="false" data-panel="10">
+            
+                    <p class="help">What's your employment status?</p>
+                    <ol class="chunk">
+                        <li>
+                            <input type="radio" name="employment" id="employment1" value="Student" />
+                            <label for="employment1">Student</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment2" value="Part-time" />
+                            <label for="employment2">Part-time</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment3" value="Full-time" />
+                            <label for="employment3">Full-time</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment4" value="Unemployed" />
+                            <label for="employment4">Unemployed</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment5" value="Homemaker" />
+                            <label for="employment5">Homemaker</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment6" value="Self-employed" />
+                            <label for="employment6">Self-employed</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="employment" id="employment7" value="Retired" />
+                            <label for="employment7">Retired</label>
+                        </li>
+                    </ol>
+                
+                <p class="placeholder pound help">
+                    <strong>How much is your income?</strong>
+                    <label for="income"><span>Annual income</span></label>
+                    <input type="tel" id="income" />
+            </p>
+                <p class="placeholder pound help">
+                    <strong>Does anyone else in the house also receive an income?</strong>
+                    <label for="additionalIncome"><span>Additional household income</span></label>
+                    <input type="tel" id="additionalIncome" placeholder=""/>
+                </p>
+            
+            <p class="actions">
+                    <button class="prev" data-target="9">Back</button>
+                    <button disabled class="next" data-target="11">Save and continue</button>
+            </p>
+        </div>
+        <div class="panel unanswered" data-section-progress="80" data-section="1" data-complete="false" data-panel="11">
+            <ol>
+                <li>
+                    <p class="help">What's you marital status?</p>
+                    <ol class="chunk">
+                        <li>
+                            <input type="radio" name="maritalStatus" id="maritalStatus0" value="Single" />
+                            <label for="maritalStatus0">Single</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="maritalStatus" id="maritalStatus1" value="Married/Civil Partnership" />
+                            <label for="maritalStatus1">Married/Civil Partnership</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="maritalStatus" id="maritalStatus2" value="Living with partner" />
+                            <label for="maritalStatus2">Living with partner</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="maritalStatus" id="maritalStatus3" value="Divorced" />
+                            <label for="maritalStatus3">Divorced</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="maritalStatus" id="maritalStatus4" value="Widowed" />
+                            <label for="maritalStatus4">Widowed</label>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="help">How many people depend on you financially?</p>
+                    <ol class="chunk short">
+                        <li>
+                            <input type="radio" name="dependants" id="dependants0" value="0" />
+                            <label for="dependants0">0</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="dependants" id="dependants1" value="1" />
+                            <label for="dependants1">1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="dependants" id="dependants2" value="2" />
+                            <label for="dependants2">2</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="dependants" id="dependants3" value="3" />
+                            <label for="dependants3">3</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="dependants" id="dependants4" value="4+" />
+                            <label for="dependants4">4+</label>
+                        </li>
+                    </ol>
+                    </li>
+            </ol>
+                 <p class="actions">
+                            <button class="prev" data-target="10">Back</button>
+                            <button disabled id="updateReplay" class="next section" data-target="4">Save and continue</button>
+                        </p>
+            
+        </div>
+    </section>
+    <section class="unanswered" data-section="4">
+        <header>
+            <h1>Hard part's done.<br>Before we hit send&hellip;</h1>
+        </header>
+        <div class="panel active" data-section-progress="90" data-section="1" data-complete="false" data-panel="12">
+            <h2 class="help">Is all this correct Jude?</h2>
+            <dl>
+                <dt>Name</dt>
+                <dd data-panel="3"><span id="userTitleReplay"></span> <span id="userFirstNameReplay"></span> <span id="userLastNameReplay"></span></dd>
+                <dt>Date of birth</dt>
+                <dd  data-panel="4"><span id="ddReplay"></span>.<span id="MMReplay"></span>.<span id="YYYYReplay"></span></dd>
+                <dt>Addresses</dt>
+                <dd data-panel="5" id="addressReplay">11 Frederick Street, Latchford, Warrington, Cheshire WA41HX</dd>
+                <dt>Residential status</dt>
+                <dd data-panel="8" id="residentialReplay"><span id="residentialReplay"></span></dd>
+                <dt class="rent">Monthly Rent</dt>
+                <dd class="rent" data-panel="9">&pound;<span id="rentAmountReplay"></span></dd>
+                <dt class="mortgage">Monthly mortgage payment</dt>
+                <dd class="mortgage" data-panel="20">&pound;<span id="mortgageAmountReplay"></span></dd>                
+                <dt>Employment Status</dt>
+                <dd data-panel="10" id="employmentReplay">Part time</dd>
+                <dt>Annual income</dt>
+                <dd data-panel="10">&pound;<span id="incomeReplay"></span></dd>
+                <dt>Other income</dt>
+                <dd data-panel="10">&pound;<span id="additionalIncomeReplay"></span></dd>
+                <dt>Marital status</dt>
+                <dd data-panel="11" id="maritalStatusReplay">Single</dd>
+                <dt>Financial dependants</dt>
+                <dd data-panel="11" id="dependantsReplay">0</dd>
+            </dl>
+            <p class="actions">
+            <button class="next section btn" id="goToSecurity">Find my score and report</button>
+            </p>
+        </div>
+    </section>
+    <section class="unanswered" data-section="5">
+        <header>
+            <h1>OK, we've found you. Now to make sure it's definitely you out there.</h1>
+        </header>
+        <div class="panel active" data-section-progress="50" data-section="2" data-complete="false" data-panel="13">
+            <p>How many credit cards do you currently have?</p>
+            <ol class="chunk">
+                <li>
+                    <input type="radio" name="cc" id="cc0" value="0" />
+                    <label for="cc0">0</label>
+                </li>
+                <li>
+                    <input type="radio" name="cc" id="cc1" value="1" />
+                    <label for="cc1">1</label>
+                </li>
+                <li>
+                    <input type="radio" name="cc" id="cc2" value="2" />
+                    <label for="cc2">2</label>
+                </li>
+                <li>
+                    <input type="radio" name="cc" id="cc3" value="3" />
+                    <label for="cc3">3</label>
+                </li>
+                <li>
+                    <input type="radio" name="cc" id="cc4" value="4+" />
+                    <label for="cc4">4+</label>
+                </li>
+            </ol>
+            <p class="actions">
+                <button class="prev section" data-target="4">Back</button>
+                <button disabled class="next" data-target="14">Save and continue</button>
+            </p>
+            
+        </div>
+        <div class="panel unanswered" data-section-progress="70" data-section="2" data-complete="false" data-panel="14">
+            <p>Do you currently have a personal loan? <small>(Excluding any student loans)</small></p>
+            <ol class="chunk">
+                <li>
+                    <input type="radio" name="loan" id="loan0" value="0" />
+                    <label for="loan0">Yes</label>
+                </li>
+                <li>
+                    <input type="radio" name="loan" id="loan1" value="1" />
+                    <label for="loan1">No</label>
+                </li>
+            </ol>
+            <p class="actions">
+                <button class="prev" data-target="13">Back</button>
+                <button disabled id="taskComplete" class="next" data-target="15">Save and continue</button>
+            </p>
+            
+        </div>
+    </section>
+    <aside class="interstitial"></aside>
+    <aside id="complete" class="message">
+        <p>You passed!<br>Loading your credit file&hellip;</p>
+    </aside>
+    <aside id="tracking" class="message">
+        <p>Tracking down your credit file&hellip;</p>
+    </aside>
+    <aside id="thumb">
+        <div class="touchid">
+            
+            <svg version="1.1" viewBox="0 0 283.46 283.46" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="8">
+                    <path d="M22.855,81.087    C9.543,107.082,4.61,137.596,10.832,168.451" />
+                    <path d="M200.875,21.835    c-25.543-12.538-55.271-17.06-85.321-11.001c-34.136,6.882-62.593,26.187-81.618,52.257" />
+                    <path d="M273.164,115.555    c-7.06-35.013-27.189-64.056-54.285-83.07" />
+                    <path d="M275.877,144.695    c0.184-9.594-0.666-19.357-2.641-29.154" />
+                    <path d="M10.904,168.438    c0.388,1.921,0.814,3.824,1.279,5.709" />
+                    <path d="M107.454,271.29  c29.977-34.119,44.249-81.34,34.579-129.294" />
+                    <path d="M119.176,220.338  c-6.555,16.798-16.443,32.131-29.02,45.026" />
+                    <path d="M126.187,274.896  c29.051-37.175,42.302-86.333,32.245-136.205l0.052-0.017c-1.836-9.104-10.703-14.996-19.807-13.16  c-9.103,1.836-14.994,10.703-13.159,19.808l0.119-0.02c3.746,18.581,3.45,37.04-0.284,54.465" />
+                    <path d="M110.51,156.144  c5.245,38.701-9.215,76.082-36.162,101.293" />
+                    <path d="M178.494,171.434  c-0.033-11.89-1.227-23.95-3.666-36.049l0.037-0.014c-3.659-18.152-21.34-29.901-39.492-26.24  c-13.559,2.734-23.546,13.292-26.203,26.027" />
+                    <path d="M146.273,275.748  c16.744-24.469,27.606-52.939,31.045-83.098" />
+                    <path d="M145.93,91.898  c-4.529-0.353-9.184-0.093-13.859,0.85c-27.201,5.485-44.805,31.979-39.32,59.182l0.094-0.016  c7.418,36.792-6.293,72.938-32.779,95.876" />
+                    <path d="M167.608,273.324  c24.108-41.098,33.776-90.867,23.617-141.246l0.024-0.01c-3.023-14.988-12.424-27.063-24.807-33.967" />
+                    <path d="M72.457,201.992  c-5.228,13.461-13.877,25.422-25.095,34.611" />
+                    <path d="M209.084,207.06  c4.162-25.266,3.9-51.697-1.461-78.287l0.01-0.007c-7.31-36.25-42.617-59.709-78.865-52.4c-36.25,7.31-59.71,42.618-52.4,78.869  l0.078-0.016c1.736,8.61,2.084,17.178,1.197,25.47" />
+                    <path d="M190.006,266.909  c6.068-12.456,10.967-25.52,14.582-39.021" />
+                    <path d="M209.666,92.758  c6.883,9.447,11.887,20.496,14.35,32.705l0.005,0.004c9.095,45.104,4.563,89.789-10.744,129.806" />
+                    <path d="M107.07,65.952  c5.76-2.64,11.913-4.663,18.393-5.969c25.609-5.163,50.842,1.962,69.588,17.315" />
+                    <path d="M36.275,224.05  c18.902-15.185,28.896-40.118,23.771-65.524l-0.063,0.014c-6.366-31.567,5.94-62.562,29.315-81.544" />
+                    <path d="M41.684,145.976  c0.215,5.25,0.844,10.552,1.916,15.867l0.051-0.013c3.752,18.607-3.295,36.881-16.821,48.343" />
+                    <path d="M242.69,135.156  c-0.642-4.326-1.399-8.658-2.272-12.994l-0.02-0.001C229.44,67.813,176.506,32.643,122.16,43.6  c-41.765,8.422-72.207,41.635-79.088,81.229" />
+                    <path d="M236.983,236.258  c6.826-25.603,9.664-52.564,7.931-80.029" />
+                    <path d="M157.688,25.931  c-12.592-1.701-25.675-1.366-38.83,1.287C55.461,40,14.432,101.75,27.215,165.146l0.039-0.01c2.219,11-1.225,21.823-8.313,29.47" />
+                    <path d="M260.104,204.896  c3.479-27.945,2.584-56.916-3.289-86.041l-0.033,0.002c-8.693-43.112-40.031-75.878-79.129-88.413" />
+                </g>
+            </svg>
+            <h1>Touch ID for Phoenix</h1>
+            <p>Authenticate to allow Touch ID</p>
+            <ul>
+                <li id="no">No thanks</li>
+                <li id="allow">Allow</li>
+            </ul>
+        </div>
+    </aside>
+    <aside id="pin">
+        <h1>Create a passcode</h1>
+        <ul id="pinReplay">
+            <li id="first"></li>
+            <li id="second"></li>
+            <li id="third"></li>
+            <li id="fourth"></li>
+        </ul>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+            <li id="delete">x<span></span></li>
+        </ol>
+<!--        <a id="delete">Delete</a>-->
+    </aside>
+    <script src="script.js"> </script>
+</body>
+
+</html>

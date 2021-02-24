@@ -1,0 +1,511 @@
+[
+    {
+        "sectionTitle": "About the property",
+        "id": "section1",
+        "formAction": "results.html",
+        "questions": [
+            {
+                "type": "text",
+                "helpText":"Your postcode will help us identify your supply region.",
+                "label": "Which address would you like to save money at?",
+                "placeholder": "Postcode",
+                "name": "address"
+            },
+            {
+                "type": "radio",
+                "helpText":"help",
+                "label": "Have you recently moved into this property? (last 3 months)",
+                "inline": true,
+                "answers": [
+                    {
+                        "label": "Yes"
+                    },
+                    {
+                        "label": "No",
+                        "checked": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "sectionTitle": "About the supply",
+        "id": "section2",
+        "questions": [
+            {
+                "type": "radio",
+                "name": "supplyType",
+                "helpText":"You can compare the cost of 'dual fuel' tariffs where you get your gas and your electricity from the same provider, or you can compare gas and electricity prices separately. This might work out cheaper for you although it may mean you have two different suppliers, one for gas and one for electricity. We suggest you compare the cost of dual fuel and separate fuel tariffs to help you decide which is the most suitable option for you.",
+                "label": "What are you looking to compare?",
+                "store": true,
+                "displaySwitch":true,
+                "answers": [
+                    {
+                        "label": "Gas & Electricity (Dual Fuel)",
+                        "value": "dual",
+                        "showDependant":"bothSupplier",
+                        "checked": true
+                    },
+                    {
+                        "label": "Just Gas",
+                        "hideDependant":"bothSupplier",
+                        "value": "gas"
+                    },
+                    {
+                        "label":"Just Electricity",
+                        "hideDependant":"bothSupplier",
+                        "value": "elec"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bothSupplier",
+        "hidden": false,
+        "questions": [
+            {
+                "type": "radio",
+                "helpText":"help",
+                "label": "Do you have the same supplier for both gas and electricity?",
+                "inline": true,
+                "displaySwitch":true,
+                "answers": [
+                    {
+                        "label": "Yes",
+                        "checked": true,
+                        "showDependant":""
+                    },
+                    {
+                        "label": "No",
+                        "hideDependant":""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "newProperty",
+        "hidden": false,
+        "questions": [
+            {
+                "type": "radio",
+                "helpText":"Your current supplier can be found on your last bill. If you don't have on to hand, we'll pre-select the standard supplier for your region.",
+                "label": "Who is your current supplier?",
+                "displaySwitch":true,
+                "answers": [
+                    {
+                        "label": "British Gas",
+                        "value":"britishGas",
+                        "hideDependant":"test",
+                        "class":"logo bri"
+                    },
+                    {
+                        "label": "EDF Energy",
+                        "value":"edfEnergy",
+                        "hideDependant":"test",
+                        "class":"logo edf"
+                    },
+                    {
+                        "label": "npower",
+                        "value":"npower",
+                        "hideDependant":"test",
+                        "class":"logo npo"
+                    },
+                    {
+                        "label": "ScottishPower",
+                        "value":"scottishPower",
+                        "hideDependant":"test",
+                        "class":"logo sco"
+                    },
+                    {
+                        "label": "E.ON",
+                        "value":"eon",
+                        "hideDependant":"test",
+                        "class":"logo eon"
+                    },
+                    {
+                        "label": "SSE SWALEC",
+                        "value":"sse",
+                        "hideDependant":"test",
+                        "class":"logo sse"
+                    },
+                    {
+                        "label": "Other",
+                        "value":"other",
+                        "showDependant":"test"
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "name": "test",
+                "class": "otherSupplier",
+                "hidden":true,
+                "answers": [
+                    {
+                        "label": "Avro",
+                        "value": "avro"
+                    },
+                    {
+                        "label": "Bristol",
+                        "value": "bristolEnergy"
+                    },
+                    {
+                        "label": "Bulb",
+                        "value": "bulb"
+                    },
+                    {
+                        "label": "Co-operative Energy",
+                        "value": "coopEnergy"
+                    },
+                    {
+                        "label": "EBICo",
+                        "value": "ebiCo"
+                    },
+                    {
+                        "label": "Ecotricity",
+                        "value": "ecotricity"
+                    },
+                    {
+                        "label": "Economy Energy",
+                        "value": "ecoEnergy"
+                    },
+                    {
+                        "label": "Extra Energy",
+                        "value": "extraEnergy"
+                    },
+                    {
+                        "label": "first-utility",
+                        "value": "first-utility"
+                    },
+                    {
+                        "label": "Flow Energy",
+                        "value": "flowEnergy"
+                    },
+                    {
+                        "label": "Good Energy",
+                        "value": "goodEnergy"
+                    },
+                    {
+                        "label": "Green Energy",
+                        "value": "greenEnergy"
+                    },
+                    {
+                        "label": "Green Star Energy",
+                        "value": "greenStarEnergy"
+                    },
+                    {
+                        "label": "iSupply",
+                        "value": "iSupply"
+                    },
+                    {
+                        "label": "LoCO2 Energy",
+                        "value": "loCO2Energy"
+                    },
+                    {
+                        "label": "M&S Energy",
+                        "value": "mandsEnergy"
+                    },
+                    {
+                        "label": "Octopus Energy",
+                        "value": "octopusEnergy"
+                    },
+                    {
+                        "label": "OVO Energy",
+                        "value": "OVOEnergy"
+                    },
+                    {
+                        "label": "Sainsbury's Energy",
+                        "value": "sainsburysEnergy"
+                    },
+                    {
+                        "label": "So Energy",
+                        "value": "soEnergy"
+                    },
+                    {
+                        "label": "Spark Energy",
+                        "value": "sparkEnergy"
+                    },
+                    {
+                        "label": "Utility Warehouse",
+                        "value": "utilityWarehouse"
+                    },
+                    {
+                        "label": "SSE Atlantic",
+                        "value": "sseAtlantic"
+                    },
+                    {
+                        "label": "Utilita",
+                        "value": "utilita"
+                    },
+                    {
+                        "label": "The Utility Warehouse",
+                        "value": "theUtilityWarehouse"
+                    },
+                    {
+                        "label": "Woodland Trust Energy",
+                        "value": "woodlandTrust"
+                    },
+                    {
+                        "label": "Oink Energy",
+                        "value": "oinkEnergy"
+                    },
+                    {
+                        "label": "GnERGY",
+                        "value": "GnERGY"
+                    },
+                    {
+                        "label": "GB Energy Supply Limited",
+                        "value": "gbEnergy"
+                    },
+                    {
+                        "label": "fairerpower",
+                        "value": "fairerpower"
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "helpText":"The total cost of your tariff can vary depending on how you choose to pay your bill. Paying by monthly Direct Debit can make your bill cheaper.",
+                "label": "How do you usually pay?",
+                "name": "",
+                "inline": true,
+                "displaySwitch":true,
+                "answers": [
+                    {
+                        "label": "Monthly Direct Debit",
+                        "value": "monthlyDD"
+                    },
+                    {
+                        "label": "Quarterly Direct Debit",
+                        "value": "quarterlyDD"
+                    },
+                    {
+                        "label": "Quarterly Cash or Cheque",
+                        "value": "quarterlyCash"
+                    },
+                    {
+                        "label": "Prepayment Meter",
+                        "value": "prepaymentMeter"
+                    }
+                ]
+            },
+            {
+                "type": "radio",
+                "helpText":"If you have night storage heaters you could be on an Economy 7 tariff. Your most recent electricity bill should state whether this is the case. If you're not sure, your supplier will tell you.",
+                "label": "Are you on an Economy 7 tariff for your electricity supply?",
+                "inline": true,
+                "answers": [
+                    {
+                        "label": "Yes"
+                    },
+                    {
+                        "label": "No",
+                        "checked": true
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "tariffSel",
+                "helpText":"The name of your current tariff should appear on your last energy bill. Don't worry if you don't have one to hand, click 'Standard Tariff' and we'll use your supplier's standard rates for comparison.",
+                "label": "Do you know your current tariff?",
+                "hint": "Please note that if your property is subject to a Green Deal Plan, any charges are not included within the gas and/or electricity prices quoted for this tariff. Your new supplier will write to you once your switch has been completed regarding collection of these.",
+                "answers": [
+                    {
+                        "label": "Please select",
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {   "sectionTitle": "About your energy usage",
+        "id": "section3",
+        "questions": [
+            {
+                "type": "radio",
+                "helpText":"You can find this information on your latest bill - using these figures will make our quotation even more accurate. But don't worry! If you haven't got a bill to hand, just click 'No' and we'll help you work out your estimated usage and get you a list of competitive deals.",
+                "id": "energyRadio",
+                "name": "energyRadio",
+                "label": "Do you know how much you spend (£) or how much you use (kWh)?",
+                "displaySwitch":true,
+                "store": true,
+                "answers": [
+                    {
+                        "label": "I know how much I use (kWh)",
+                        "value": "use",
+                        "checked": true,
+                        "showDependant":"usage",
+                        "hideDependant":"totalUsage bedrooms"
+                    },
+                    {
+                        "label": "I know how much I spend (£)",
+                        "value": "spend",
+                        "hideDependant":"usage bedrooms",
+                        "showDependant":"totalUsage"
+                    },
+                    {
+                        "label": "I don't know",
+                        "value": "none",
+                        "hideDependant":"usage totalUsage",
+                        "showDependant":"bedrooms"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "usage",
+        "class": "multi",
+        "questions": [
+            {
+                "type": "tel",
+                "helpText":"help",
+                "name": "gasUsage",
+                "id": "gasUsage",
+                "label": "What is your average usage on gas?",
+                "hint": "Note: Only input ongoing energy spend - exclude any credit and debt, Green Deal or additional service costs.",
+                "inline": true,
+                "store": true,
+                "answers": [
+                    {
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "type": "tel",
+                "helpText":"help",
+                "name": "elecUsage",
+                "id": "elecUsage",
+                "label": "What is your average usage on electricity?",
+                "hint": "Note: Only input ongoing energy spend - exclude any credit and debt, Green Deal or additional service costs.",
+                "inline": true,
+                "store": true,
+                "answers": [
+                    {
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "totalUsage",
+        "class": "multi",
+        "hidden": true,
+        "questions": [
+            {
+                "type": "tel",
+                "helpText":"help",
+                "name": "gasSpend",
+                "id": "gasSpend",
+                "label": "What is your average spend on gas?",
+                "hint": "Note: Only input ongoing energy spend - exclude any credit and debt, Green Deal or additional service costs.",
+                "inline": true,
+                "store": true,
+                "answers": [
+                    {
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "type": "tel",
+                "helpText":"help",
+                "name": "elecSpend",
+                "id": "elecSpend",
+                "label": "What is your average spend on electricity?",
+                "hint": "Note: Only input ongoing energy spend - exclude any credit and debt, Green Deal or additional service costs.",
+                "inline": true,
+                "store": true,
+                "answers": [
+                    {
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {   "id": "propertyDetails",
+        "questions": [
+            {
+                "type": "radio",
+                "name": "bedrooms",
+                "hidden": true,
+                "store": true,
+                "helpText":"We need to know this because the type of property you live in makes a big difference to the amount of energy you consume, simply on account of the way the property is built.",
+                "label": "How many bedrooms are in your property?",
+                "hint": "It’s always better to enter accurate spend or usage information, however we can estimate your usage using Ofgem’s Typical Domestic Consumption Values (TDCVs)",
+                "answers": [
+                    {
+                        "label": "1 bedroom",
+                        "subText": "You are classed as a low user",
+                        "value": 1
+                    },
+                    {
+                        "label": "2 to 3 bedrooms",
+                        "subText": "You are classed as a medium user",
+                        "value": 2
+                    },
+                    {
+                        "label": "4 or more bedrooms",
+                        "subText": "You are classed as a high user",
+                        "value": 4
+                    }
+                ]
+            }
+        ]
+    },
+    {   "sectionTitle": "Getting your results",
+        "id": "section4",
+        "subTitle":"As part of our service to you, we'll email you a summary of your top quotes.",
+        "questions": [
+            {
+                "type": "email",
+                "id": "emailConfirm",
+                "label": "What's your email address",
+                "placeholder": "name@domain.com"
+            },
+            {
+                "type": "checkbox",
+                "label": "In addition to receiving an automatic email reviewing my quotes, I agree to let Moneysupermarket Group contact me with money saving tips and offers by:",
+                "class": "",
+                "answers": [
+                    {
+                        "label": "Email",
+                        "value": "Email"
+                    },
+                    {
+                        "label": "Phone",
+                        "value": "Phone"
+                    },
+                    {
+                        "label":"Text message",
+                        "value": "Text"
+                    }
+                ]
+            },
+            {
+                "type": "tariff",
+                "text": "Based on what you told us you're spending £1,000 per year on your energy. Because your plan is ending soon we estimate that you will spend £1,200 over the next 12 months, unless you switch to a cheaper tariff. What is personal projection?"
+            }
+        ]
+    },
+    {   "id": "results",
+        "class": "hidden",
+        "questions":
+        [
+            {
+                "label":"By clicking 'See results', you are agreeing to our <a>terms &amp; conditions</a> and <a>privacy policy</a>",
+                "type": "submit",
+                "class": "submit",
+                "id": "submit",
+                "value": "See results"
+            }
+        ]
+    }
+
+]

@@ -1,0 +1,325 @@
+{
+  "groupings": [
+    {
+      "questionGrouping": "YourPersonalDetails",
+      "questions": [
+        {
+          "type": "list",
+          "id": "title",
+          "attributes": {
+            "title": "Title"
+          },
+          "options": [
+            {
+              "id": 488,
+              "value": "Dame"
+            },
+            {
+              "id": 489,
+              "value": "Dr"
+            },
+            {
+              "id": 490,
+              "value": "Lady"
+            },
+            {
+              "id": 491,
+              "value": "Lord"
+            },
+            {
+              "id": 492,
+              "value": "Miss"
+            },
+            {
+              "id": 493,
+              "value": "Mr"
+            },
+            {
+              "id": 494,
+              "value": "Mrs"
+            },
+            {
+              "id": 495,
+              "value": "Ms"
+            },
+            {
+              "id": 496,
+              "value": "Prof."
+            },
+            {
+              "id": 497,
+              "value": "Rev"
+            },
+            {
+              "id": 498,
+              "value": "Sir"
+            }
+          ]
+        },
+        {
+          "type": "name",
+          "id": "name",
+          "attributes": {
+            "title": "Name"
+          },
+          "fields": {
+            "firstName": {
+              "constraints": {
+                "minLength": 1,
+                "maxLength": 20
+              },
+              "defaultValue": "John",
+              "placeholder": "First name"
+            },
+            "surname": {
+              "constraints": {
+                "minLength": 1,
+                "maxLength": 20
+              },
+              "defaultValue": "Smith",
+              "placeholder": "Surname"
+            }
+          }
+        },
+        {
+          "type": "address",
+          "id": "supplyAddress",
+          "attributes": {
+            "title": "Supply address"
+          },
+          "addressDetails": {
+            "organisation": "Soft Packaging Ltd",
+            "department": "Example",
+            "poBox": "Example",
+            "buildingName": "Moneysupermarket House",
+            "buildingNumber": "1",
+            "subBuildingName": "Example",
+            "thoroughfare": "St. Davids Park",
+            "dependentThoroughfare": "Example",
+            "dependentLocality": "Example",
+            "doubleDependentLocality": "Example",
+            "postTown": "Deeside",
+            "county": "Clwyd",
+            "countryCode": "GB",
+            "postcode": "CH5 3UZ",
+            "udprn": "04636704",
+            "umrrn": "12345678",
+            "isNotYetBuilt": false,
+            "addressProviderId": 3,
+            "addressOriginId": 1
+          },
+          "displayText": "Soft Packaging Ltd, Example, Po Box Example, Example, Moneysupermarket House, 1, Example, St. Davids Park, Example, Example, Deeside, Clwyd, CH5 3UZ"
+        },
+        {
+          "type": "email",
+          "id": "emailAddress",
+          "defaultValue": "email@moneysupermarket.com",
+          "attributes": {
+            "title": "Email Address",
+            "helpText": "An incorrect email address may lead to your application failing.",
+            "additionalInformation": "This email address will be used by the supplier to confirm and activate your application. Please make sure it's correct.",
+            "placeholder": "name@domain.com"
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        {
+          "type": "email",
+          "id": "confirmEmailAddress",
+          "attributes": {
+            "title": "Confirm email address",
+            "placeholder": "name@domain.com"
+          },
+          "confirmFieldId": "emailAddress",
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        {
+          "type": "telephoneNumber",
+          "id": "telephoneNumber",
+          "defaultValue": "01234567890",
+          "attributes": {
+            "title": "Telephone Number",
+            "helpText": "Your new supplier needs your telephone number in case it needs to speak to you about your application.",
+            "placeholder": "01632960540"
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 18
+          }
+        }
+      ],
+      "questionGroupLabel": "Your personal details"
+    },
+    {
+      "questionGrouping": "SecurityQuestions",
+      "questions": [
+        {
+          "type": "securityQuestionDOB",
+          "id": "dob",
+          "attributes": {
+            "title": "Date of Birth",
+            "additionalInformation": "For example: 30/10/1984"
+          }
+        }
+      ],
+      "questionGroupLabel": "Security questions"
+    },
+    {
+      "questionGrouping": "MeterInformation",
+      "questions": [
+        {
+          "type": "mpan",
+          "id": "mpanInformation",
+          "defaultValue": "1300008733858",
+          "attributes": {
+            "title": "What is your MPAN number?",
+            "helpText": "An MPAN (Meter Point Administration Number) is a unique reference number for your property which can be found on your meter or bill. To complete your application, we need the core 13 digits across the bottom which act as your Supply Number. NOTE: This is not to be confused with your customer reference number. MPAN example (image) If you can't locate your MPAN, please contact your electricity supplier. Note: this number is for reference and should not be used in your application."
+          },
+          "constraints": {
+            "minLength": 13,
+            "maxLength": 13
+          }
+        },
+        {
+          "type": "supplierMessaging",
+          "id": "doYouHaveElectricitySmartMeter",
+          "attributes": {
+            "title": "Do you have an Electricity Smart Meter?",
+            "helpText": "Smart Meters are a new kind of energy meter, Smart Meters are a replacement for your existing meters, they send automatic meter readings to your supplier without the need for a visit to your property. There are several variations of Smart Meters available, some of which may offer other functionalities. If you currently have a Smart Meter you may lose functionality by changing your supplier."
+          },
+          "options": [
+            {
+              "id": 1,
+              "value": "Yes",
+              "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+            },
+            {
+              "id": 2,
+              "value": "Don't Know",
+              "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+            },
+            {
+              "id": 3,
+              "value": "No",
+              "message": "",
+              "selected": true
+            }
+          ]
+        }
+      ],
+      "questionGroupLabel": "Meter information"
+    },
+    {
+      "questionGrouping": "AdditionalInformation",
+      "questions": [
+        {
+          "type": "confirm",
+          "id": "marketingOptIn",
+          "attributes": {
+            "title": "For marketing purposes, tick if you wish to receive further mail, email and marketing information from your chosen supplier.",
+            "selected": true
+          }
+        }
+      ],
+      "questionGroupLabel": "Additional information"
+    },
+    {
+      "questionGrouping": "BillingInformation",
+      "questions": [
+        {
+          "type": "directDebit",
+          "id": "directDebit",
+          "attributes": {
+            "additionalInformation": "You indicated that you would like to pay your bills via monthly Direct Debit. Please provide the details of the bank account you would like to use, so Octopus Energy can set this up with your bank directly."
+          },
+          "paymentInfo": "Your first direct debit payment will be taken on your supply start date. Based on the details you gave us, we’ve estimated your monthly direct debit will be £65.51. (Gas: £33.99, Electricity: £31.51). Your supplier will confirm this payment to you. The figure can change once you start giving regular meter readings.",
+          "directDebitGuarantee": "This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits. If there are any changes to the amount, date or frequency of your Direct Debit Octopus Energy will notify you 10 working days in advance of your account being debited or as otherwise agreed. If you request Octopus Energy to collect a payment, confirmation of the amount and date will be given to you at the time of the request. If an error is made in the payment of your Direct Debit by Octopus Energy or your bank or building society, you are entitled to a full and immediate refund of the amount paid from your bank or building society. If you receive a refund you are not entitled to, you must pay it back when Octopus Energy asks you to. You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify Octopus Energy. Date: 27/09/2017 The company name which will appear on your bank statement against the Direct Debit will be Octopus Energy.",
+          "securityText": {
+            "text": "Our site is protected by GlobalSign the latest in Internet security standards, to ensure that any data you send to us online is secure. You can rest assured that the information you supply is encrypted and cannot be read by anyone else. We are committed to protecting your privacy. Read our {privacypolicy} and shop online with confidence.",
+            "links": [
+              {
+                "name": "privacypolicy",
+                "url": "http://www.moneysupermarket.com/legal/PrivacyPolicy.asp",
+                "label": "Privacy Policy"
+              }
+            ]
+          },
+          "fields": {
+            "bankAccountName": {
+              "constraints": {
+                "minLength": 1,
+                "maxLength": 18
+              }
+            },
+            "sortCode": {
+              "constraints": {
+                "minLength": 6,
+                "maxLength": 6
+              }
+            },
+            "accountNumber": {
+              "constraints": {
+                "minLength": 8,
+                "maxLength": 9
+              }
+            },
+            "directDebitPayOfMonth": {
+              "constraints": {
+                "minValue": 1,
+                "maxValue": 28
+              }
+            }
+          }
+        },
+        {
+          "type": "billingAddressAndHistory",
+          "id": "addressDetails",
+          "billingAddress": {
+            "askIfDifferentToSupplyAddress": true
+          },
+          "history": {
+            "capture": true,
+            "minimumYears": 3,
+            "maximumAddresses": 2
+          }
+        }
+      ],
+      "questionGroupLabel": "Billing information"
+    },
+    {
+      "questionGrouping": "NextSteps",
+      "questions": [
+        {
+          "type": "whatsNext",
+          "id": "whatsNextAdditionalInformation",
+          "attributes": {
+            "title": "Your application will be sent to Octopus Energy, who will get in touch within 10 days to confirm your details. Octopus Energy will also start the switching process and will contact you if any further details are required."
+          }
+        },
+        {
+          "type": "termsAndConditions",
+          "id": "termsAndConditions",
+          "attributes": {
+            "title": {
+              "text": "By selecting 'Proceed to switch' you are agreeing to Octopus Energy {termsAndConditionsLink} with an obligation to pay for your energy.",
+              "links": [
+                {
+                  "name": "termsAndConditionsLink",
+                  "url": "Terms and Conditions - Octopus.pdf",
+                  "label": "terms and conditions"
+                }
+              ]
+            },
+            "cancellationTerms": "You have the right to cancel within 14 days of submitting your application to Octopus Energy."
+          }
+        }
+      ],
+      "questionGroupLabel": "What's next?"
+    }
+  ]
+}

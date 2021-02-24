@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900|Open+Sans:300,500,600,700');
+
+/* RESET */
+body,
+div,
+section,
+main,
+header,
+footer,
+figure,
+img,
+svg,
+span,
+strong,
+small,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+fieldset,
+legend,
+input,
+select,
+label,
+button,
+a {
+    margin: 0;
+    border: 0 none;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+h1,
+h<scroip2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+input,textarea,select,button {
+    font: normal 14px/1 'Open Sans';
+}
+input:focus,textarea:focus,select:focus,button:focus {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    line-height: 1.8;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font: 500 1.6em/1.4 'Open Sans', 'Arial', 'Helvetica', 'Sans-Serif';
+    -webkit-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background-color: #FFF;
+    color: #2b3133;
+}
+
+/* Page header */
+body > header {
+    background-color: #FFF;
+    border-bottom: 1px solid #C6CACC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 10;
+}
+body > header .site-logo {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    position: relative;
+}
+body > header .site-logo  svg {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -5px;
+}

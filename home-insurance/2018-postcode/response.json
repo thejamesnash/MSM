@@ -1,0 +1,74 @@
+{  
+   "Items":[  
+      {  
+         "Id":"GB|RM|A|25970888",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Paddington, Warrington, WA1 3NG"
+      },
+      {  
+         "Id":"GB|RM|A|10169550",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Aldershot, GU11 2PE"
+      },
+      {  
+         "Id":"GB|RM|A|25497422",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Richmond, TW10 7LH"
+      },
+      {  
+         "Id":"GB|RM|A|4804873",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Wirral, CH62 0BE"
+      },
+      {  
+         "Id":"GB|RM|A|10079031",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Guildford, GU1 1RG"
+      },
+      {  
+         "Id":"GB|RM|A|22433740",
+         "Type":"Address",
+         "Text":"12 Lock Road",
+         "Highlight":"0-2,3-7,8-12",
+         "Description":"Marlow, SL7 1QP"
+      },
+      {  
+         "Id":"GB|RM|A|10311531",
+         "Type":"Address",
+         "Text":"12 Locke Road",
+         "Highlight":"0-2,3-7,9-13",
+         "Description":"Liphook, GU30 7DQ"
+      },
+      {  
+         "Id":"GB|RM|A|21065309",
+         "Type":"Address",
+         "Text":"12 Locke Road",
+         "Highlight":"0-2,3-7,9-13",
+         "Description":"Dodworth, Barnsley, S75 3QH"
+      },
+      {  
+         "Id":"GB|RM|A|20873653",
+         "Type":"Address",
+         "Text":"12 Locko Road",
+         "Highlight":"0-2,3-7,9-13",
+         "Description":"Lower Pilsley, Chesterfield, S45 8DW"
+      },
+      {  
+         "Id":"GB|RM|A|22894110",
+         "Type":"Address",
+         "Text":"12 The Chestnuts Locks Road",
+         "Highlight":"0-2,17-21,23-27",
+         "Description":"Locks Heath, Southampton, SO31 6DJ"
+      }
+   ]
+}

@@ -1,0 +1,122 @@
+@media all and ( max-width: 679px){
+    .step-indicator b {
+        display: none;
+    }
+}
+
+.step-indicator {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    counter-reset: li;
+}
+
+.step-indicator a {
+    color: #00AEEF;
+    text-decoration: none;
+}
+.step-indicator li {
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    color: #C6CACC;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 10px 10px;
+    z-index: 1;
+}
+.step-indicator li:before {
+    content: counter(li);
+    counter-increment: li;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -13px;
+    border-radius: 50%;
+    background-color: #C6CACC;
+    font: 700 14px/26px 'Open Sans';
+    text-align: center;
+    z-index: 1;
+    color: #FFF;
+}
+.step-indicator li:after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #00AEEF;
+    content: '';
+    left: 50%;
+    top: 13px;
+    z-index: -1;
+}
+.step-indicator li:hover:after {
+    background-color: #0083B3;
+}
+.step-indicator li:hover a {
+    color: #0083B3;
+}
+.step-indicator .active ~ li:after,
+.step-indicator .active ~ li:hover:after {
+    background-color: #C6CACC;
+}
+.step-indicator .active:after,
+.step-indicator .active:hover:after {
+    background-color: #C6CACC;
+}
+.step-indicator .active {
+    color: #562873;
+}
+.step-indicator .active:before {
+    background-color: #562873;
+    border: 1px solid #FFF;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    margin-left: -11px;
+    box-shadow: 0 0 0 1px #562873;
+    top: 2px;
+}
+.step-indicator li > a:before {
+    content: '';
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -13px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: transparent;
+}
+.step-indicator li.done > a:before {
+    background: #00AEEF url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline stroke="white" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" points="70.5,35.5 41.5,64.5 29.5,52.5"/></svg>') center center no-repeat;
+    background-size: 22px;
+    font: 700 14px/26px 'Open Sans';
+    text-align: center;
+    z-index: 1;
+    color: #FFF;
+}
+.step-indicator li.done:hover > a:before {
+    background-color: #0083B3;
+}
+
+.step-indicator li:last-of-type:after {
+    display: none;
+}
+
+@media all and ( min-width: 760px){
+    .step-indicator {
+        width: 740px
+    }
+}
+@media all and ( min-width: 1200px){
+    .step-indicator {
+        width: 1180px
+    }
+}

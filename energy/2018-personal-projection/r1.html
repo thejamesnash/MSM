@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Phoenix</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/src/assets/css/gotham.css">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/src/assets/msm/css/global.css">
+        <link rel="stylesheet" href="https://msmux.github.io/testing/pds/energypp/assets/style.css" type="text/css">
+<!--        <script src="http://msmux.github.io/testing/pds/energypp/assets/script.js"></script>-->
+<!--        <script src="user.js"></script>-->
+<!--formdata: /src/assets/msm/data/energy-questions-oct17.json-->
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/sandbox/central-form/style.css">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/pds/energypp/assets/loading.css">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="results.css">
+        
+    </head>
+    <body  class="interstitial results-loaded" data-filter="full" data-show-breakdown="false">
+<!--
+        <header class="site-header">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/src/components/msm/site-header/style.css" />
+        
+        <span class="site-logo" itemtype="http://schema.org/Organization">
+            <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                <svg viewBox="0 0 298 170" >
+                    <title>MoneySuperMarket.com Logo</title>
+                    <use xlink:href="http://msmux.github.io/testing/src/assets/img/ms-logo.svg#ms-logo"></use>
+                </svg>
+            </a>
+        </span>
+        <ul class="header-nav">
+            <li class="profile">
+                <div>
+                    <ul id="profile-nav">
+                        <li><a class="" href="#"><strong>Hi!</strong> <em>(Sign in) <svg viewBox="0 0 100 100" >
+                        <title>My Profile</title>
+                        <use xlink:href="http://msmux.github.io/testing/src/components/msm/site-header/icons.svg#male"></use>
+                    </svg></em></a>
+                        </li>
+                        <li><a class="" href="#">Retrieve quotes</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav"><a href="#primary-navigation" id="nav-trigger" class="nav-icon nav-trigger-icon"><span class="nav-trigger-icon"><strong>Site navigation</strong></span></a>
+            </li>
+        </ul>
+    </header>
+-->
+        <main>
+<aside class="loading-panel">
+    <header>
+        <h1>Loading results</h1>
+        <p class="msg userTariffCheapest">Good news. Your current tariff is cheaper than anything on the market.</p>
+        <p class="msg userTariffCheapest"><strong>You're unlikely to save by switching now.</strong></p>
+        <p class="msg userTariffCheap">It look like your current tariff is one of the cheapest on the market</p>
+        <p class="msg userTariffCheap"><strong>However, you might still save money by switching</strong></p>
+        <p class="msg userTariffMedium">It looks like you currently pay more than other tariffs would cost.</p>
+        <p class="msg userTariffMedium"><strong>You could save by switching, though check for early exit fees</strong></p>
+        <p class="msg userTariffVariable">It looks like your on a variable tariff. You are probably paying more than you need to.</p>
+        <p class="msg userTariffVariable"><strong>You could save up to &pound;<span class="userSaving">0</span> by switching</strong></p>
+        <p class="msg userTariffFixed">It looks like you’re on a fixed deal which ends in the coming months.</p>
+        <p class="msg userTariffFixed"><strong>You are likely to save money by switching, though check for early exit fees.</strong></p>
+        <div class="chart">
+            <p class="legend legend-min"></p>
+            <p class="legend legend-max"></p>
+        </div>
+    </header>
+    <footer class="loading-status">
+        <h1>Loading</h1>
+        <progress max="100" value="0"></progress>
+    </footer>
+</aside>
+
+<div class="results-header">
+    <h1>Great news!</h1>
+    <h2>We've got <span class="resultsTotal">50</span> deals we can switch you to quickly &amp; simply today</h2>
+<!--    <a class="ppLink">See how your tariff compares to others</a>-->
+    <ul class="tabs resultsTabs">
+        <li data-sort-switch="curr">
+            <a>Stay with your current supplier</a>
+            <small>Save up to £<span class="currCheap">9</span></small>
+        </li>
+        <li data-sort-switch="big">
+            <a>Switch to a big name supplier</a>
+            <small>Save up to £<span class="bigCheap">275</span></small>
+        </li>
+        <li data-sort-switch="full">
+            <a>Choose from our full range</a>
+            <small>Save up to £<span class="fullCheap">290</span></small>
+        </li>
+    </ul>
+    <div class="filterLinks">
+        <a class="sliderBtn" data-slider="filters">Filter results</a>
+        <a class="sliderBtn" data-slider="ppExplain">View your<br />Personal Projection</a>
+    </div>
+</div>
+<ol class="results" id="results">
+    <!-- Row -->
+
+    <li id="primitive" class="card" data-rating="5">        
+        <ul>
+            <li class="cell-headline">
+                <img>
+                <span>
+                    <p class="tariffName">TARIFF NAME</p>
+                    <h3>Fixed for <span class="promoDuration">XX</span> months</h3>
+                    <p class="tariffRating">RATING</p>
+                </span>
+            </li>
+            <li class="cell-saving">
+                <dfn>Yearly saving</dfn>
+                <p>£<span class="annualSaving">XXXX</span></p>
+            </li>
+            <li class="cell-estimated-cost">
+                <a class="sliderBtn" data-slider="compareSlider">Estimated cost</a>
+                <p><sub>&pound;</sub><strong class="personalProj">XXX</strong>/year</p>
+                <p><sub>&pound;</sub><strong class="personalProjMonthly">XX</strong>/month</p>                
+            </li>
+            <li class="cell-exit-fee">
+                <dfn>Early exit fee</dfn>
+                <p>£<span class="exitFee">XX</span></p>
+            </li>
+            <li class="rates">
+                <dl>
+                    <dt>Unit rate</dt>
+                    <dd><span class="gasUnitRate">12.760</span>p per kWh</dd>
+                    <dd><span class="elecUnitRate">2.593</span>p per kWh</dd>
+                </dl>
+                <dl>
+                    <dt>Standing charge</dt>
+                    <dd>£<span class="gasStdCharge">54.75</span>/yr</dd>
+                    <dd>£<span class="elecStdCharge">14.75</span>/yr</dd>
+                </dl>
+            </li>
+            <li>
+                <button type="button" class="btn btn__primary">PROCEED</button>
+                <a class="sliderBtn" data-slider="detailsSlider">More details</a>
+            </li>
+        </ul>
+    </li>
+</ol>
+<aside class="filters slider">
+    <a class="close-label close-slider">
+        <span>Close</span>
+    </a>
+    <div class="filter-header">
+        <button type="button" class="btn btn__primary close-slider">Update results</button>
+    </div>
+    <div class="filter-wrap central-form">
+        <h1>Filter results</h1>
+        <h2>Change your quote using the options below</h2>
+        <p>Fuel type</p>
+        <div class="form-pseudo-select">
+            <select id="">
+                <option>Gas &amp; electricity</option>
+                <option>Electricity</option>
+                <option>Gas</option>
+            </select>
+        </div>
+        <p>Payment type</p>
+        <div class="form-pseudo-select">
+            <select id="">
+                <option>Monthly Direct Debit</option>
+                <option>Quarterly Direct Debit</option>
+                <option>Quarterly Cash or Cheque</option>
+                <option>Prepayment Meter</option>
+            </select>
+        </div>
+        <p>Sort prices by</p>
+        <div class="form-pseudo-select">
+            <select id="sortFilter">
+                <option value="monthly">Monthly saving</option>
+                <option selected value="annual">Yearly saving</option>
+            </select>
+        </div>
+        <!--
+        <p>Show savings as</p>
+        <ul class="compareRadios">
+            <li>
+                <input id="comparePP" name="filter-radio" type="radio" value="pp" checked>
+                <label for="comparePP">Comparison to my personal projection</label>
+            </li>
+            <li>
+                <input id="compareCurr" name="filter-radio" type="radio" value="curr">
+                <label for="compareCurr">Like-for-like comparison to my current plan</label>
+            </li>
+        </ul>
+-->
+    </div>
+</aside>
+<aside class="ppExplain slider">
+    <a class="close-label close-slider">
+        <span>Close</span>
+    </a>
+    <h1>Personal projection on current tariff</h1>
+    <h2><sub>£</sub><span class="userCurrCost">XXX.XX</span></h2>
+    <small>for the next 12 months</small>
+    <p>
+        <a class="show-breakdown breakdown-link">Detailed breakdown</a>
+        <a class="close-breakdown breakdown-link">Close breakdown</a>
+    </p>
+    <div class="ppBreakdown">
+        <h2>How much you're paying now</h2>
+        <h3>Gas</h3>
+        <dl>
+            <dt>Current usage (per year)</dt>
+            <dd><span class="cGasUsage"></span>kwh</dd>
+            <dt>National average (per year)</dt>
+            <dd><span class="aGasUsage">4000</span>kwh</dd>
+            <dt>Projected cost</dt>
+            <dd>&pound;<span class="pGasCost"></span></dd>
+        </dl>
+        <h3>Electricity</h3>
+        <dl>
+            <dt>Current usage (per year)</dt>
+            <dd><span class="cElecUsage"></span>kwh</dd>
+            <dt>National average (per year)</dt>
+            <dd><span class="aElecUsage">2000</span>kwh</dd>
+            <dt>Projected cost</dt>
+            <dd>&pound;<span class="pElecCost"></span></dd>
+        </dl>
+        <p>
+            <dfn>Total cost</dfn>
+            <strong>&pound;<span class="pTotalCost"></span></strong>
+        </p>
+    </div>
+    <div class="ppContrast">
+        <h3>What is a personal projection?</h3>
+        <p>We take how much you are paying now and project this figure twelve months into the future. This way you’ll be able to find a tariff that is cheaper than your current one.</p>
+        <p><b>Note:</b> Because of the general state of the energy market you may not find a tariff cheapaer than your current one. <b>However we can help you find the cheapest tariff on the market currently</b>.</p>
+        <h3>How do other price comparison websites calculate personal projection?</h3>
+        <p>If your current tariff ends in less than 12 months Ofgem requires every comparison website to assume that you do nothing and are automatically moved to your supplier’s Standard Variable Tariff, which is always much more expensive. Comparison sites are then required to calculate your personal projection for the next 12 months using a mix of your current tariff and the Standard Variable Tariff.</p>
+        <h3>Why is this wrong?</h3>
+        <p>We disagree with this guidance, and here’s why: if you switch from a tariff that cost you £1000 per year to a tariff that will cost you £800 per year you save exactly £200.</p>
+        <p>However, if a comparison website inflates your 12 months cost from £1000 to £1200 by assuming you’ll move to a Standard Variable Tariff and then uses this inflated personal projection to show you savings it may seem like you are saving £400.</p>
+        <p>That is why we choose to be honest with our customers and calculate all your future costs using your current tariff only. This should give you a realistic picture of what you are paying now, and how much you’re likely to pay in the future.</p>
+        <p><a class="close-slider">Close</a></p>
+    </div>
+    
+</aside>
+<aside class="compareSlider slider" data-compare="pp">
+    <a class="close-label close-slider">
+        <span>Close</span>
+    </a>
+    <h1>If you switch to this plan you will pay</h1>
+    <h2><sub>£</sub><span class="ppCost">XXX.XX</span></h2>
+    <small>per year</small>
+
+    <ul class="tabs hidden">
+        <li class="active" data-comparetype="pp">
+            <a>Compare to my personal projection</a>
+        </li>
+        <li data-comparetype="curr">
+            <a>Compare to my current plan</a>
+        </li>
+    </ul>
+
+    <div class="ppContrast ">
+        <p>This figure is calculated by comparing what you are paying now and what you could pay should you switch.</p>
+        <ul class="compareSummary">
+            <li>
+                <div>
+                    <h1>Your current tariff</h1>
+                    <p>This is your current annual bill, based on what you've told us</p>
+                </div>
+                <div>
+                    <h1>£<span class="userCurrCost">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h1>If you switch</h1>
+                    <p>Forecast of your bill over the next year, assuming you use the same amount of energy</p>
+                </div>
+                <div>
+                    <h1>£<span class="ppCost">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h1>Your saving</h1>
+                </div>
+                <div>
+                    <h1>£<span class="savingCost">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+        </ul>
+        <a>View calculation in detail</a>
+    </div>
+<!--
+    <div class="ppContrast compareCurrExtra">
+        <p>This figure is calculated only on what you are paying now.</p>
+        <ul class="compareSummary">
+            <li>
+                <div>
+                    <h1>Your current tariff</h1>
+                    <p>This is your current annual bill, based on what you've told us</p>
+                </div>
+                <div>
+                    <h1>£<span class="currAnnual">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h1>If you switch</h1>
+                    <p>Forecast of your bill over the next year, assuming you use the same amount of energy</p>
+                </div>
+                <div>
+                    <h1>£<span class="ppCost">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h1>Your saving</h1>
+                </div>
+                <div>
+                    <h1>£<span class="currSaving">XXX.XX</span></h1>
+                    <small>per year</small>
+                </div>
+            </li>
+        </ul>
+        <a>View calculation in detail</a>
+    </div>
+-->
+</aside>
+<aside class="tariffChart slider">
+    <a class="close-label close-slider">
+        <span>Close</span>
+    </a>
+</aside>
+            <aside class="slider detailsSlider">
+                <a class="close-label close-slider">
+                    <span>Close</span>
+                </a>
+                <header>
+                <img src="" class="detailsProviderLogo" />
+                <h1>
+                    <small>Yearly cost</small>
+                    <sup>&pound;</sup><span class="detailsCost">111</span>
+                </h1>
+                <p><a class="btn btn__primary">Proceed</a></p>
+                <p><a class="btn btn__tertiary">Call to apply</a></p>
+                <p>
+                    <dfn>Opening times</dfn>
+                    Mon-thurs 9am - 8pm, Fri 9am - 5:30pm, Sat 10am - 2pm
+                </p>
+                </header>
+                <div>
+                    <h2>Tariff information</h2>
+                    <dl>
+                        <dt>Provider</dt>
+                        <dd class="detailsProvider">Provider</dd>
+                        <dt>Tariff name</dt>
+                        <dd class="detailsTariffName">Provder tariff name</dd>
+                        <dt>Rate type</dt>
+                        <dd class="detailsTariffType">Fixed for a period of time</dd>
+                    </dl>
+                </div>
+                <div>
+                    <h2>Tariff features</h2>
+                    <ul>
+                        <li>Available to new customers only</li>    
+                        <li>Prices are fixed for 12 months</li>    
+                        <li>Exit fee of &pound;<span class="detailsExitFee"></span> per fuel in fixed period</li>    
+                        <li>Online account management</li>    
+                        <li>Paperless billing</li>    
+                        <li>Dual fuel discount of &pound;20 per year</li>    
+                    </ul>
+                </div>
+                <div>
+                    <h2>Tariff summary</h2>
+                    <p>Prices are fixed for <span class="detailsTariffDuration"></span> months from your tariff start date. No exit fee applies if you leave before your contract end date. Around 6 weeks before the end of the fixed price period the energy company will contact you with details their variable tariff, which you will automatically move to, unless you choose a different tariff. Your standing charge will be £35 per fuel lower than other payment methods if you pay by Monthly Direct Debit, however, you will lose this adjustment if you cancel your Direct Debit.</p>
+                </div>
+                <div>
+                    <h2>Cost breakdown</h2>
+                    <dl>
+                        <dt>Gas</dt>
+                        <dd>&pound;<span class="detailsGasCost">111</span></dd>
+                        <dt>Electricity</dt>
+                        <dd>&pound;<span class="detailsElecCost">111</span></dd>
+                        <dt>Total</dt>
+                        <dd>&pound;<span class="detailsCost">111</span></dd>
+                    </dl>
+                </div>
+                <p><a>See the full Tariff Information Label breakdown</a></p>
+                <p><a class="sliderBtn" data-slider="compareSlider">How does this compare to my existing tariff?</a></p>
+            </aside>
+        </main>
+<script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

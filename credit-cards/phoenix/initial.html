@@ -1,0 +1,655 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Phoenix</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="stylesheet" href="global.css" type="text/css">
+        <style>
+            body {
+                font: normal 400 16px/1 'Arial';
+            }
+            h1 {
+                font-size: 40px;
+                margin: 0;
+            }
+            h2 {
+                font-size: 16px;
+                font-weight: 300;
+                padding-bottom: 20px;
+            }
+            button {
+                background-color: #333;
+                color: #FFF;
+                border-radius: 30px;
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 30px auto 0;
+                width: initial;
+            }
+            
+            section {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+                transition: 0.2s ease-in-out;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translate3d(100vw,0,0);
+                box-sizing: border-box;
+            }
+            section:nth-of-type(1) {
+                transform: translate3d(0,0,0);
+                padding: 40px;
+            }
+            .started section:nth-of-type(1) {
+                transform: translate3d(-100vw,0,0)
+            }
+            .started section:nth-of-type(2) {
+                transform: translate3d(0,0,0)
+            }
+            
+            fieldset {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                background-color: #FFF;
+                padding: 0;
+                margin: 0;
+                border: 0 none;
+                transition: 0.2s ease-in-out;
+                transform: translate3d(100vw,0,0)
+            }
+            .step1 fieldset:nth-of-type(1),
+            .step2 fieldset:nth-of-type(2),
+            .step3 fieldset:nth-of-type(3),
+            .step4 fieldset:nth-of-type(4),
+            .step5 fieldset:nth-of-type(5),
+            .step6 fieldset:nth-of-type(6),
+            .step7 fieldset:nth-of-type(7),
+            .step8 fieldset:nth-of-type(8),
+            .step9 fieldset:nth-of-type(9),
+            .step10 fieldset:nth-of-type(10) {
+                transform: translate3d(0,0,0)
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="tel"]
+            {
+                border: 1px solid #AAA;
+                padding: 10px;
+                display: block;
+                line-height: 20px;
+            }
+            fieldset {
+                box-sizing: border-box;
+                padding: 40px;
+            }
+            legend {
+                font-size: 16px;
+                font-weight: 700;
+                position: relative;
+            }
+            .chunk {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .chunk li {
+                box-sizing: border-box;
+                width: 46%;
+                border: 1px solid #333;
+                margin: 2%;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .chunk input {
+                z-index: -1;
+                position: absolute;
+            }
+            .chunk label {
+                padding: 20px;
+                display: block;
+                font-size: 14px;
+                background-color: #C6CACC;
+                height: 100%;
+            }
+            .chunk input:checked + label {
+                background-color: red;
+            }
+            ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            dl {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+                
+            }
+            dt, dd {
+                margin: 0;
+                padding: 0;
+            }
+            dt {
+                font-weight: 700;
+                padding: 12px 0 5px;
+                font-size: 12px;
+            }
+            dd {
+                font-size: 16px;
+                border-bottom: 1px solid #C6CACC;
+                padding: 5px 30px 12px 0;
+                font-weight: 200;
+                position: relative;
+            }
+            dd:after {
+                content: 'Edit';
+                position: absolute;
+                right: 0;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .interstitial {
+                display: none;
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                box-sizing: border-box;
+                padding: 40px;
+                background-color: rgba(255,255,255,0.8);
+            }
+            .loading .interstitial {
+                display: block;
+            }
+            @keyframes spin {
+                0% { transform: translate3d(0,0,0) rotate(0deg) }
+                100% { transform: translate3d(0,0,0) rotate(360deg) }
+            }
+            .interstitial:after {
+                content: '';
+                display: block;
+                width: 30px;
+                height: 30px;
+                background-color: #333;
+                border-radius: 50%;
+                position: absolute;
+                top: calc(50vh - 100px);
+                left: calc(50vw - 100px);
+                z-index: 2;
+                transform-origin: 100px center;
+                transform: translate3d(0,0,0) rotate(0deg);
+                animation: spin 0.7s linear infinite;
+            }
+            
+            .dob {
+                display: flex;
+            }
+            .dob input {
+                width: 30%;
+                margin: 0 0 0 10px;
+            }
+            .dob input:first-child {
+                margin-left: 0;
+            }
+            
+        </style>
+    </head>
+    <body class="step1 loading">
+        <aside class="interstitial">
+            
+        </aside>
+        
+        <section>
+            <h1>Hello</h1>
+            <h2>Welcome to Project Phoenix</h2>
+            <input type="text" id="userName" placeholder="What's your name" />
+            <button class="next" id="start">Get started</button>
+        </section>
+        
+        <section>
+            <progress></progress>
+            <fieldset>
+                <legend>Let's talk finances. What do you want help with, <span class="userName">Alan</span></legend>
+                <p>I want to&hellip;</p>
+                <ol class="chunk">
+                    <li>
+                        <input type="radio" name="goal" id="goal1" />
+                        <label for="goal1">Check my credit score and report</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal2" />
+                        <label for="goal2">Find a credit card</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal3" />
+                        <label for="goal3">Cut down my debts</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal4" />
+                        <label for="goal4">Boost my credit score</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal5" />
+                        <label for="goal5">Get ready to buy a home</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal6" />
+                        <label for="goal6">Pay for a holiday</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal7" />
+                        <label for="goal7">Spread the cost of a big expense</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="goal" id="goal8" />
+                        <label for="goal8">Earn rewards for everyday spending</label>
+                    </li>
+                </ol>
+                <p><button class="nextStep" data-step="2">Next ></button></p>
+            </fieldset>
+            <fieldset>
+                <legend>Got it, <span class="userName">Alan</span></legend>
+                <p>Let's keep track of this somewhere secure</p>
+                <ol>
+                    <li>
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" />
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" />
+                    </li>
+                    <li>
+                        <input type="checkbox" id="acceptTerms" />
+                        <label for="acceptTerms">I understand and accept the <a href="#">terms &amp; conditions</a></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="acceptMarketing" />
+                        <label for="acceptMarketing">I opt for super cool marketing communications</label>
+                    </li>
+                    <li>
+                        <button>Create account</button>
+                    </li>
+                    <li>
+                        <button class="nextStep" id="googleSignIn" data-step="3">Connect with Google</button>
+                    </li>
+                </ol>
+            </fieldset>
+            <fieldset>
+                <legend>OK, now to match you with your credit file</legend>
+                <p>Is <span class="userName">Alan</span> your full legal name?</p>
+                <ol>
+                    <li>
+                        <label for="userTitle">Title</label>
+                        <select>
+                            <option>E.g. Mr</option>
+                            <option>Mrs</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="userFirstName">First name</label>
+                        <input type="text" id="userFirstName" placeholder="name" />
+                    </li>
+                    <li>
+                        <label for="userLasttName">Last name</label>
+                        <input type="text" id="userLastName" placeholder="name" />
+                    </li>
+                    <li>
+                        <button data-step="4" class="nextStep">Save and continue</button>
+                    </li>
+                </ol>
+            </fieldset>
+            <fieldset>
+                <ol>
+                    <li>
+                        <h2>Ok, now to match you with your credit file</h2>
+                        <label for="dd">What's your date of birth</label>
+                        <div class="dob">
+                            <input type="tel" id="dd" placeholder="DD" />
+                            <input type="tel" id="MM" placeholder="MM" />
+                            <input type="tel" id="YYYY" placeholder="YYYY" />
+                        </div>
+                    </li>
+                    <li>
+                        <button data-step="5" class="nextStep">Save and continue</button>
+                    </li>
+                </ol>
+            </fieldset>
+            <fieldset>
+                <ol>
+                    <li>
+                        <label for="addressLookup">What's your address?</label>
+                        <input id="addressLookup" placeholder="Start typing your address" type="text" />
+                        <p>Addresses found</p>
+                        <ul id="addressResults"></ul>
+                        <p id="addressReplay"></p>
+                        <p>Address not here? <a href="">Enter manually</a></p>
+                    </li>
+                    <li>
+                        <p>Number of years at address</p>
+                        <ul class="chunk">
+                            <li>
+                                <input type="radio" name="years" id="years0" />
+                                <label for="years0">0-1</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="years" id="years1" />
+                                <label for="years1">1</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="years" id="years2" />
+                                <label for="years2">2</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="years" id="years3" />
+                                <label for="years3">3</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="years" id="years4" />
+                                <label for="years4">4</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="years" id="years5" />
+                                <label for="years5">5+</label>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <button data-step="6" class="nextStep">Save and continue</button>
+                    </li>
+                </ol>
+            </fieldset>
+            <fieldset>
+                <p>What's your living situation?</p>
+                <ol class="chunk">
+                    <li>
+                        <input type="radio" name="living" id="living1" />
+                        <label for="living1">Homeowner</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="living" id="living2" />
+                        <label for="living2">Private tenant</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="living" id="living3" />
+                        <label for="living3">Council tenant</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="living" id="living4" />
+                        <label for="living4">Living with parents</label>
+                    </li>
+                </ol>
+                <button data-step="7" class="nextStep">Save and continue</button>
+            </fieldset>
+            <fieldset>
+                <p>
+                    <label for="rentAmount">How much is your rent?</label>
+                    <input id="rentAmount" type="tel" placeholder="Monthly rent" />
+                </p>
+                <p>
+                    <button data-step="8" class="nextStep">Save and continue</button>
+                </p>
+            </fieldset>
+            <fieldset>
+                <ol>
+                    <li>
+                        <p>What's your employment status?</p>
+                        <ol class="chunk">
+                            <li>
+                                <input type="radio" name="employment" id="employment1" />
+                                <label for="employment1">Student</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment2" />
+                                <label for="employment2">Part-time</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment3" />
+                                <label for="employment3">Full-time</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment4" />
+                                <label for="employment4">Unemployed</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment5" />
+                                <label for="employment5">Homemaker</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment6" />
+                                <label for="employment6">Self-employed</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="employment" id="employment7" />
+                                <label for="employment7">Retired</label>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>                
+                        <label for="income">How much is your income?</label>
+                        <input type="tel" id="income" />
+                    </li>
+                    <li>
+                        <label for="additionalIncome">Is there additional income going to anyone else in the house?</label>
+                        <input type="tel" id="additionalIncome" />
+                    </li>
+                    <li>
+                        <button data-step="9" class="nextStep">Save and continue</button>
+                    </li>
+                </ol>
+                
+            </fieldset>
+            <fieldset>
+                <ol>
+                    <li>
+                        <p>What's you marital status?</p>
+                        <ol class="chunk">
+                            <li>
+                                <input type="radio" name="maritalStatus" id="maritalStatus0" />
+                                <label for="maritalStatus0">Single</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="maritalStatus" id="maritalStatus1" />
+                                <label for="maritalStatus1">Married</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="maritalStatus" id="maritalStatus2" />
+                                <label for="maritalStatus2">Living with partner</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="maritalStatus" id="maritalStatus3" />
+                                <label for="maritalStatus3">Divorced</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="maritalStatus" id="maritalStatus4" />
+                                <label for="maritalStatus4">Widowed</label>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>How many people depend on you financially?</p>
+                        <ol class="chunk">
+                            <li>
+                                <input type="radio" name="dependants" id="dependants0" />
+                                <label for="dependants0">0</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="dependants" id="dependants1" />
+                                <label for="dependants1">1</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="dependants" id="dependants2" />
+                                <label for="dependants2">2</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="dependants" id="dependants3" />
+                                <label for="dependants3">3</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="dependants" id="dependants4" />
+                                <label for="dependants4">4+</label>
+                            </li>
+                        </ol>
+                    <li>
+                    <li>
+                        <button data-step="finish" class="nextStep">Save and continue</button>
+                    </li>
+                </ol>
+            </fieldset>
+        </section>
+        <section>
+            <dl>
+                <dt>Name</dt>
+                <dd>Mr Julian Lennon</dd>
+                <dt>Date of birth</dt>
+                <dd>11.05.1991</dd>
+                <dt>Addresses</dt>
+                <dd>11 Frederick Street, Latchford, Warrington, Cheshire WA41HX</dd>
+                <dd>1 Dove Close, Oakwood, Warrington, Cheshire WA36QH</dd>
+                <dt>Residential status</dt>
+                <dd>Private Tenant</dd>
+                <dt>Monthly Rent</dt>
+                <dd>&pound;630</dd>
+                <dt>Employment Status</dt>
+                <dd>Part time</dd>
+                <dt>Annual income</dt>
+                <dd>&pound;15,000</dd>
+                <dt>Other income</dt>
+                <dd>&pound;0</dd>
+                <dt>Marital status</dt>
+                <dd>Single</dd>
+                <dt>Financial dependants</dt>
+                <dd>0</dd>
+            </dl>
+            <button class="next">Find my score and report</button>
+        </section>
+        <script>
+            function ajax(url, callback) {
+                var request = new XMLHttpRequest();
+                request.open("GET", url, true);
+                request.setRequestHeader("Content-type", "application/json");
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200) {
+                        var response = JSON.parse(request.responseText);
+                        callback(response);
+                    }
+                }
+                request.send();
+            };
+            
+            var addressResults = document.getElementById('addressResults');
+            var addressReplay = document.getElementById('addressReplay');
+            
+            var updateResultsList = function(data){
+                addressResults.innerHTML = '';
+                data.Items.forEach(function(d){
+                    var addressText = d.Text + ', ' + d.Description;
+                    var li = document.createElement('li');
+                    li.innerHTML = addressText;
+                    addressResults.appendChild(li);
+                    li.addEventListener('click',function(){
+                        addressResults.innerHTML = '';
+                        addressReplay.innerHTML = addressText;
+                    });
+                });
+            };
+            
+            document.getElementById('addressLookup').addEventListener('keyup',function(){
+                var logResponse = function(data){
+                    console.log(data);
+                    updateResultsList(data);
+                };
+                
+                var currentVal = this.value;
+                var val = currentVal.replace(/ /g, "%20");
+                ajax('http://services.postcodeanywhere.co.uk/Capture/Interactive/Find/v1.00/json3ex.ws?Key=HB29-TE85-XZ17-ER17&Text='+ val +'%2C&Origin=GBR&Language=en&Container=&Filter=undefined&Instance=null&Test=false&$block=true&$cache=true&SOURCE=PCA-SCRIPT',logResponse);
+            });
+            
+            var userData = {};
+            console.log(userData);
+            
+            var updateUserData = function(k,v){
+                userData[k] = v;
+                console.log(userData);
+                
+            }
+            
+            var inputs = document.body.querySelectorAll('input');
+            console.log(inputs);
+            inputs.forEach(function(el){
+                el.addEventListener('change',function(){
+                    var elRef = el.id;
+                    if( el.type === 'radio' ){
+                       elRef = el.name;
+                    }
+                    updateUserData(elRef,el.value);
+                })
+            });
+            
+            var selects = document.body.querySelectorAll('select');
+            selects.forEach(function(el){
+                el.addEventListener('change',function(){
+                    console.log(el.value);
+                    updateUserData(el.id,el.value);
+                })
+            });
+            
+            var nextButtons = document.body.querySelectorAll('.next');
+            
+            nextButtons.forEach(function(el){
+                el.addEventListener('click',function(){
+                    console.log('Next');
+                    document.body.classList.add('started');
+                });
+            });
+            
+            var nextSteps = document.body.querySelectorAll('.nextStep');
+            
+            nextSteps.forEach(function(el){
+                el.addEventListener('click',function(){
+                    console.log('Next');
+                    document.body.className = 'started step' + this.getAttribute('data-step');
+                });
+            });
+            
+            setTimeout(function(){
+                document.body.classList.remove('loading');
+            },3000);
+            
+            document.getElementById('start').addEventListener('click',function(){
+                document.body.querySelectorAll('.userName').forEach(function(el){
+                    el.textContent = document.getElementById('userName').value;
+                });
+                
+            });
+            
+            document.getElementById('googleSignIn').addEventListener('click',function(){
+               confirm('"Phoenix" wants to use Google to sign in.'); 
+            });
+            
+            
+//            
+//            document.body.querySelectorAll('input').addEventListener('blur',function(){
+//                console.log(this.value);
+//            });
+        </script>
+    </body>
+</html>

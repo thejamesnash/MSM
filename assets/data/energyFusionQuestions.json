@@ -1,0 +1,840 @@
+{
+    "groupings": [
+        {
+            "questionGrouping": "YourPersonalDetails",
+            "questionGroupLabel": "Your personal details",
+            "questions": [
+                {
+                    "type": "list",
+                    "id": "title",
+                    "attributes": {
+                        "title": "Title"
+                    },
+                    "options": [
+                        {
+                            "id": 337,
+                            "value": "Mr"
+                        },
+                        {
+                            "id": 338,
+                            "value": "Mrs"
+                        },
+                        {
+                            "id": 339,
+                            "value": "Miss"
+                        },
+                        {
+                            "id": 340,
+                            "value": "Ms"
+                        },
+                        {
+                            "id": 341,
+                            "value": "Dr"
+                        },
+                        {
+                            "id": 342,
+                            "value": "Professor"
+                        },
+                        {
+                            "id": 343,
+                            "value": "Lord"
+                        },
+                        {
+                            "id": 344,
+                            "value": "Lady"
+                        },
+                        {
+                            "id": 345,
+                            "value": "Sir"
+                        },
+                        {
+                            "id": 346,
+                            "value": "Reverend"
+                        },
+                        {
+                            "id": 347,
+                            "value": "Dame"
+                        },
+                        {
+                            "id": 348,
+                            "value": "Rt Hon"
+                        },
+                        {
+                            "id": 349,
+                            "value": "Sister"
+                        }
+                    ]
+                },
+                {
+                    "type": "name",
+                    "id": "name",
+                    "attributes": {
+                      "title": "Name"
+                    },
+                    "fields": {
+                        "firstName": {
+                            "constraints": {
+                                "minLength": 2,
+                                "maxLength": 50
+                            },
+                            "defaultValue": "John",
+                            "placeholder": "First name"
+                        },
+                        "surname": {
+                            "constraints": {
+                                "minLength": 2,
+                                "maxLength": 50
+                            },
+                            "defaultValue": "Smith",
+                            "placeholder": "Surname"
+                        }
+                    }
+                },
+                {
+                    "type": "address",
+                    "id": "supplyAddress",
+                    "attributes": {
+                        "title": "Supply Address"
+                    },
+                    "addressDetails": {
+                        "organisation": "Soft Packaging Ltd",
+                        "department": "Example",
+                        "poBox": "Example",
+                        "buildingName": "Moneysupermarket House",
+                        "buildingNumber": "1",
+                        "subBuildingName": "Example",
+                        "thoroughfare": "St. Davids Park",
+                        "dependentThoroughfare": "Example",
+                        "dependentLocality": "Example",
+                        "doubleDependentLocality": "Example",
+                        "postTown": "Deeside",
+                        "county": "Clwyd",
+                        "countryCode": "GB",
+                        "postcode": "CH5 3UZ",
+                        "udprn": "04636704",
+                        "umrrn": "12345678",
+                        "isNotYetBuilt": false,
+                        "addressProviderId": 3,
+                        "addressOriginId": 1
+                    },
+                    "displayText": "Soft Packaging Ltd, Example, Po Box Example, Example, Moneysupermarket House, 1, Example, St. Davids Park, Example, Example, Deeside, Clwyd, CH5 3UZ"
+                },
+                {
+                    "type": "list",
+                    "id": "employmentStatus",
+                    "attributes": {
+                        "title": "Employment Status",
+                        "additionalInformation": "The following information is needed for the provider to complete their credit checks."
+                    },
+                    "options": [
+                        {
+                            "id": 15,
+                            "value": "Full time"
+                        },
+                        {
+                            "id": 16,
+                            "value": "Part time"
+                        },
+                        {
+                            "id": 17,
+                            "value": "Self employed"
+                        },
+                        {
+                            "id": 18,
+                            "value": "Retired"
+                        },
+                        {
+                            "id": 19,
+                            "value": "Student"
+                        },
+                        {
+                            "id": 20,
+                            "value": "Houseparent"
+                        },
+                        {
+                            "id": 21,
+                            "value": "Unemployed"
+                        }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "id": "residentialStatus",
+                    "attributes": {
+                        "title": "Residential Status"
+                    },
+                    "options": [
+                        {
+                            "id": 10,
+                            "value": "Home Owner"
+                        },
+                        {
+                            "id": 11,
+                            "value": "Tenant"
+                        },
+                        {
+                            "id": 13,
+                            "value": "Council Tenant"
+                        },
+                        {
+                            "id": 14,
+                            "value": "Landlord"
+                        }
+                    ]
+                },
+                {
+                    "type": "priorityServiceNeeds",
+                    "id": "priorityServiceNeeds",
+                    "attributes": {
+                        "title": "Do you have special needs, such as visual or hearing impairment?",
+                        "helpText": "If you have any special needs notifying the supplier will help them understand the most suitable way to contact you",
+                        "additionalText": "Do you agree with MSM sharing your priority services needs details with the provider?"
+                    },
+                    "selectDisability": true,
+                    "askForConsentToShare": true,
+                    "askForMultiplePriorityServiceNeeds": true,
+                    "list": {
+                        "attributes": {
+                            "title": "Can you give an indication of these special needs?",
+                            "additionalInformation": "The following information is needed for the provider to complete their credit checks."
+                        },
+                        "options": [
+                            {
+                                "id": 121,
+                                "value": "Nebuliser"
+                            },
+                            {
+                                "id": 122,
+                                "value": "Heart/Lung machine"
+                            },
+                            {
+                                "id": 123,
+                                "value": "Kidney Dialysis"
+                            },
+                            {
+                                "id": 124,
+                                "value": "Oxygen Concentrator"
+                            },
+                            {
+                                "id": 125,
+                                "value": "Ventilator"
+                            },
+                            {
+                                "id": 126,
+                                "value": "Apnoea monitor"
+                            },
+                            {
+                                "id": 127,
+                                "value": "Other Medical dependency on electricity"
+                            },
+                            {
+                                "id": 128,
+                                "value": "Blind"
+                            },
+                            {
+                                "id": 129,
+                                "value": "Partial sighted/Poor Sight"
+                            },
+                            {
+                                "id": 130,
+                                "value": "Deaf"
+                            },
+                            {
+                                "id": 131,
+                                "value": "Hearing Impaired/Poor Hearing"
+                            },
+                            {
+                                "id": 132,
+                                "value": "Stair Lift"
+                            },
+                            {
+                                "id": 133,
+                                "value": "Bath Hoist"
+                            },
+                            {
+                                "id": 134,
+                                "value": "Elderly (60+)"
+                            },
+                            {
+                                "id": 135,
+                                "value": "Disabled"
+                            },
+                            {
+                                "id": 136,
+                                "value": "Speech Difficulties/ Poor Speech"
+                            },
+                            {
+                                "id": 137,
+                                "value": "Foreign Language Speaker"
+                            },
+                            {
+                                "id": 138,
+                                "value": "Learning Difficulties/ Mental Handicap"
+                            },
+                            {
+                                "id": 139,
+                                "value": "Restricted Movement/ Poor Walking"
+                            },
+                            {
+                                "id": 140,
+                                "value": "Dementia/ Confused"
+                            },
+                            {
+                                "id": 141,
+                                "value": "Other"
+                            },
+                            {
+                                "id": 142,
+                                "value": "Braille User"
+                            },
+                            {
+                                "id": 143,
+                                "value": "Poor Sense of Smell"
+                            },
+                            {
+                                "id": 144,
+                                "value": "Arthritic Hands"
+                            },
+                            {
+                                "id": 145,
+                                "value": "Arthritic All"
+                            },
+                            {
+                                "id": 146,
+                                "value": "Wheelchair"
+                            },
+                            {
+                                "id": 147,
+                                "value": "Bedridden"
+                            },
+                            {
+                                "id": 148,
+                                "value": "Serious Illness"
+                            },
+                            {
+                                "id": 149,
+                                "value": "Heart Condition"
+                            },
+                            {
+                                "id": 150,
+                                "value": "Breathing Difficulty"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "email",
+                    "id": "emailAddress",
+                    "defaultValue": "email@moneysupermarket.com",
+                    "attributes": {
+                        "title": "Email Address",
+                        "helpText": "An incorrect email address may lead to your application failing.",
+                        "additionalInformation": "This email address will be used by the supplier to confirm and activate your application. Please make sure it's correct.",
+                        "placeholder": "test@test.com"
+                    },
+                    "constraints": {
+                        "minLength": 6,
+                        "maxLength": 50
+                    }
+                },
+                {
+                    "type": "email",
+                    "id": "confirmEmailAddress",
+                    "attributes": {
+                        "title": "Confirm Email Address",
+                        "helpText": "An incorrect email address may lead to your application failing.",
+                        "additionalInformation": "This email address will be used by the supplier to confirm and activate your application. Please make sure it's correct.",
+                        "placeholder": "test@test.com"
+                    },
+                    "constraints": {
+                        "minLength": 6,
+                        "maxLength": 50
+                    },
+                    "confirmFieldId": "emailAddress"
+                },
+                {
+                    "type": "telephoneNumber",
+                    "id": "telephoneNumber",
+                    "defaultValue": "01234567890",
+                    "attributes": {
+                        "title": "Telephone Number",
+                        "helpText": "Your new supplier needs your telephone number in case it needs to speak to you about your application.",
+                        "placeholder": "01632960540"
+                    },
+                    "constraints": {
+                        "minLength": 1,
+                        "maxLength": 11
+                    }
+                }
+            ]
+        },
+        {
+            "questionGrouping": "SecurityQuestions",
+            "questionGroupLabel": "Security questions",
+            "questions": [
+                {
+                    "type": "securityQuestionDOB",
+                    "id": "dob",
+                    "attributes": {
+                        "title": "Date of Birth",
+                        "additionalInformation": "For example: 30/10/1984"
+                    }
+                },
+                {
+                    "type": "securityQuestionMaidenName",
+                    "id": "maidenName",
+                    "attributes": {
+                        "title": "Mother's Maiden Name",
+                        "helpText": "This will be used to verify who you are when you need to contact your provider."
+                    },
+                    "constraints": {
+                        "minLength": 0,
+                        "maxLength": 50
+                    }
+                },
+                {
+                    "type": "securityQuestionPassword",
+                    "id": "password",
+                    "attributes": {
+                        "title": "Password (between 6 and 8 characters, letters or numbers only)"
+                    }
+                },
+                {
+                    "type": "securityQuestionPassword",
+                    "id": "confirmPassword",
+                    "confirmFieldId": "password",
+                    "attributes": {
+                        "title": "Confirm Password"
+                    }
+                },
+                {
+                    "type": "list",
+                    "id": "securityQuestion",
+                    "attributes": {
+                        "title": "Security Question"
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "What would be your superpower if you had one?"
+                        },
+                        {
+                            "id": 2,
+                            "value": "If you could meet a famous person who would it be?"
+                        },
+                        {
+                            "id": 3,
+                            "value": "What was your favourite place to visit as a child?"
+                        },
+                        {
+                            "id": 4,
+                            "value": "Who is your greatest hero of all time?"
+                        },
+                        {
+                            "id": 5,
+                            "value": "What was your dream job as a child?"
+                        },
+                        {
+                            "id": 6,
+                            "value": "What was the name of your first pet?"
+                        },
+                        {
+                            "id": 7,
+                            "value": "What is your Mother’s maiden name?"
+                        }
+                    ]
+                },
+                {
+                    "type": "securityQuestionAnswer",
+                    "id": "securityQuestionAnswer",
+                    "attributes": {
+                        "title": "Security Answer"
+                    },
+                    "constraints": {
+                        "minLength": 1,
+                        "maxLength": 50
+                    }
+                }
+            ]
+        },
+        {
+            "questionGrouping": "MeterInformation",
+            "questionGroupLabel": "Meter information",
+            "questions": [
+                {
+                    "type": "mpan",
+                    "id": "mpanInformation",
+                    "defaultValue": "1300008733858",
+                    "attributes": {
+                        "title": "Your MPAN number:",
+                        "helpText": "An MPAN (Meter Point Administration Number) is a unique reference number for your property which can be found on your meter or bill. To complete your application, we need the core 13 digits across the bottom which act as your Supply Number. NOTE: This is not to be confused with your customer reference number. MPAN example (image) If you can't locate your MPAN, please contact your electricity supplier. Note: this number is for reference and should not be used in your application."
+                    },
+                    "constraints": {
+                        "minLength": 13,
+                        "maxLength": 13
+                    }
+                },
+                {
+                    "type": "mprn",
+                    "id": "mprnInformation",
+                    "defaultValue": "1301003858",
+                    "attributes": {
+                        "title": "Your MPRN number:",
+                        "helpText": "The MPRN (or meter point reference number) is the number you need to change your gas supplier. Each property in the UK that has a mains gas supply has an MPRN number. You can find this on your bills and is around 6 - 10 digits long. MPRN example (image) If you can't locate your MPRN, you can call the Meter Number Helpline on 0870 608 1524. Note: this number is for reference purposes and should not be used in your application."
+                    },
+                    "constraints": {
+                        "minLength": 6,
+                        "maxLength": 10
+                    }
+                },
+                {
+                    "type": "supplierMessaging",
+                    "id": "doYouHaveASmartMeter",
+                    "attributes": {
+                        "title": "Do you have a Smart Meter?",
+                        "helpText": "We've pre-filled your meter reference numbers from the information held about your property on the national database. If these don't match your energy bills, you can amend the numbers below."
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "Yes",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 2,
+                            "value": "Don't Know",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 3,
+                            "value": "No",
+                            "message": "",
+                            "selected": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionGrouping": "AdditionalInformation",
+            "questionGroupLabel": "Additional information",
+            "questions": [
+                {
+                    "type": "supplierMessaging",
+                    "id": "hasGreenDeal",
+                    "attributes": {
+                        "title": "Do you have a Green Deal?",
+                        "helpText": "The Green Deal is a recently launched Government scheme offering a new way to pay for energy efficiency upgrades to your home via a loan where repayments are taken through your current electricity bill."
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "Yes",
+                            "message": ""
+                        },
+                        {
+                            "id": 2,
+                            "value": "No",
+                            "selected": true,
+                            "message": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "confirm",
+                    "id": "serviceContractByEmail",
+                    "attributes": {
+                        "title": "Can E.ON use your e-mail address to send you details about important changes to your account, such as Direct Debit, price changes and contract information?",
+                        "helpText": "E.ON will send you an e-mail with full details of this service including how to opt out should you change your mind.",
+                        "selected": true
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "eonPriceAlertSchemeOptIn",
+                    "attributes": {
+                        "title": "Do you want to join the EON Price Alert Scheme?"
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "eonRewardsSchemeOptIn",
+                    "attributes": {
+                        "title": "Do you want to join the EON Rewards Scheme?"
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "mainsGasSupply",
+                    "attributes": {
+                        "title": "Does your address have a mains gas supply?",
+                        "selected": true
+                    }
+                },
+                {
+                    "type": "supplierMessaging",
+                    "id": "doYouHaveElectricitySmartMeter",
+                    "attributes": {
+                        "title": "Electricity Smart Meter?",
+                        "helpText": "Smart Meters are a new kind of energy meter, Smart Meters are a replacement for your existing meters, they send automatic meter readings to your supplier without the need for a visit to your property. There are several variations of Smart Meters available",
+                        "selected": false,
+                        "additionalInformation": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "Yes",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 2,
+                            "value": "Don't Know",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 3,
+                            "value": "No",
+                            "message": "",
+                            "selected": true
+                        }
+                    ]
+                },
+                {
+                    "type": "supplierMessaging",
+                    "id": "doYouHaveGasSmartMeter",
+                    "attributes": {
+                        "title": "Gas Smart Meter?",
+                        "helpText": "Smart Meters are a new kind of energy meter, Smart Meters are a replacement for your existing meters, they send automatic meter readings to your supplier without the need for a visit to your property. There are several variations of Smart Meters available",
+                        "selected": false,
+                        "additionalInformation": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "Yes",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 2,
+                            "value": "Don't Know",
+                            "message": "NOTE: At the moment, smart meters aren't always compatible with different suppliers, which means if you switch to another supplier, your smart meter could lose some of its ‘smart’ functionality. However, all this means is that you'd have to go back to manually providing meter readings to your new supplier. Other ‘smart’ functions, such as in-home display of energy use, should still work."
+                        },
+                        {
+                            "id": 3,
+                            "value": "No",
+                            "message": "",
+                            "selected": true
+                        }
+                    ]
+                },
+                {
+                    "type": "confirm",
+                    "id": "contactByText",
+                    "attributes": {
+                        "title": "Text",
+                        "selected": false
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "contactByEmail",
+                    "attributes": {
+                        "title": "Email",
+                        "selected": false,
+                        "additionalInformation": "Would you like to receive correspondence about your switch by email and/ or text message, to allow E.ON to get in touch with you quickly and easily? E.ON may also use these details to write to you about your account once your switch is complete"
+                    }
+                },
+                {
+                    "type": "consent",
+                    "id": "creditCheckConsent",
+                    "attributes": {
+                        "title": "Can E.ON use your e-mail address to send you details about important changes to your account, such as Direct Debit, price changes and contract information?",
+                        "helpText": "I give consent for E.ON to perform a credit check as part of this application.",
+                        "selected": true,
+                        "additionalInformation": "So that EON can make a decision about the products and services they offer, they may perform a credit check. To do this EON will check their own records, and those of credit reference and fraud prevention agencies. The credit reference agency will register a record of this search, which may be seen by other lenders. EON may also provide your payment performance details to a credit reference agency. Click to view the full terms and conditions. {termsAndConditionsLink}",
+                        "links": [
+                            {
+                                "name": "termsAndConditionsLink",
+                                "url": "https://termsandconditions.wibble",
+                                "label": "Click to view the full terms and conditions"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "marketingOptIn",
+                    "attributes": {
+                        "title": "For marketing purposes, tick if you wish to receive further mail, email and marketing information from your chosen supplier.",
+                        "selected": true
+                    }
+                },
+                {
+                    "id": "coopmembership",
+                    "type": "coopMembershipCardNumber",
+                    "attributes": {
+                        "title": "Are you a Co-operative member?",
+                        "additionalInformation": "Register for a Co-operative membership?",
+                        "infoBox": "Click the tick box and we will register you for the Co-operative membership, so you can start earning points, and take advantage of exclusive offers."
+                    },
+                    "constraints": {
+                        "minLength": 18,
+                        "maxLength": 18
+                    }
+                }
+            ]
+        },
+        {
+            "questionGrouping": "MarketingPreferences",
+            "questions": [
+                {
+                    "type": "confirm",
+                    "id": "phoneOptIn",
+                    "attributes": {
+                        "title": "Opt in phone",
+                        "selected": false
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "textOptIn",
+                    "attributes": {
+                        "title": "Opt in text",
+                        "selected": false
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "mailOptIn",
+                    "attributes": {
+                        "title": "Opt in mail",
+                        "selected": false
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "emailOptIn",
+                    "attributes": {
+                        "title": "Opt in email",
+                        "selected": false
+                    }
+                },
+                {
+                    "type": "confirm",
+                    "id": "thirdPartyOptIn",
+                    "attributes": {
+                        "title": "I am happy to receive details of offers, discounts, products and services provided by First Utility’s trusted partners by post, email, telephone, SMS and/or social media: Please untick this box if you do not wish to receive such information.",
+                        "selected": true
+                    }
+                }
+            ]
+        },
+        {
+            "questionGrouping": "BillingInformation",
+            "questionGroupLabel": "Billing information",
+            "questions": [
+                {
+                    "type": "directDebit",
+                    "id": "directDebit",
+                    "attributes": {
+                        "additionalInformation": "You indicated that you would like to pay your bills via Monthly Direct Debit. Please provide the details of the bank account you would like to use, so Dummy Provider can set this up with your bank directly."
+                    },
+                    "paymentInfo": "Your first direct debit will be taken on the date you requested, once your supply has started. If your supply starts before your requested payment date, your first payment will be taken in the same month. If your supply starts after your requested payment date, your first payment will be taken in the following month.Based on the details you gave us, we’ve estimated your monthly direct debit will be £62.13.(Gas: £31.06, Electricity: £31.07).Your supplier will confirm this payment to you. The figure can change once you start giving regular meter readings.",
+                    "directDebitGuarantee": "This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits.",
+                    "securityText": {
+                      "text": "Our site is protected by GlobalSign the latest in Internet security standards, to ensure that any data you send to us online is secure. You can rest assured that the information you supply is encrypted and cannot be read by anyone else. We are committed to protecting your privacy. Read our {privacypolicy} and shop online with confidence.",
+                      "links": [
+                        {
+                          "name": "privacypolicy",
+                          "url": "http://www.moneysupermarket.com/legal/PrivacyPolicy.asp",
+                          "label": "Privacy Policy"
+                        }
+                      ]
+                    },
+                    "fields": {
+                        "bankAccountName": {
+                            "constraints": {
+                                "minLength": 1,
+                                "maxLength": 20
+                            }
+                        },
+                        "sortCode": {
+                            "constraints": {
+                                "minLength": 6,
+                                "maxLength": 6
+                            }
+                        },
+                        "accountNumber": {
+                            "constraints": {
+                                "minLength": 8,
+                                "maxLength": 8
+                            }
+                        },
+                        "directDebitPayOfMonth": {
+                            "constraints": {
+                                "minValue": 1,
+                                "maxValue": 28
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "billingAddressAndHistory",
+                    "id": "addressDetails",
+                    "attributes": {
+                        "title": "Because you've lived here for less than 3 years, we require a previous address.",
+                        "helpText": "Enter your postcode. Click on 'find address' and your address will either be displayed directly below or you will be asked to select your address from the dropdown box."
+                    },
+                    "billingAddress": {
+                        "askIfDifferentToSupplyAddress": true
+                    },
+                    "history": {
+                        "capture": false
+                    }
+                },
+                {
+                    "type": "supplierMessaging",
+                    "id": "paperlessBilling",
+                    "attributes": {
+                        "title": "Do you prefer paperless billing? (Does not apply to WebSaver tariffs).",
+                        "helpText": "Paperless billing allows you to view your energy statements online."
+                    },
+                    "options": [
+                        {
+                            "id": 1,
+                            "value": "Yes",
+                            "message": "",
+                            "selected": true
+                        },
+                        {
+                            "id": 2,
+                            "value": "No",
+                            "message": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionGrouping": "NextSteps",
+            "questionGroupLabel": "What's next?",
+            "questions": [
+                {
+                    "type": "termsAndConditions",
+                    "id": "termsAndConditions",
+                    "attributes": {
+                        "title": "By selecting Proceed to switch you are agreeing to Dummy terms and conditions with an obligation to pay for your energy.",
+                        "cancellationTerms": "You have the right to cancel within 14 days from the day after you have submitted your application to Dummy Energy."
+                    }
+                },
+                {
+                    "type": "whatsNext",
+                    "id": "whatsNextAdditionalInformation",
+                    "attributes": {
+                        "title": "Your application will be sent to EDF Energy, who will get in touch within 10 days to confirm your details. EDF Energy will also start the switching process and will contact you if any further details are required."
+                    }
+                }
+            ]
+        }
+    ]
+}

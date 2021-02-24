@@ -1,0 +1,169 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Address and reg lookup</title>
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+</head>
+<!--  -->
+<body>
+    <main>
+        <form class="central-form">
+            <h1 class="form-title">API connections</h1>
+            <fieldset>
+                <ol>
+                    <li>
+                        <div>
+                            <label for="">Start a mortgage enquiry</label>
+                        </div>
+                        <div>
+                            <button id="mortgageBtn" class="btn">Get enquiry ID</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label for="postcode">Enter your postcode</label>
+                        </div>
+                        <div class="form-address-lookup">
+                            <input type="text" id="postcode" placeholder="e.g. CH53UZ" value="ch620be"/>
+                            <button id="addressBtn" class="btn">Find address</button>
+                        </div>
+                        <div class="api-replay"></div>
+                    </li>
+                    <li>
+                        <div>
+                            <label for="reg">Enter your registration number</label>
+                        </div>
+                        <div class="form-address-lookup">
+                            <input type="text" id="reg" placeholder="e.g. LWR82H" value="lwr82h"/>
+                            <button id="vehicleBtn" class="btn">Find vehicle</button>
+                        </div>
+                        <div class="vehicle-replay"></div>
+                    </li>
+                </ol>
+            </fieldset>
+        </form>
+    </main>
+    <script>
+        // This defines your AJAX function. 
+        var ajax = function (method, url, data, callback, noproxy) {
+            var request = new XMLHttpRequest();
+            request.open(method, url, true);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    callback(response);
+                }
+            }
+            request.send();
+        };
+        // This is your address function
+        var getAddressFromPostcode = function () {
+            // Gets the address input element
+            var addressInput = document.getElementById('postcode');
+            // Sets the proxy address with the postcode value appended
+            var proxyRef = 'https://jamesnash-trial-prod.apigee.net/msmcreditcards/gb/reference-data/v0/addresses?postcode=' + addressInput.value;
+            // Gets the list wrapper element to stick your results in 
+            var apiReplay = addressInput.parentElement.nextElementSibling;
+            // Updates the list of results in your list wrapper element. 
+            var updateReplay = function (obj) {
+                // If you want to hide your initial inputs, you'd do it here 
+                // Resets the content of the list wrapper
+                apiReplay.innerHTML = '';
+                // Makes a new list element
+                var ol = document.createElement('ol');
+                // Adds the list element to the list wrapper
+                apiReplay.appendChild(ol);
+                // For each item in the returned data from the API do something
+                obj.items.forEach(function (d) {
+                    // Create a list item
+                    var li = document.createElement('li');
+                    // Add content to the list item
+                    li.innerHTML = d.buildingNumber + ' ' + d.thoroughfare + ', ' + d.postTown + ', ' + d.county;
+                    // Add the list item to the list
+                    apiReplay.appendChild(li);
+                    // Add an optional event to the list item
+                    li.addEventListener('click', function (evt) {
+                        evt.preventDefault();
+                        // Do something with your data or your element here
+                        // If you want to show your initial inputs, you'd do it here
+                    });
+                });
+            };
+            // Makes the proxy call and fires the updateReplay function if successful
+            ajax('GET', proxyRef, null, updateReplay);
+        };
+        
+        var startMortgageEnquiry = function(){
+            //var proxyRef = 'https://jamesnash-trial-prod.apigee.net/msmcreditcards/gb/aggregation/v1/mortgages/enquiries';
+            var proxyRef = 'https://www.moneysupermarket.com/bin/services/aggregation?channelId=55&enquiryId=edc4c346-131b-4ffd-8d61-ada272a4b7fc&limit=20&offset=0&sort=initialMonthlyPayment';
+            var bodyStr = '{"apiClientId": "string","systemGenerated": true,"user": {"accountId": "string","ip": "string","source": "string","userId": "string","anonymous": true,"sessionId": "string"},"brandFilter": {"type": "INCLUDE","brands": ["string"]},"payload": {"@class": "com.moneysupermarket.mortgages.entity.MortgagesEnquiryPayload","term": 0,"propertyValue": 0,"amountToBorrow": 0,"mortgageRepaymentTypeId": 0,"mortgagesTypeIds": [0],"mortgageRepaymentPeriodIds": [0],"mortgageBorrowerTypeId": 0}}';
+            var body = JSON.stringify(bodyStr);
+            var logResponse = function(data){
+                console.log(data);
+            };
+            ajax('GET', proxyRef, null, logResponse);
+        };
+        
+        
+        // This fires your address function on click
+        document.getElementById('addressBtn').addEventListener('click', function (evt) {
+            evt.preventDefault();
+            getAddressFromPostcode();
+        });
+        
+        
+        
+        // Vehicle lookup
+        var getVehicleFromReg = function (reg) {
+            var regInput = document.getElementById('reg');
+            var proxyRef = 'https://jamesnash-trial-prod.apigee.net/msmcreditcards/gb/reference-data/v0/vehicles?registrationNumber=' + regInput.value;
+            
+            // Gets the list wrapper element to stick your results in 
+            var apiReplay = regInput.parentElement.nextElementSibling;
+            // Updates the list of results in your list wrapper element. 
+            var updateReplay = function (obj) {
+                // If you want to hide your initial inputs, you'd do it here 
+                // Resets the content of the list wrapper
+                apiReplay.innerHTML = '';
+                // Makes a new list element
+                var ol = document.createElement('ol');
+                // Adds the list element to the list wrapper
+                apiReplay.appendChild(ol);
+                
+                // For each item in the returned data from the API do something
+                obj.vehicles.forEach(function (d) {
+                    console.log(d);
+                    // Create a list item
+                    var li = document.createElement('li');
+                    // Add content to the list item
+                    li.innerHTML = d.makeName + ' ' + d.modelName + ', ' + d.variantName + ', ' + d.engineCC + 'cc';
+                    // Add the list item to the list
+                    apiReplay.appendChild(li);
+                    // Add an optional event to the list item
+                    li.addEventListener('click', function (evt) {
+                        evt.preventDefault();
+                        // Do something with your data or your element here
+                        // If you want to show your initial inputs, you'd do it here
+                    });
+                });
+            };
+            ajax('GET', proxyRef, null, updateReplay);
+        };
+        
+        // This fires your reg lookup function on click
+        document.getElementById('vehicleBtn').addEventListener('click', function (evt) {
+            evt.preventDefault();
+            getVehicleFromReg();
+        });
+        
+        
+        document.getElementById('mortgageBtn').addEventListener('click', function (evt) {
+            evt.preventDefault();
+            startMortgageEnquiry();
+        });
+    </script>
+</body>
+
+</html>

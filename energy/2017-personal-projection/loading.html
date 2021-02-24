@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>Energy - Personal projection</title>
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="../../assets/css/global.css" type="text/css">
+        <style>
+            .loading-panel {
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #EBF0F2;
+                z-index: 4;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .loading-panel header {
+                padding: 0 20px;
+                margin-top: -70px;
+            }
+            .loading-panel header h1 {
+                font: normal 26px/1 'Montserrat';
+                letter-spacing: -1px;
+                color: #562873;
+                padding: 0 0 10px;
+            }
+            .loading-panel header p {
+                font-size: 16px;
+                line-height: 1.4;
+                color: #566266;
+                display: block;
+                padding-bottom: 7px;
+            }
+            .loading-panel header strong {
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 1.5;
+                color: #411e56;
+                display: block;
+            }
+            	
+
+            .loading-panel .loading-status {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100vw;
+                background-color: rgba(0, 87, 120, 0.8);
+                color: #FFF;
+                padding: 0 0 14px;
+            }
+            .loading-panel .loading-status h1 {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1;
+                padding: 14px 0 8px;
+                margin: 0;
+            }
+            .loading-panel .loading-status p {
+                font-weight: bold;
+            }
+            .loading-panel .loading-status progress {
+                margin: 0 20px;
+                width: calc(100vw - 40px);
+                -webkit-appearance: none;
+                height: 11px;
+            }
+            .loading-panel .loading-status progress::-webkit-progress-bar {
+                background-color: #005778;
+                height: 11px;
+                border-radius: 11px;
+            }
+            .loading-panel .loading-status progress::-webkit-progress-value {
+                background-color: #33bef2;
+                height: 11px;
+                border-radius: 11px;
+            }
+            .loading-panel .loading-status progress:after {
+                display: block;
+                content: attr(value) "%";
+                font-size: 14px;
+                line-height: 1;
+                font-weight: bold;
+                padding-top: 8px;
+                transition: all 0.2s linear;
+            }
+            
+            .chart {
+                display: flex;
+                align-items: flex-end;
+                flex-wrap: nowrap;
+                width: 100%;
+                background-color: #EBF0F2;
+                height: 200px;
+                margin: 70px 0 0 0;
+                padding: 0 28px;
+                position: relative;
+                box-sizing: border-box;
+                
+            }
+            .chart b {
+                background-color: #bba9c7;
+                display: block;
+                border-right: 1px solid #EBF0F2;
+                height: 0;
+                flex-grow: 1;
+                position: relative;
+                padding-bottom: 10px;
+                transition: height 0.2s ease-in-out;
+            }
+            .chart b.dark {
+                background-color: #562873;
+            }
+            .chart b.current {
+                background-color: #562873;
+/*                background-color: red;*/
+            }
+            
+            .chart b.current:before {
+                position: absolute;
+                top: -70px;
+                left: 50%;
+                margin-left: -22px;
+                content: 'Your current tariff';
+                width: 44px;
+	               height: 46px;
+	               font-size: 10px;
+                font-weight: bold;
+                line-height: 1.1;
+                text-align: center;
+                color: #411e56;
+                z-index: 10;
+                box-shadow: 0 0 1px 0 #dfe3e5;
+                background-color: #FFF;
+                border-radius: 44px;
+                padding-top: 6px;
+                box-sizing: border-box;
+            }
+            .chart b.current:after {
+                content: '';
+                position: absolute;
+                top: -32px;
+                left: 50%;
+                margin-left: -16px;
+                width: 0;
+                height: 0;
+                z-index: 11;
+                background-color: transparent;
+                border-radius: 0;
+                box-sizing: border-box;
+                border: 2px solid #FFF;
+                border-color: #FFF transparent transparent;
+                border-width: 22px 16px 0px 16px;
+            }
+
+            .chart .legend {
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 1.5;
+                text-align: center;
+                display: block;
+                position: absolute;
+                bottom: -42px;
+                width: 56px;
+                color: #562873;
+            }
+            .chart .legend-min {
+                left: 0;
+            }
+            .chart .legend-max {
+                right: 0;
+            }
+            .chart .legend:before {
+                content: '£';
+            }
+            .chart .legend:after {
+                content: '';
+                width: 1px;
+                height: 8px;
+                background-color: #C6CACC;
+                position: absolute;
+                top: -10px;
+                left: 28px
+            }
+
+            
+            .header-logo use.disc {
+                fill: rgba(0,0,0,0);
+            }
+            .header-logo use.text {
+                fill: #562873;
+            }
+
+        </style>
+   </head>
+<body>
+    <header>
+            <div class="site-logo" itemtype="http://schema.org/Organization">
+                <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                    <svg class="header-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 317 317">
+                        <use class="disc" xlink:href="../../assets/img/svg/msm-logo.svg#disc" />
+                        <use class="text" xlink:href="../../assets/img/svg/msm-logo.svg#text" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+    <main>
+        
+
+
+        <aside class="loading-panel">
+            <header>
+                <h1>Loading results</h1>
+                <p>It looks like you currently pay more than other tariffs would cost.<p>
+                <p><strong>You could save by switching, though check for early exit fees</strong></p>
+                <div class="chart">
+                    <p class="legend legend-min"></p>
+                    <p class="legend legend-max"></p>
+                </div>
+            </header>
+            <footer class="loading-status">
+                <h1>Loading</h1>
+                <progress max="100" value="0"></progress>
+            </footer>
+        </aside>
+
+<script>
+    var b = document.body;
+    
+    var randomNumber = function(min,max){
+        return Math.floor(Math.random()*(max-min+1)+min);
+    };
+    
+    function AJAX_JSON_Req(url, callback) {
+        var AJAX_req = new XMLHttpRequest();
+        AJAX_req.open("GET", url, true);
+        AJAX_req.setRequestHeader("Content-type", "application/json");
+        AJAX_req.onreadystatechange = function () {
+            if (AJAX_req.readyState == 4 && AJAX_req.status == 200) {
+                var response = JSON.parse(AJAX_req.responseText);
+                callback(response);
+            }
+        }
+        AJAX_req.send();
+    };
+    
+//    var makeChart = function(data){
+//        var chart = document.body.querySelector('.chart');
+//        data.forEach(function(d){
+//            console.log(d);
+//            var b = document.createElement('b');
+//            b.style.height = (d.gas_unit_promo * 80) + 'px';
+//            // Simulate polling API
+//            setTimeout(function(){
+//                chart.appendChild(b);
+//            },200);
+//        });
+//    };
+    
+    var gasUsedDaily = 3.04;
+    var elecUsedDaily = 7.16;
+    var gasUsageYearly =  gasUsedDaily * 365;
+    var elecUsageYearly =  elecUsedDaily * 365;
+    var userGasStandingCharge = 22.86;
+    var userGasTariff = 2.9;
+    var userElecStandingCharge = 18;
+    var userElecTariff = 15;
+        
+    var getAnnualPrice = function(gasStandingCharge,gasTariff,elecStandingCharge,elecTariff){
+        var price;
+        var e = 0;
+        var g = 0;
+        var gasMetricConversion = 1;
+        var gasCalorificValue = 39.5;
+        var gasCorrectionFactor = 1.02264;
+        var gasConversionFactor = 3.6;
+        var vat = 0.05;
+        
+        var getGasPrice = function(gasStandingCharge,gasTariff){
+            var gasKWH = (gasUsageYearly * gasCorrectionFactor * gasCalorificValue * gasMetricConversion) + gasMetricConversion + gasConversionFactor;
+            var gasBasePrice = gasKWH * gasTariff;
+            //console.log(gasBasePrice);
+            var gasStandingCharge = 365 * gasStandingCharge;
+            //console.log(gasStandingCharge);
+            var gasSubTotal = gasBasePrice + gasStandingCharge;
+            //console.log(gasSubTotal);
+            var gasTotal = (gasSubTotal + ( gasSubTotal * vat )) / 100;
+            return gasTotal;
+        };
+        
+        var getElecPrice = function(elecStandingCharge,elecTariff){
+            var elecBasePrice = elecUsageYearly * elecTariff;
+            var elecStandingCharge = 365 * elecStandingCharge;
+            var elecSubTotal = elecBasePrice + elecStandingCharge;
+            var elecTotal = (elecSubTotal + ( elecSubTotal * vat )) / 100;
+            return elecTotal;
+        };
+        getGasPrice(gasStandingCharge,gasTariff);
+        price = getGasPrice(gasStandingCharge,gasTariff) + getElecPrice(elecStandingCharge,elecTariff);
+        return price;
+    };
+    
+    var priceArray = [];
+
+    var rowSorter = function (ref){
+        console.log('Sorting by: ' + ref);
+        var rows = document.body.querySelectorAll('.chart b');
+        var sortResults = function () {
+            rows.forEach(function (el, i) {
+                var totalVal = (el.getAttribute('data-'+ref)) * 1;
+                var rowOrder = priceArray.indexOf(totalVal) + 1;
+                el.style.order = rowOrder;
+            });
+        };
+        var sortPriceArray = function () {
+            priceArray.sort(function (a, b) {
+                if( ref === 'btPeriod' | ref === 'limit' | ref === 'acceptance' ){
+                    return b - a
+                } else {
+                    return a - b
+                }
+            });
+            sortResults();
+        };
+        var buildPriceArray = function () {
+            priceArray = [];
+            rows.forEach(function (el, i) {
+                var totalVal = (el.getAttribute('data-'+ref)) * 1;
+                priceArray.push(totalVal);
+            });
+            sortPriceArray();
+        };
+        var initialSort = function () {
+            rows.forEach(function (el, i) {
+                el.style.order = i + 1;
+            });
+            buildPriceArray();
+        };
+
+        initialSort();
+    };
+    
+    // Get current tariff
+    var currentTariffCost = getAnnualPrice(userGasStandingCharge,userGasTariff,userElecStandingCharge,userElecTariff);
+    var minTariffCost = currentTariffCost;
+    var maxTariffCost = currentTariffCost;
+    //var currentTariffCost = 2300;
+    
+    var makeChart = function(tariff,current,barClass){
+        var chart = document.body.querySelector('.chart');
+        var setHeights = function(){
+            chart.querySelectorAll('b').forEach(function(el){
+                //el.style.height = (el.getAttribute('data-tariff')/10) + 'px';
+                var difference = maxTariffCost - minTariffCost;
+                var thisTariff = el.getAttribute('data-tariff');
+                var thisDifference = thisTariff - minTariffCost;
+                var height = ( thisDifference / difference ) * 100;
+                el.style.height = height + '%';
+            });
+        };
+        var addBar = function(tariff,current){
+            var bar = document.createElement('b');
+            if( current ){
+                bar.classList.add('current');
+            }
+            b.querySelector('.legend-min').textContent = minTariffCost.toFixed(2);
+            b.querySelector('.legend-max').textContent = maxTariffCost.toFixed(2);
+            bar.setAttribute('data-tariff',tariff);
+            bar.classList.add(barClass);
+            //bar.style.height = (tariff / 10) + 'px';
+            chart.appendChild(bar);
+            if( tariff > maxTariffCost ){
+               maxTariffCost = tariff;
+            }
+            if( tariff < minTariffCost ){
+               minTariffCost = tariff;
+            }
+            setHeights();
+            rowSorter('tariff');
+        };
+        addBar(tariff,current);        
+    };
+    makeChart(currentTariffCost,true);
+    
+    
+    var getResults = function(data){
+        var resultsData;
+        var renderedResults = 0;
+        var loadingCounter = document.querySelector('progress');
+        var loadingCounterNo = 0;
+        resultsData = data;
+        
+        var numberOfResults = resultsData.length;
+        //loadingCounter.setAttribute('max',numberOfResults);
+        var progressPercentagePerResult = (1 / numberOfResults) * 100;
+        var renderResults = function(data){
+            if( renderedResults < numberOfResults ){
+                console.log('Building a result');
+                var thisData = data[renderedResults];
+                loadingCounter.value = Math.round(loadingCounter.value + progressPercentagePerResult );
+                var thisPrice = getAnnualPrice(thisData.gas_charge_std,thisData.gas_unit_promo,thisData.electric_charge_std,thisData.electric_unit_promo);
+                renderedResults = renderedResults + 1;
+                if( thisPrice < currentTariffCost ){
+                   var barClass = 'dark';
+                }
+                setTimeout(function(){
+                    makeChart(thisPrice,false,barClass);
+                    renderResults(data);
+                },450);
+
+            } else {
+                loadingCounter.value = 100;
+                console.log('All results rendered');
+                b.classList.remove('interstitial');
+                b.classList.add('results-loaded');
+                setTimeout(function(){
+                    interstitial.style.zIndex = -10;
+                },100);
+            }
+        };
+        renderResults(data);
+        
+    };    
+    AJAX_JSON_Req('assets/energy-data-test.json',getResults);
+</script>

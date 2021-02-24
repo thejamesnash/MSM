@@ -1,0 +1,236 @@
+body.interstitial .loading-panel {
+    z-index: 4;
+}
+.loading-panel {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #EBF0F2;
+    z-index: -10;
+    text-align: center;
+}
+.loading-panel header {
+    padding: 50px 20px 45px;
+}
+.loading-panel header h1 {
+    font-family: 'gu';
+    font-size: 26px;
+    line-height: 1;
+    color: #562873;
+    padding: 0 0 10px;
+}
+.loading-panel header p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #566266;
+    display: block;
+    padding-bottom: 7px;
+}
+.loading-panel header strong {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #411e56;
+    display: block;
+}
+
+
+.loading-panel .loading-status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: rgba(0, 87, 120, 0.8);
+    color: #FFF;
+    padding: 0 0 14px;
+}
+.loading-panel .loading-status h1 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    padding: 14px 0 8px;
+    margin: 0;
+}
+.loading-panel .loading-status p {
+    font-weight: bold;
+}
+.loading-panel .loading-status progress {
+    margin: 0 20px;
+    width: calc(100vw - 40px);
+    -webkit-appearance: none;
+    height: 11px;
+}
+.loading-panel .loading-status progress::-webkit-progress-bar {
+    background-color: #005778;
+    height: 11px;
+    border-radius: 11px;
+}
+.loading-panel .loading-status progress::-webkit-progress-value {
+    background-color: #33bef2;
+    height: 11px;
+    border-radius: 11px;
+    transition: all 0.2s ease-in;
+}
+.loading-panel .loading-status progress:after {
+    display: block;
+    content: attr(value) "%";
+    font-size: 14px;
+    line-height: 1;
+    font-weight: bold;
+    padding-top: 8px;
+    transition: all 0.2s linear;
+}
+
+.chart {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    width: 100%;
+    background-color: #EBF0F2;
+    height: 200px;
+    margin: 70px 0 0 0;
+    padding: 0 28px;
+    position: relative;
+    box-sizing: border-box;
+
+}
+.chart b {
+    background-color: #bba9c7;
+    display: block;
+    border-right: 1px solid #EBF0F2;
+    height: 0;
+    flex-grow: 1;
+    position: relative;
+    padding-bottom: 10px;
+    transition: height 0.2s ease-in-out;
+}
+.chart b.dark {
+    background-color: #562873;
+}
+.chart b.current {
+    background-color: #562873;
+/*                background-color: red;*/
+}
+
+.chart b.current:before {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    margin-left: -22px;
+    content: 'Your current tariff';
+    width: 44px;
+       height: 46px;
+       font-size: 10px;
+    font-weight: bold;
+    line-height: 1.1;
+    text-align: center;
+    color: #411e56;
+    z-index: 10;
+    box-shadow: 0 0 1px 0 #dfe3e5;
+    background-color: #FFF;
+    border-radius: 44px;
+    padding-top: 6px;
+    box-sizing: border-box;
+}
+.chart b.current:after {
+    content: '';
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    margin-left: -16px;
+    width: 0;
+    height: 0;
+    z-index: 11;
+    background-color: transparent;
+    border-radius: 0;
+    box-sizing: border-box;
+    border: 2px solid #FFF;
+    border-color: #FFF transparent transparent;
+    border-width: 22px 16px 0px 16px;
+}
+
+.chart .legend {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    display: block;
+    position: absolute;
+    bottom: -42px;
+    width: 56px;
+    color: #562873;
+}
+.chart .legend-min {
+    left: 0;
+}
+.chart .legend-max {
+    right: 0;
+}
+.chart .legend:before {
+    content: '£';
+}
+.chart .legend:after {
+    content: '';
+    width: 1px;
+    height: 8px;
+    background-color: #C6CACC;
+    position: absolute;
+    top: -10px;
+    left: 28px
+}
+
+.tariffChart h1 {
+    display: none;
+}
+.tariffChart header {
+    padding: 100px 20px 0;
+    text-align: center;
+}
+.tariffChart header p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #566266;
+    display: block;
+    padding-bottom: 7px;
+}
+.tariffChart header strong {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #411e56;
+    display: block;
+}
+.tariffChart .chart {
+    background-color: transparent;
+}
+
+.loading-panel header .msg,
+.tariffChart header .msg {
+    display: none;
+}
+
+
+
+body[data-tariff-rating="cheapest"] .tariffChart header .msg.userTariffCheapest,
+body[data-tariff-rating="cheap"] .tariffChart header .msg.userTariffCheap,
+body[data-tariff-rating="medium"] .tariffChart header .msg.userTariffMedium,
+body[data-tariff-rating="variable"] .tariffChart header .msg.userTariffVariable {
+    display: block;
+}
+
+body[data-user-type="var"] .loading-panel header .msg.userTariffCheapest,
+body[data-user-type="var"] .loading-panel header .msg.userTariffCheap,
+body[data-user-type="var"] .loading-panel header .msg.userTariffMedium {
+    display: none;
+}
+
+body[data-user-type="fixed"] .loading-panel header .msg.userTariffFixed,
+body[data-user-type="var"] .loading-panel header .msg.userTariffVariable {
+    display: block;
+}
+
+
+
+

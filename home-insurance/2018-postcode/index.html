@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Results table</title>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+    <body>
+        <label for="addressLookup">What's your address?</label>
+        <input id="addressLookup" placeholder="Start typing your address" />
+        <ul id="addressResults"></ul>
+        <p id="addressReplay"></p>
+        
+        
+        <script>
+            function ajax(url, callback) {
+                var request = new XMLHttpRequest();
+                request.open("GET", url, true);
+                request.setRequestHeader("Content-type", "application/json");
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200) {
+                        var response = JSON.parse(request.responseText);
+                        callback(response);
+                    }
+                }
+                request.send();
+            };
+            
+            var addressResults = document.getElementById('addressResults');
+            var addressReplay = document.getElementById('addressReplay');
+            
+            var updateResultsList = function(data){
+                addressResults.innerHTML = '';
+                data.Items.forEach(function(d){
+                    var addressText = d.Text + ', ' + d.Description;
+                    var li = document.createElement('li');
+                    li.innerHTML = addressText;
+                    addressResults.appendChild(li);
+                    li.addEventListener('click',function(){
+                        addressResults.innerHTML = '';
+                        addressReplay.innerHTML = addressText;
+                    });
+                });
+            };
+            
+            document.getElementById('addressLookup').addEventListener('keyup',function(){
+                var logResponse = function(data){
+                    console.log(data);
+                    updateResultsList(data);
+                };
+                
+                var currentVal = this.value;
+                var val = currentVal.replace(/ /g, "%20");
+                ajax('http://services.postcodeanywhere.co.uk/Capture/Interactive/Find/v1.00/json3ex.ws?Key=HB29-TE85-XZ17-ER17&Text='+ val +'%2C&Origin=GBR&Language=en&Container=&Filter=undefined&Instance=null&Test=false&$block=true&$cache=true&SOURCE=PCA-SCRIPT',logResponse);
+            });
+        </script>
+    </body>
+</html>    

@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Credit cards - results</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="stylesheet" href="global.css" type="text/css">
+        <link rel="stylesheet" href="results.css" type="text/css">
+        <style>
+/*
+            .results-list #primitive {
+                display: none;
+            }
+            .results-list .figure {
+                display: flex;
+            }
+            .results-list .figure li {
+                padding: 10px;
+                border: 1px solid #C6CACC;
+            }
+            .results-list .figure .provider {
+                width: 140px;
+            }
+            .results-list .figure dfn,
+            .results-list .figure strong {
+                display: block;
+            }
+            p {
+                padding: 10px 0 0 10px;
+            }
+*/
+        </style>
+    </head>
+    <body class="filter">
+        <header>
+            <div class="site-logo" itemtype="http://schema.org/Organization">
+                <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                    <svg class="header-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 317 317">
+                        <use class="disc" xlink:href="../../assets/img/svg/msm-logo.svg#disc" />
+                        <use class="text" xlink:href="../../assets/img/svg/msm-logo.svg#text" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section class="results-wrap">
+                <aside>
+                    <fieldset>
+                    <h1>I want a credit card to&hellip;</h1>
+                    <h2>transfer a balance</h2>
+                        <ul>
+                            <li>
+                                <label for="creditRequested">Amount you'd like to transfer</label>
+                                <input id="creditRequested" type="tel" value="1200" />
+                            </li>
+                            <li>
+                                <label for="monthlyRepayment">Your current monthly repayments</label>
+                                <input id="monthlyRepayment" type="tel" value="100" />
+                            </li>
+                        </ul>
+                        <p><button id="valueTrigger">Compare cards</button></p>
+                    </fieldset>
+                </aside>
+                <header>
+                    <p>Balance transfer of &pound; <span class="creditRequestedReplay"></span></p>
+                    <p>Monthly repayment of &pound; <span class="monthlyRepaymentReplay"></span></p>
+                    <p>Assumed APR of <strong id="existingCardAPR">18.5</strong></p>
+                    <p>Cost of continued credit: <strong id="existingCardCostOfCredit"></strong></p>
+                    <p>Duration of continued credit: <strong id="existingCardPaymentDuration"></strong></p>
+                    
+                </header>
+                <ul class="filtration">
+                        <li><button id="refineTrigger">Refine</button></li>
+                        <li><button id="expandTrigger">Expand</button></li>
+                        <li><button id="sortTrigger">Sort</button></li>
+                    </ul>
+        <ol class="results-list">
+            <li class="result" id="primitive">
+                <div class="provider">
+                    <img class="providerImg" src="http://via.placeholder.com/80x40" alt="Provider name" / >
+<!--                 <h2 class="providerName">Provider name</h2>-->
+                    <h2><span class="providerName"></span> <span class="cardName"></span></h2>
+                </div>
+                <ul class="highlight">
+                    <li>
+                        <dfn>Initial rate</dfn>
+                        <p><span class="promotionalAPR">&ndash;</span>% for <span class="promotionDuration">&ndash;</span> months<br/>
+                            <small>then <span class="standardAPR">&ndash;</span>%</small></p>
+                    </li>
+                    <li>
+                        <dfn>Transfer fee</dfn>
+                        <p>&pound;<span class="feeCost">&ndash;</span><br/>
+                        <small><span class="feePercentage">&ndash;</span>% of &pound;<span class="transferAmount">&ndash;</span></small></p>
+                    </li>
+                    <li>
+                        <dfn>Potential savings</dfn>
+                        <p>&pound;<span class="savingAgainstExistingCard">&ndash;</span>
+                            <small>Repaid in <span class="paymentDuration">&ndash;</span> months</small>
+                        </p>
+                    </li>
+                </ul>
+                <div class="expansion">
+                    <h3>Need to know</h3>
+                    <ul class="extraInfo">
+                    </ul>
+                </div>
+                <div class="actions">
+                    <button class="link">More details</button>
+                    <button class="eligibilityTrigger">Check your eligibility</button>
+                </div>
+            </li>
+<!--
+            <li id="primitive">
+                <ul class="figure">
+                    <li class="provider"></li>
+                    <li><dfn>Promo APR</dfn><strong><span class="promotionalAPR"></span></strong></li>
+                    <li><dfn>Promo duration</dfn><strong><span class="promotionDuration"></span></strong></li>
+                    <li><dfn>Standard APR</dfn><strong><span class="standardAPR"></span></strong></li>
+                    <li><dfn>Fee (%)</dfn><strong><span class="feePercentage"></span></strong></li>
+                    <li><dfn>Fee (&pound;)</dfn><strong><span class="feeCost"></span></strong></li>
+                    <li><dfn>Repayment duration</dfn><strong><span class="paymentDuration"></span></strong></li>
+                    <li><dfn>Cost of credit</dfn><strong><span class="costOfCredit"></span></strong></li>
+                    <li><dfn>Saving</dfn><strong><span class="savingAgainstExistingCard"></span></strong></li>
+                </ul>
+            <li>
+-->
+        </ol>
+        </section>
+        </main>
+        <footer class="site-footer">
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#">Contact us</a>
+                </li>
+                <li><a href="#">Investor relations</a>
+                </li>
+                <li><a href="#">Privacy</a>
+                </li>
+                <li><a href="#">Preference centre</a>
+                </li>
+                <li><a href="#">Careers</a>
+                </li>
+                <li><a href="#">News</a>
+                </li>
+                <li><a href="#">Terms &amp; conditions</a>
+                </li>
+                <li><a href="#">Security</a>
+                </li>
+                <li><a href="#">Cookie policy</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="site-logo" itemtype="http://schema.org/Organization">
+                <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                    <svg class="header-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 317 317">
+                        <use class="disc" xlink:href="../../assets/img/svg/msm-logo.svg#disc" />
+                        <use class="text" xlink:href="../../assets/img/svg/msm-logo.svg#text" />
+                    </svg>
+                </a>
+            </div>
+    </div>
+    <div class="footer-information">
+        <p>Contact moneysupermarket.com at Moneysupermarket House, St David's Park, Ewloe, Flintshire, CH5 3UZ. © Moneysupermarket.com Ltd 2014.</p>
+        <p>Moneysupermarket.com Limited is an appointed representative of Moneysupermarket.com Financial Group Limited, which is authorised and regulated by the Financial Conduct Authority (FCA FRN 303190).
+            <br> Moneysupermarket.com Financial Group Limited, registered in England No. 3157344.
+            <br> Registered Office:
+            <br> Moneysupermarket House, St. David's Park, Ewloe, CH5 3UZ. Telephone 01244 665700</p>
+        <p>Important information
+            <br> Here’s some important information about the services MoneySuperMarket provides. Please read and retain for your own records. <a href="#">About our service</a>
+        </p>
+    </div>
+</footer>
+        <script>
+            var b = document.body;
+            
+            var round = function(x) {
+                return Math.round(x * 100) / 100;
+            }
+            var ajax = function (method, url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.open(method, url, true);
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200 | request.status == 201 ) {
+                        var response = JSON.parse(request.responseText);
+                        callback(response);
+                    }
+                }
+                if( data ){
+                    request.send(JSON.stringify(data));    
+                } else {
+                    request.send();
+                }
+
+            };
+            
+            var priceArray = [];
+
+            var rowSorter = function (ref,rowClass){
+                console.log('Sorting by: ' + ref);
+                var rows = document.body.querySelectorAll('.row');
+                var sortResults = function () {
+                    rows.forEach(function (el, i) {
+                        var totalVal = (el.getAttribute('data-'+ref)) * 1;
+                        var rowOrder = priceArray.indexOf(totalVal) + 1;
+                        el.style.order = rowOrder;
+                    });
+                };
+                var sortPriceArray = function () {
+                    priceArray.sort(function (a, b) {
+                        if( ref === 'savingagainstexistingcard' | ref === 'limit' | ref === 'acceptance' ){
+                            return b - a
+                        } else {
+                            return a - b
+                        }
+                    });
+                    sortResults();
+                };
+                var buildPriceArray = function () {
+                    priceArray = [];
+                    rows.forEach(function (el, i) {
+                        var totalVal = (el.getAttribute('data-'+ref)) * 1;
+                        priceArray.push(totalVal);
+                    });
+                    sortPriceArray();
+                };
+                var initialSort = function () {
+                    rows.forEach(function (el, i) {
+                        el.style.order = i + 1;
+                    });
+                    buildPriceArray();
+                };
+
+                initialSort();
+            };
+            
+            var updateValue = function(){
+                
+            };
+            
+            var getCompound = function(balance,rate,payment){
+                var totalInterest = 0;
+                var init_bal = balance;
+                var cur_bal = init_bal;
+                var interest = rate / 100;
+                var mnth_pay = payment;
+                var fin_chg = 0;
+                var num_mnths = 0;
+                var tot_int = 0;
+
+                while (cur_bal > 0) {
+                    fin_chg = cur_bal * interest / 12;
+                    cur_bal = cur_bal - mnth_pay + fin_chg;
+                    num_mnths++;
+                    if (num_mnths > 300) {
+                        //alert('Kill the process - too many months');
+                        return false
+                    }
+                    tot_int += fin_chg;
+                }
+                
+                var totalInterest = round(tot_int);
+                var compound = {'totalInterest':totalInterest,'durationUnderinterest':num_mnths};
+                
+                return compound;
+            };
+            
+            // Figures needed
+            var rows;
+            
+            // From user
+            var creditRequested,
+                monthlyRepayment;
+            
+            // For existing card
+            var existingCardAPR = 18.5;
+            
+            // From calculations
+            var existingCardCostOfCredit,
+                existingCardPaymentDuration;
+            
+            var updateValue = function(row,ref,val){
+                var t = row.querySelector('.'+ref);
+                t.textContent = val;
+                row.setAttribute('data-'+ref,val);
+            };
+            
+            var getValue = function(row,ref){
+                var val =  row.getAttribute('data-'+ref);
+                return Number(val);
+            };
+            
+            var updateRowValues = function(){
+                console.log('SERVICE: Updating row values');
+                b.className = '';
+                
+                rows.forEach(function(row){
+                    
+                    var paymentDuration,
+                        costOfCredit;
+                    
+                    row.querySelector('.transferAmount').textContent = creditRequested;
+                    // For each new card
+                    // From API
+                    var promotionalAPR = getValue(row,'promotionalapr');
+                    var standardAPR = getValue(row,'standardapr');
+                    var promotionDuration = getValue(row,'promotionduration');
+                    var feePercentage = getValue(row,'feepercentage');
+                    
+
+                    // From calculations
+                    var feeCost = creditRequested * (feePercentage / 100);
+                    var totalCreditRequested = feeCost + creditRequested;
+                    var promoPayments = monthlyRepayment * promotionDuration;
+                    
+                    //el.querySelector('.transferAmount').textContent = creditRequested;
+                    
+                    console.log('------------');
+                    if( promoPayments > totalCreditRequested ){
+                        console.log('SERVICE: amount paid off during promo period');
+                        paymentDuration = totalCreditRequested / monthlyRepayment;
+                        costOfCredit = feeCost;
+                    } else {
+                        console.log('SERVICE: 0% payments total: ' + promoPayments);
+                        var remainingCredit = totalCreditRequested - promoPayments;
+                        console.log('SERVICE: credit remaining after promo period: ' + remainingCredit);
+                        var compound = getCompound(remainingCredit,standardAPR,monthlyRepayment);
+                        if( compound == false ){
+                            alert('Please increase your monthly payments');
+                            
+                        } else {
+                            var c = Number(compound.totalInterest);
+                            costOfCredit = feeCost + c;
+                            console.log('SERVICE: Total cost of credit: ' + costOfCredit);
+                            var d = Number(compound.durationUnderinterest);
+                            paymentDuration = ( totalCreditRequested / monthlyRepayment ) + d;    
+                        }
+                        
+                    }
+                    
+                    
+                    //var promoCompound = getCompound(totalCreditRequested,promotionalAPR,);
+                    
+                    var savingAgainstExistingCard = existingCardCostOfCredit - costOfCredit;
+                    
+                    // From calculations
+                    updateValue(row,'feeCost',feeCost.toFixed(2));
+                    updateValue(row,'paymentDuration',paymentDuration.toFixed(0));
+                    //updateValue(row,'costOfCredit',costOfCredit.toFixed(2));
+                    updateValue(row,'savingAgainstExistingCard',savingAgainstExistingCard.toFixed(2));
+                });
+                rowSorter('savingagainstexistingcard');
+            };
+            
+            var getExistingCardFigures = function(){
+                var compound = getCompound(creditRequested,existingCardAPR,monthlyRepayment);
+                console.log('SERVICE: Updating existing card values');
+                existingCardCostOfCredit = compound.totalInterest;
+                existingCardPaymentDuration = compound.durationUnderinterest;
+                document.getElementById('existingCardCostOfCredit').textContent = existingCardCostOfCredit;
+                document.getElementById('existingCardPaymentDuration').textContent = existingCardPaymentDuration;
+                updateRowValues();
+            };
+            
+            var initComparison = function(){
+                creditRequested = Number(document.getElementById('creditRequested').value);
+                b.querySelector('.creditRequestedReplay').textContent = creditRequested;
+                monthlyRepayment = Number(document.getElementById('monthlyRepayment').value);
+                b.querySelector('.monthlyRepaymentReplay').textContent = monthlyRepayment;
+                rows = b.querySelectorAll('.row');
+                getExistingCardFigures(rows);
+            };
+            
+            var addElement = function(el,val){
+                var element = document.createElement(el);
+                element.textContent = val;
+                return element;
+            }
+            
+            var buildResults = function(data){
+                var primitive = document.getElementById('primitive');
+                var grid = b.querySelector('.results-list');
+                var noOfResults = data.results.length;
+                var renderedResults = 0;
+                
+                data.results.forEach(function(d){
+                    var row = primitive.cloneNode(true);
+                    row.id ='';
+                    row.className = 'row';
+                    if( d.decal == null ){
+                        row.querySelector('.providerName').textContent = d.brand.name;    
+                    } else {
+                       row.querySelector('.providerName').innerHTML = '<em>'+ d.decal.text +'</em>' + d.brand.name;
+                    }
+                    
+                    row.querySelector('.cardName').textContent = d.name;
+                    row.querySelector('.providerImg').src = 'http://www.moneysupermarket.com' + d.brand.logoUrl;
+                    
+                    updateValue(row,'promotionalAPR',0);
+                    updateValue(row,'standardAPR',d.productAttributes.interestRates.longTermInterestRates.balanceTransfer.annualRate);
+                    updateValue(row,'promotionDuration',d.productAttributes.interestRates.introductoryInterestRates.balanceTransfer.durationInMonths);
+                    updateValue(row,'feePercentage',d.productAttributes.fees.balanceTransfer.handlingFee);
+                    
+                    var extraWrap = row.querySelector('.extraInfo');
+                    
+                    d.productAttributes.eligibilityCriteria.forEach(function(obj){
+                        extraWrap.appendChild(addElement('li',obj.type));
+                    });
+                    
+                    row.querySelector('.eligibilityTrigger').addEventListener('click',function(){
+                        window.location = 'check.html';
+                    });
+                    
+                    
+                    row.querySelector('.link').addEventListener('click',function(){
+                        row.classList.toggle('expand');
+                    });
+                    
+                    grid.appendChild(row);
+                    renderedResults ++;
+                    
+                    if( renderedResults === noOfResults ){
+                        console.log('SERVICE: All results rendered');
+                        //initComparison();
+                    } else {
+                        //console.log('SERVICE: rendering results');
+                    }
+                });
+                
+            };
+            
+            document.getElementById('expandTrigger').addEventListener('click',function(){
+                b.classList.toggle('expand');
+            });
+            
+            document.getElementById('valueTrigger').addEventListener('click',function(evt){
+                evt.preventDefault();
+                initComparison();
+                
+                b.querySelector('.results-wrap aside').classList.add('hidden');
+                
+            });
+            
+            document.getElementById('refineTrigger').addEventListener('click',function(evt){
+                evt.preventDefault();
+                b.querySelector('.results-wrap aside').classList.remove('hidden');
+                b.className = 'filter';
+            });
+            
+            b.querySelector('.results-wrap header').addEventListener('click',function(){
+                b.querySelector('.results-wrap aside').classList.remove('hidden');
+                b.className = 'filter';
+            })
+            
+            ajax('GET','resultsData.json',null,buildResults);
+        </script>
+    </body>
+</html>

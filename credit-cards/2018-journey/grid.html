@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Credit cards - results</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="stylesheet" href="global.css" type="text/css">
+    </head>
+    <body class="filter">
+        <header>
+            <div class="site-logo" itemtype="http://schema.org/Organization">
+                <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                    <svg class="header-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 317 317">
+                        <use class="disc" xlink:href="../../assets/img/svg/msm-logo.svg#disc" />
+                        <use class="text" xlink:href="../../assets/img/svg/msm-logo.svg#text" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section class="results-wrap">
+                <header>
+                    <ul>
+                        <li>
+                            <dfn>Card type</dfn>
+                            <strong class="intentReplay"></strong>
+                        </li>
+                        <li>
+                            <dfn>Total</dfn>
+                            <strong>&pound;<span class="totalReplay"></span></strong>
+                        </li>
+                        <li>
+                            <dfn>Per month</dfn>
+                            <strong>&pound;<span class="monthReplay"></span></strong>
+                        </li>
+                    </ul>
+                </header>
+                <aside>
+                    <ul>
+                        <li>
+                            <label for="transAmount">How much do you want to transfer?</label>
+                            <small>We can then tell you how quickly you can clear your balance and highlight any costs you may not be aware of.</small>
+                            <input id="transAmount" type="number" />
+                        </li>
+                        <li>
+                            <label for="affordAmount">How much would you like to pay off each month?</label>
+                            <input id="affordAmount" type="number" />
+                        </li>
+                        <li><button id="updateResults">Update</button></li>
+                    </ul>
+                </aside>
+                <ol class="results-list">
+                    <li class="result" id="primitive">
+                        <div class="provider">
+                            <img class="providerImg" src="http://via.placeholder.com/80x40" alt="Provider name" / >
+<!--                            <h2 class="providerName">Provider name</h2>-->
+                            <h2><span class="providerName"></span> <span class="cardName"></span></h2>
+                        </div>
+                        <ul class="highlight">
+                            <li>
+                                <dfn>Initial rate</dfn>
+                                <p>0% for <span class="promoDuration">12</span> months<br/>
+                                    <small>then <span class="rate">22.3</span>%</small></p>
+                            </li>
+                            <li>
+                                <dfn>Transfer fee</dfn>
+                                <p>&pound;<span class="totalFee">22.3</span><br/>
+                                <small><span class="feePercent"></span>% of &pound;<span class="transferAmount"></span></small></p>
+                            </li>
+                            <li>
+                                <dfn>Potential savings</dfn>
+                                <p><sup>&pound;</sup><span class="cost">&ndash;</span>
+                                    <small>Repaid in 32 months</small>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="actions">
+                            <button class="link">More details</button>
+                            <button class="eligibilityTrigger">Check your eligibility</button>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+        <footer class="site-footer">
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#">Contact us</a>
+                </li>
+                <li><a href="#">Investor relations</a>
+                </li>
+                <li><a href="#">Privacy</a>
+                </li>
+                <li><a href="#">Preference centre</a>
+                </li>
+                <li><a href="#">Careers</a>
+                </li>
+                <li><a href="#">News</a>
+                </li>
+                <li><a href="#">Terms &amp; conditions</a>
+                </li>
+                <li><a href="#">Security</a>
+                </li>
+                <li><a href="#">Cookie policy</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="site-logo" itemtype="http://schema.org/Organization">
+                <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                    <svg class="header-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 317 317">
+                        <use class="disc" xlink:href="../../assets/img/svg/msm-logo.svg#disc" />
+                        <use class="text" xlink:href="../../assets/img/svg/msm-logo.svg#text" />
+                    </svg>
+                </a>
+            </div>
+    </div>
+    <div class="footer-information">
+        <p>Contact moneysupermarket.com at Moneysupermarket House, St David's Park, Ewloe, Flintshire, CH5 3UZ. © Moneysupermarket.com Ltd 2014.</p>
+        <p>Moneysupermarket.com Limited is an appointed representative of Moneysupermarket.com Financial Group Limited, which is authorised and regulated by the Financial Conduct Authority (FCA FRN 303190).
+            <br> Moneysupermarket.com Financial Group Limited, registered in England No. 3157344.
+            <br> Registered Office:
+            <br> Moneysupermarket House, St. David's Park, Ewloe, CH5 3UZ. Telephone 01244 665700</p>
+        <p>Important information
+            <br> Here’s some important information about the services MoneySuperMarket provides. Please read and retain for your own records. <a href="#">About our service</a>
+        </p>
+    </div>
+</footer>
+        <script>
+            var b = document.body;
+            if(window.location.hash) {
+                var hashString = window.location.hash;
+                intent = hashString.replace('#','');
+                console.log(intent);
+                var fullIntent;
+                if( intent === 'bt' ){
+                    fullIntent = 'Balance Transfer';
+                } else if( intent === 'pu' ){
+                    fullIntent = 'Purchase';
+                }
+                b.querySelectorAll('.intentReplay').forEach(function(el){
+                    el.textContent = fullIntent;
+                });
+            } else {
+              console.error('No card type');
+            }
+            
+            
+            function round(x) {
+                return Math.round(x * 100) / 100;
+            }
+
+            
+            
+            
+//            // Figures needed
+//            
+//            // From user
+//            var balanceAmount,
+//                monthlyRepayment;
+//            
+//            
+//            // For existing card
+//            var existingCardAPR = 18.5;
+//            
+//                // From calculations
+//                var existingCardCostOfCredit,
+//                var existingCardPaymentDuration;
+//            
+//            // For each new card
+//                // From API
+//                var promotionalAPR,
+//                    standardAPR,
+//                    feePercentage;
+//
+//                // From calculations
+//                var feeCost,
+//                    paymentDuration,
+//                    costOfCredit;
+
+            
+            
+            
+            
+            
+            var ajax = function (method, url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.open(method, url, true);
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200 | request.status == 201 ) {
+                        var response = JSON.parse(request.responseText);
+                        callback(response);
+                    }
+                }
+                if( data ){
+                    request.send(JSON.stringify(data));    
+                } else {
+                    request.send();
+                }
+
+            };
+            
+            var existingApr = 18.5;
+            var existingDuration;
+            var existingTotalInterest;
+            var existingTotalCostOfCredit;
+            var rows;
+            
+            var getTotalInterestPaid = function(remainingBalance,rate,affordAmount,getDuration){
+                var totalInterest = 0;
+                var init_bal = remainingBalance;
+                var cur_bal = init_bal; // used in loop
+                var interest = rate / 100;
+                var mnth_pay = affordAmount;
+                var fin_chg = 0; // finance charge
+                var num_mnths = 0;
+                var tot_int = 0;
+
+                while (cur_bal > 0) {
+                    fin_chg = cur_bal * interest / 12;
+                    cur_bal = cur_bal - mnth_pay + fin_chg;
+                    num_mnths++;
+                    if (num_mnths > 300) {
+                        //alert('Kill the process - too many months');
+                        return false
+                    }
+                    tot_int += fin_chg;
+                }
+
+                // display result
+                //var totalRepaid = round(init_bal + tot_int);
+                var totalInterest = round(tot_int);
+                //console.log('Repayment duration: ' + num_mnths);
+                if( getDuration ){
+                    existingDuration = num_mnths;  
+                }
+                //console.log('Total repaid: ' + totalRepaid);
+                console.log('Total interest: ' + totalInterest);
+                
+                var compound = {'totalInterest':totalInterest,'durationUnderinterest':num_mnths};
+                
+                return compound;
+            };
+            
+            var getCostToYou = function(transferAmount,affordAmount){
+                
+                
+                console.log(transferAmount);
+                console.log(affordAmount);
+                //var transferAmount = 1500;
+                //var affordAmount = 19;
+                
+                
+                var cost = function(dur,rate,actualFee){
+                    console.log('___________');
+                    var c;                    
+                    console.log('FEE: ' + actualFee);
+                    var totalBalance = transferAmount + actualFee;
+                    console.log('Total balance: ' + totalBalance);
+                    var paymentsWithinDuration = affordAmount * dur;
+                    console.log('0% payments total:' + paymentsWithinDuration);
+                    var remainingBalance = totalBalance - paymentsWithinDuration;
+                    var monthsPayingOffCapital = (transferAmount / affordAmount).toFixed(0);
+                    
+                    
+                    console.log('Basic payment duration at 0% - max '+ dur +': ' + monthsPayingOffCapital);
+                    
+                    
+                    if( remainingBalance > -1 ){
+                        // variables used in calculation
+                        console.log('Balance after promo: ' + remainingBalance);
+                        var compound = getTotalInterestPaid(remainingBalance,rate,affordAmount);
+                        var totalInterest = compound.totalInterest;
+                        
+                        var totalExtras = totalInterest + actualFee;
+                        c = totalExtras.toFixed(2);
+                    } else {
+                        console.log('Balance paid off in: ' + monthsPayingOffCapital + ' months');
+                        c = actualFee.toFixed(2);
+                    }
+
+                    return c;
+                };
+                
+                rows.forEach(function(el){
+                    var fee = Number(el.getAttribute('data-fee'));
+                    var actualFee = transferAmount * (fee / 100);
+                    var costToYou = cost(Number(el.getAttribute('data-duration')),Number(el.getAttribute('data-rate')),actualFee);
+                    //var costToYou = 200;
+                    el.querySelector('.cost').textContent = costToYou;
+                    el.querySelector('.totalFee').textContent = actualFee.toFixed(2);
+                    el.querySelector('.transferAmount').textContent = transferAmount;
+                    
+                });
+                
+                b.className = '';
+            };
+            
+            var updateResults = document.getElementById('updateResults');
+            
+            updateResults.addEventListener('click',function(evt){
+                var transferAmount = Number(document.getElementById('transAmount').value);
+                var affordAmount = Number(document.getElementById('affordAmount').value);
+                existingTotalInterest = getTotalInterestPaid(transferAmount,existingApr,affordAmount,true);
+                
+                console.log('Existing card projected interest total: ' + existingTotalInterest);
+                existingTotalCostOfCredit = existingTotalInterest;
+                console.log('Existing card projected cost of credit total: ' + existingTotalCostOfCredit);
+                console.log('Existing card projected duration: ' + existingDuration);
+                console.log('____________');
+                
+                evt.preventDefault();
+                getCostToYou(transferAmount,affordAmount);
+            });
+            
+            var buildResults = function(data){
+                console.log(data.results);
+                var primitive = document.getElementById('primitive');
+                var grid = b.querySelector('.results-list');
+                data.results.forEach(function(d){
+                    var row = primitive.cloneNode(true);
+                    row.id ='';
+                    row.querySelector('.providerName').textContent = d.brand.name;
+                    row.querySelector('.cardName').textContent = d.name;
+                    row.querySelector('.providerImg').src = 'http://www.moneysupermarket.com' + d.brand.logoUrl;
+                    row.querySelector('.promoDuration').textContent = d.productAttributes.interestRates.introductoryInterestRates.balanceTransfer.durationInMonths;
+                    row.querySelector('.rate').textContent = d.productAttributes.interestRates.longTermInterestRates.balanceTransfer.annualRate;
+                    row.querySelector('.feePercent').textContent = d.productAttributes.fees.balanceTransfer.handlingFee;
+                    row.querySelector('.eligibilityTrigger').addEventListener('click',function(){
+                        window.location = 'check.html';
+                    });
+                    
+                    row.setAttribute('data-rate',d.productAttributes.interestRates.longTermInterestRates.balanceTransfer.annualRate);
+                    row.setAttribute('data-fee',d.productAttributes.fees.balanceTransfer.handlingFee);
+                    row.setAttribute('data-duration',d.productAttributes.interestRates.introductoryInterestRates.balanceTransfer.durationInMonths);
+                    
+                    grid.appendChild(row);
+                });
+                rows = b.querySelectorAll('.result');
+            };
+            ajax('GET','resultsData.json',null,buildResults);
+            
+            
+        </script>
+    </body>
+</html>

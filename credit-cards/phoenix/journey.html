@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Phoenix</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="stylesheet" href="global.css" type="text/css">
+        <style>
+            .progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 10px 20px;
+                background-color: lightgray;
+            }
+            .progress ol {
+                list-style: none;
+                display: flex;
+                counter-reset: li;
+            }
+            .progress li {
+                font-size: 12px;
+                text-align: left;
+                position: relative;
+                min-width: 30px;
+            }
+            .progress li b {
+                display: block;
+                max-width: 0;
+                transition: all 0.2s ease-in-out;
+                overflow: hidden;
+                
+            }
+            .progress li.active b {
+                max-width: 200px;
+            }
+            .progress li:before {
+                content: counter(li);
+                counter-increment: li;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                background-color: #333;
+                font: 700 12px/20px 'Open Sans';
+                text-align: center;
+                z-index: 1;
+                color: #FFF;
+            }
+            .progress li.active ~ li:before {
+                background-color: #C6CACC;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            section {
+                background-color: orange;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                position: fixed;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+            }
+            section > div {
+                width: 100vw;
+                height: 100vh;
+                background-color: red;
+                position: fixed;
+                top: 0;
+                left: 0;
+                overflow: auto;
+            }
+            section,
+            div{
+                transform: translate3d(100vw,0,0);
+                transition: all 0.2s ease-in-out;
+            }
+            section[data-status="active"][data-complete="false"],
+            div[data-status="active"][data-complete="false"]{
+                transform: translate3d(0,0,0)
+            }
+            
+        </style>
+    </head>
+    <body>
+        <aside class="progress">
+            <ol>
+                <li><b>Account setup</b></li>
+                <li class="active"><b>Credit file details</b></li>
+                <li><b>Security details</b></li>
+            </ol>
+        </aside>
+        <section data-name="intro" data-status="active" data-complete="false">
+            <div data-name="greeting" data-status="active" data-complete="false">
+                <h2>Hello</h2>
+                <input type="text" id="userName" placeholder="What's your name" data-min="2" />
+                <button disabled data-next-step="goal-selector">Next step</button>
+            </div>
+            <div data-name="goal-selector" data-status="inactive" data-complete="false">
+                <h2>Let's talk finances. What do you want help with NAME?</h2>
+            </div>
+        </section>
+        <section data-name="account-setup" data-status="inactive" data-complete="false">
+            <div data-name="account-creation" data-status="inactive" data-complete="false">
+                <h2>Got it NAME</h2>
+                <h3>Let's keep track of this somewhere</h3>
+            </div>
+            <div data-name="passcode" class="full-page" data-status="inactive" data-complete="false">
+                <h2>Passcode</h2>
+            </div>
+            <div data-name="touch-id" data-status="inactive" data-complete="false">
+                <h2>Fingerprint</h2>
+            </div>
+        </section>
+        <section data-name="file-details" data-status="inactive" data-complete="false">
+            <h2>Ok, now to match you with your credit file</h2>
+            <div data-name="legal-name" data-status="inactive" data-complete="false">
+                <h2>Is NAME your full legal name?</h2>
+            </div>
+            <div data-name="dob" data-status="inactive" data-complete="false">
+                <h2>Date of birth</h2>
+            </div>
+            <div data-name="address-lookup" data-status="inactive" data-complete="false">
+                <h2>Address lookup</h2>
+            </div>
+            <div data-name="address-manual" data-status="inactive" data-complete="false">
+                <h2>Address manual</h2>
+            </div>
+            <div data-name="address-lookup-additional" data-status="inactive" data-complete="false">
+                <h2>Address lookup (additional)</h2>
+            </div>
+        </section>
+        <script>
+            
+            var getClosest = function ( elem, selector ) {
+                // Element.matches() polyfill
+                if (!Element.prototype.matches) {
+                    Element.prototype.matches =
+                    Element.prototype.matchesSelector ||
+                    Element.prototype.mozMatchesSelector ||
+                    Element.prototype.msMatchesSelector ||
+                    Element.prototype.oMatchesSelector ||
+                    Element.prototype.webkitMatchesSelector ||
+                    function(s) {
+                        var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+                        i = matches.length;
+                        while (--i >= 0 && matches.item(i) !== this) {}
+                        return i > -1;
+                    };
+                }
+
+                // Get closest match
+                for ( ; elem && elem !== document; elem = elem.parentNode ) {
+                    if ( elem.matches( selector ) ) return elem;
+                }
+
+                return null;
+
+            };
+            
+            
+            var checkCompleteness = function(btn){
+                console.log(btn);
+                var parentDiv = btn.parentElement;
+                console.log('SERVICE: Parent element is ' + parentDiv.tagName);
+                var parentInputs = parentDiv.querySelectorAll('input');
+                console.log('SERVICE: Sibling inputs - ' + parentInputs.length);
+                var parentSelects = parentDiv.querySelectorAll('select');
+                console.log('SERVICE: Sibling selects - ' + parentSelects.length);
+                var setComplete = false;
+                parentInputs.forEach(function(n){
+     
+                });
+                
+            }
+            document.body.querySelectorAll('button').forEach(function(el){
+                el.addEventListener('click',function(evt){
+                    console.log('clicked');
+                    evt.preventDefault();
+                    checkCompleteness(el);
+                });
+                el.addEventListener('touchstart',function(){
+                    console.log('mousedown');
+                    console.log('Next step is: ' + el.getAttribute('data-next-step'));
+                });
+            });
+            
+            document.body.querySelectorAll('input').forEach(function(el){
+                if( el.type == 'text' ){
+                    console.log('Text input');
+                    el.addEventListener('keyup',function(){
+                        if( el.value.length >= el.getAttribute('data-min') ){
+                            console.log('SERVICE: input complete');
+                            el.setAttribute('data-valid',true);
+                            console.log(getClosest(el,'div'));
+                        }
+                    });
+                } else if( el.type == 'checkbox' ){
+                    console.log('It is a checkbox');
+                } else if( el.type == 'radio' ){
+                    console.log('It is a radio');
+                }
+                
+//                el.addEventListener('click',function(evt){
+//                    
+//                });
+            });
+            
+        </script>
+    </body>
+</html>

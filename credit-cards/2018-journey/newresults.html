@@ -1,0 +1,1167 @@
+<!DOCTYPE HTML>
+<html class="scroll-on">
+
+<head>
+    <title>MoneySuperMarket - Credit Cards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <link rel="stylesheet" href="https://msmux.github.io/testing/src/assets/msm/css/global.css" />
+    <style type="text/css">
+        .promo-cards {
+            background-color: #00AEEF;
+            background-image: -webkit-linear-gradient(left top, #00AEEF 0%, #0083B3 100%);
+            background-image: linear-gradient(left top, #00AEEF 0%, #0083B3 100%);
+            color: #FFF;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-cards h1 {
+            font: normal 30px/1 'gu';
+            padding-bottom: 10px
+        }
+
+        .promo-cards ul {
+            margin: 20px 0 0;
+            display: flex;
+            flex-direction: column
+        }
+
+        .promo-cards .promo-card {
+            box-sizing: border-box;
+            margin: 5px 10px;
+            background-color: #FFF;
+            color: #562973;
+            position: relative;
+            text-align: left;
+            border-bottom: 2px solid #0083B3;
+        }
+
+        .promo-cards .promo-card img {
+            width: 117px;
+            position: absolute;
+            top: 37px;
+            left: 14px;
+        }
+
+        .promo-cards .promo-card p {
+            padding: 10px 10px 10px 145px;
+            font-size: 14px;
+        }
+
+        .promo-cards .promo-card .btn__simple {
+            display: inline-block;
+            margin-top: 6px;
+            text-decoration: underline;
+        }
+
+        .promo-cards .promo-card strong {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .promo-cards .promo-card sup {
+            font-size: 10px;
+        }
+
+        .promo-cards h2 {
+            font-size: 11px;
+            color: #566266;
+            background-color: #EBF0F2;
+            border-bottom: 1px solid #EBF0F2;
+            padding: 5px 5px 5px 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .promo-cards h2:before {
+            content: '\00BB';
+            display: block;
+            font: 700 28px/1 'Open Sans';
+            color: #48A415;
+            position: absolute;
+            top: -5px;
+            left: 5px;
+        }
+
+        .promo-cards li:nth-of-type(1) h2:before {
+            content: '\00AC';
+            transform: rotate(130deg);
+            top: 0;
+            left: 10px;
+        }
+
+        .promo-cards > p {
+            font-weight: 500;
+        }
+
+        .promo-cards > p strong {
+            font-weight: 700;
+            display: block;
+            padding-top: 5px;
+        }
+
+        .promo-cards .btn__simple {
+            color: #00AEEF;
+        }
+
+        .promo-cards.inline ul {
+            flex-direction: row
+        }
+
+        .promo-cards.inline li {
+            width: 50%;
+            margin: 0 10px;
+            min-height: 160px;
+        }
+
+        .site-header {
+            border-bottom: 1px solid #C6CACC;
+        }
+
+        .summary-row .provider img {
+            padding: 5px;
+        }
+
+        .summary-row + .summary-row .provider strong {
+            display: block;
+            font-weight: 600;
+        }
+
+        .results-grid .details-row li,
+        .results-grid .summary-row li {
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        .details-row .repex {
+            width: 260px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .details-row {
+            display: block;
+            font-size: 12px;
+        }
+
+        .results-grid .details-row {
+            width: 1250px;
+            position: relative;
+        }
+
+        .results-grid .details-row ol {
+            display: table;
+            width: 1250px;
+        }
+
+        .details-row ol > li {
+            display: table-cell;
+        }
+
+        .results-grid .summary-row--header li {
+            padding-top: 17px
+        }
+
+        .results-grid .details-row--header li {
+            padding: 0;
+        }
+
+        .details-row strong {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .details-row small {
+            display: block;
+            font-size: 12px;
+        }
+
+        .details-row--header .repex {
+            text-indent: 10px;
+        }
+
+        .results-grid .details-row .actions {
+            width: 190px;
+        }
+
+        .results-grid .details-row + .details-row .actions {
+            background-color: #FFF;
+            width: 190px;
+            padding-top: 5px;
+        }
+
+        .virgin .results-grid li[data-provider="Virgin"],
+        .tsb .results-grid li[data-provider="TSB"],
+        .tesco .results-grid li[data-provider="Tesco"],
+        .halifax .results-grid li[data-provider="Halifax"],
+        .co-op .results-grid li[data-provider="Co-Op"],
+        .sainsburys .results-grid li[data-provider="Sainsburys"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="">
+    <header class="site-header">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/src/components/site-header/style.css">
+
+        <span class="site-logo" itemtype="http://schema.org/Organization">
+            <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                <svg viewBox="0 0 298 170">
+                    <title>MoneySuperMarket.com Logo</title>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/msm-logo.svg#ms-logo"></use>
+                </svg>
+            </a>
+        </span>
+        <ul class="header-nav">
+            <li class="profile">
+                <a href="my-profile.html" id="profile-trigger" class="icon icon-profile"><span class="profile-trigger-icon">My Profile</span></a>
+                <div>
+                    <ul id="profile-nav">
+                        <li><a class="" href="#"><strong>Hi!</strong> <em>(Sign in)</em></a>
+                        </li>
+                        <li><a class="" href="#">Retrieve quotes</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav"><a href="#primary-navigation" id="nav-trigger" class="nav-icon nav-trigger-icon"><span class="nav-trigger-icon"><strong>Site navigation</strong></span></a>
+            </li>
+        </ul>
+    </header>
+    <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/src/components/results/style.css">
+    <link type="text/css" rel="stylesheet" property="stylesheet" href="https://msmux.github.io/testing/src/components/results-list/style.css">
+    <section class="page-content" id="page-content">
+        <div class="promo-cards">
+            <h1>Great news <span id="name"></span>!</h1>
+            <p>Based on what we know about you, these are a good match.</p>
+            <ul id="promo-cards">
+                <li class="promo-card" data-provider="Barclaycard" data-coa="95" data-intro-rate="0" data-standard-rate="18.9" data-deal-length="40" data-apr="18.9" data-fees="1.13">
+                    <h2>You are most likely to get this card</h2>
+                    <img src="http://www.moneysupermarket.com/medias/sys_master/h04/hc3/8836383637534/bcard_plat_20_month.png" alt="Admiral" />
+                    <p>
+
+                        <strong>0<sup>%</sup></strong> for <strong>40 months</strong>
+                        <br/> balance transfer offer
+                        <strong>18.9% APR</strong>
+                        <br/>
+
+                        <span class="btn__simple details-trigger">More details</span>
+                    </p>
+
+                </li>
+                <li id="promo" class="promo-card" data-provider="Halifax">
+                    <h2>Fastest - no need to reapply with <span id="provider"></span>
+                        </h2>
+                    <img src="halifax.png" alt="" id="provider-img" />
+                    <p>
+                        <strong>0<sup>%</sup></strong> for <strong>18 months</strong>
+                        <br/> balance transfer offer
+                        <strong>20.9% APR</strong>
+                        <br/>
+                        <span class="btn__simple details-trigger">More details</span>
+                    </p>
+
+                </li>
+            </ul>
+        </div>
+        <div class="results-grid__wrap">
+            <div class="results-grid" id="results-grid">
+                <ol class="results-grid__summary">
+                    <li class="summary-row summary-row--header">
+                        <ul>
+                            <li class="provider">Brand</li>
+                            <li class="actions">&nbsp;</li>
+                        </ul>
+                    </li>
+                    <li data-provider="Barclaycard" data-coa="95" data-intro-rate="0" data-standard-rate="18.9" data-deal-length="40" data-apr="18.9" data-fees="1.13" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h04/hc3/8836383637534/bcard_plat_20_month.png" alt="Admiral">
+                                <strong>Barclaycard</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Virgin" data-coa="90" data-intro-rate="0" data-standard-rate="19.5" data-deal-length="18" data-apr="20.1" data-fees="1.20" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/he8/h03/8860550299678.png" alt="Admiral">
+                                <strong>Virgin</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Fluid" data-coa="90" data-intro-rate="0" data-standard-rate="27.7" data-deal-length="24" data-apr="27.7" data-fees="2.50" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/hb5/h7c/8842236297246/FluidCard.png" alt="Admiral">
+                                <strong>Fluid</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="TSB" data-coa="87" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="1.13" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h3f/h04/8821898444830/TSB-platinum-MSM-2.png" alt="Admiral">
+                                <strong>TSB</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Tesco" data-coa="85" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="2.70" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h68/ha6/8857618481182.png" alt="Admiral">
+                                <strong>Tesco</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Halifax" data-coa="85" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="2.10" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/hb0/h6b/8850683461662/halifax_20_mths.png" alt="Admiral">
+                                <strong>Halifax</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Co-Op" data-coa="80" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="3.50" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="coop.png" alt="Admiral">
+                                <strong>Co-Op</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Sainsburys" data-coa="78" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="1.00" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h50/hdb/8806522683422/sainsburys_card.png" alt="Admiral">
+                                <strong>Sainsbury's</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li data-provider="Post Office" data-coa="76" data-intro-rate="0" data-standard-rate="23.9" data-deal-length="36" data-apr="22.9" data-fees="1.10" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h52/hf9/8871198916638.png" alt="Admiral">
+                                <strong>Post Office</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-provider="MBNA" data-coa="70" data-intro-rate="0" data-standard-rate="26.9" data-deal-length="36" data-apr="20.9" data-fees="4.29" class="summary-row">
+                        <ul>
+                            <li class="provider">
+                                <img src="http://www.moneysupermarket.com/medias/sys_master/h5c/he9/8825967869982/MBNA-BT-platinum-MSM.png" alt="Admiral">
+                                <strong>MBNA</strong>
+                            </li>
+                            <li class="actions">
+                                <span class="btn">More</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <ol class="results-grid__details">
+
+                    <li class="details-row details-row--header">
+                        <ol>
+                            <li class="ratings-circle">Chance of approval</li>
+                            <li class="deal">Deal</li>
+                            <li class="apr">Promotional APR</li>
+                            <li class="apr">Standard APR</li>
+                            <li class="duration">Promotion length</li>
+                            <li class="apr">Purchases APR</li>
+                            <li class="fee">Fees</li>
+                            <li class="repex">Representative Example</li>
+                            <li class="actions">&nbsp;</li>
+                        </ol>
+                    </li>
+                    <li id="bc" data-provider="Barclaycard" data-coa="95" data-intro-rate="0" data-standard-rate="18.9" data-deal-length="40" data-apr="18.9" data-fees="1.13" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="95">95<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">40 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>18.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>40</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>18.9%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>1.13%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="Virgin" data-provider="Virgin" data-coa="90" data-intro-rate="0" data-standard-rate="19.5" data-deal-length="18" data-apr="20.1" data-fees="1.20" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="90">90<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>19.5%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.1%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>1.20%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li data-provider="Fluid" data-coa="90" data-intro-rate="0" data-standard-rate="27.7" data-deal-length="24" data-apr="27.7" data-fees="2.50" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="90">90<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">24 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>27.7%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>24</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>27.7%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>2.50%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="TSB" data-provider="TSB" data-coa="87" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="1.13" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="87">87<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>21.5%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>1.13%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="Tesco" data-provider="Tesco" data-coa="85" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="2.70" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="85">85<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>21.5%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>2.70%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="Halifax" data-provider="Halifax" data-coa="85" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="2.10" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="85">85<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>21.5%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>2.10%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="Co-Op" data-provider="Co-Op" data-coa="80" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="3.50" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="80">80<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>21.5%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>3.50%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="Sainsburys" data-provider="Sainsburys" data-coa="78" data-intro-rate="0" data-standard-rate="20.9" data-deal-length="18" data-apr="21.5" data-fees="1.00" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="78">78<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">18 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>18</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>21.5%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>1.00%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li data-provider="Post Office" data-coa="76" data-intro-rate="0" data-standard-rate="23.9" data-deal-length="36" data-apr="22.9" data-fees="1.10" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="76">76<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">36 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>23.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>36</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>22.9%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>1.10%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li data-provider="MBNA" data-coa="70" data-intro-rate="0" data-standard-rate="26.9" data-deal-length="36" data-apr="20.9" data-fees="4.29" class="details-row">
+                        <ol>
+                            <li class="ratings-circle">
+                                <span data-rating="70">70<sup>%</sup></span>
+                                <svg viewBox="0 0 100 100">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                                </svg>
+                            </li>
+                            <li class="deal">36 months 0% Balance Transfer</li>
+                            <li class="apr">
+                                <strong>0%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="apr">
+                                <strong>26.9%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="duration">
+                                <strong>36</strong>
+                                <small>months</small>
+                            </li>
+                            <li class="apr">
+                                <strong>20.9%</strong>
+                                <small>APR(variable)</small>
+                            </li>
+                            <li class="fee">
+                                <strong>4.29%</strong>
+                                <small>On transferred balances</small>
+                            </li>
+                            <li class="repex">
+                                If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).
+                            </li>
+                            <li class="actions">
+                                <span class="btn btn__primary details-trigger">More details</span>
+                            </li>
+                        </ol>
+                    </li>
+
+
+
+
+                </ol>
+
+            </div>
+        </div>
+
+        <!--The total cost includes any balance transfer fees you pay when you move your debt, plus any interest you would pay after the 0% period ends. If you switch again at the end of the 0% period, you would avoid this interest. As we know your monthly payment, we can work out how many months it would take you to repay the original balance. This will change if you alter your monthly payment, or add any extra spending or balance transfers to the card. -->
+
+        <script type="text/javascript">
+        </script>
+    </section>
+    <footer class="site-footer">
+        <link type="text/css" rel="stylesheet" property="stylesheet" href="/gxp/components/assets/footer.css">
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="#">Contact us</a>
+                    </li>
+                    <li><a href="#">Investor relations</a>
+                    </li>
+                    <li><a href="#">Privacy</a>
+                    </li>
+                    <li><a href="#">Preference centre</a>
+                    </li>
+                    <li><a href="#">Careers</a>
+                    </li>
+                    <li><a href="#">News</a>
+                    </li>
+                    <li><a href="#">Terms &amp; conditions</a>
+                    </li>
+                    <li><a href="#">Security</a>
+                    </li>
+                    <li><a href="#">Cookie policy</a>
+                    </li>
+                </ul>
+            </nav>
+            <span class="site-logo" itemtype="http://schema.org/Organization">
+            <a itemprop="url" title="MoneySuperMarket.com" href="http://www.moneysupermarket.com/">
+                <svg viewBox="0 0 298 170">
+                    <title>MoneySuperMarket.com Logo</title>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/msm-logo.svg#ms-logo"></use>
+                </svg>
+            </a>
+        </span>
+        </div>
+        <div class="footer-information">
+            <p>Contact moneysupermarket.com at Moneysupermarket House, St David's Park, Ewloe, Flintshire, CH5 3UZ. © Moneysupermarket.com Ltd 2014.</p>
+            <p>Moneysupermarket.com Limited is an appointed representative of Moneysupermarket.com Financial Group Limited, which is authorised and regulated by the Financial Conduct Authority (FCA FRN 303190).
+                <br> Moneysupermarket.com Financial Group Limited, registered in England No. 3157344.
+                <br> Registered Office:
+                <br> Moneysupermarket House, St. David's Park, Ewloe, CH5 3UZ. Telephone 01244 665700</p>
+            <p>Important information
+                <br> Here’s some important information about the services MoneySuperMarket provides. Please read and retain for your own records. <a href="#">About our service</a>
+            </p>
+        </div>
+    </footer>
+    <link type="text/css" rel="stylesheet" property="stylesheet" href="/gxp/components/assets/slider.css">
+    <div class="overlay" id="overlay"></div>
+    <div class="details-content__wrap" id="details-content__wrap">
+        <style type="text/css">
+            p#repEx {
+                font-weight: 600;
+            }
+
+            .details-content__wrap {
+                background-color: transparent;
+                padding-left: 17px;
+            }
+
+            .details-overlay__close-trigger {
+                left: 0px;
+            }
+
+            .details-content__wrap .promo-cards {
+                background-color: #FFF;
+                background-image: none;
+            }
+
+            .details-content__wrap .promo-card {
+                border-bottom: 0 none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .details-content__wrap .promo-card img {
+                top: 14px;
+            }
+
+            .details-content__wrap .promo-card .provider {
+                display: block;
+            }
+
+            .details-content__wrap .cta {
+                margin: 15px 0 0;
+            }
+
+            .details-content__wrap .cta small {
+                display: block;
+                margin-top: 20px;
+                font-size: 12px;
+                font-weight: 300;
+                color: #566266;
+                text-align: center;
+            }
+
+            .details-content .ratings-circle {
+                position: relative;
+                width: 50px;
+                top: 31px;
+            }
+
+            .details-content .ratings-circle + p {
+                padding-left: 70px;
+            }
+
+            .cards-details.current-provider .current-provider,
+            .cards-details.application .application {
+                display: block;
+            }
+
+            .cards-details.current-provider .application,
+            .cards-details.application .current-provider {
+                display: none;
+            }
+        </style>
+        <div class="cards-details application" id="card-details">
+            <div class="details-overlay__close-trigger " id="details-overlay__close-trigger">
+                <span class="icon white-stroke">
+                <svg viewBox="0 0 100 100">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/icons.svg#cross"></use>
+                </svg>
+            </span>
+                <span class="hide">Close</span>
+            </div>
+            <div class="promo-cards">
+                <div class="promo-card">
+                    <img id="providerImg" src="http://www.moneysupermarket.com/medias/sys_master/h04/hc3/8836383637534/bcard_plat_20_month.png" alt="Admiral">
+                    <p>
+                        <span class="provider" id="providerName">Barclaycard</span>
+                        <strong class="deal" id="dealName">0% for 40 months balance transfer</strong>
+                    </p>
+                </div>
+                <p class="cta application">
+                    <span class="btn btn__primary">Apply for this card</span>
+                    <small>This offer ends on the 28th of March 2016</small>
+                </p>
+                <p class="cta current-provider">
+                    <span class="btn btn__primary">Apply for this rate</span>
+                </p>
+            </div>
+            <div class="details-content ">
+                <div class="coa-panel application">
+                    <h2>Chance of approval</h2>
+                    <p class="ratings-circle">
+                        <span id="rating-span" data-rating="85">85<sup>%</sup></span>
+                        <svg viewBox="0 0 100 100">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/gxp/components/assets/results-icons.svg#disc"></use>
+                        </svg>
+                    </p>
+                    <p>We've taken the details you gave, and used them to show you personalised scores to tell you the chance that your application for each card would be successful.</p>
+                </div>
+                <div class="amend-check">
+                    <h2>Representative example</h2>
+                    <p id="repEx">If you spend £1,200 at a purchase interest rate of 18.9% p.a. (variable) your representative rate will be 18.9% APR (variable).</p>
+
+                </div>
+                <h2>Balance transfer rates and fees</h2>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Promotional APR</th>
+                            <td><strong>0%</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Standard APR</th>
+                            <td><strong id="standardBTRate">18.9%</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Balance transfer fee</th>
+                            <td><strong id="transferFee">2.12%</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Promotional APR duration</th>
+                            <td><strong><span id="promoDuration">16</span> months</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Purchase APR</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Promotional rate</th>
+                            <td><strong id="purchaseRate1">21.2%</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Standard rate</th>
+                            <td><strong id="purchaseRate2">21.2%</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var interactionType = 'click';
+        if ('ontouchstart' in document.documentElement) {
+            interactionType = 'touchstart';
+        }
+        var userInfo = [
+            {
+                "name": "Steve",
+                "provider": "Halifax",
+                "rate": "12",
+                "expires": "28"
+                        },
+            {
+                "name": "Corinne",
+                "provider": "Co-Op",
+                "rate": "11",
+                "expires": "28"
+                        },
+            {
+                "name": "Hazhir",
+                "provider": "TSB",
+                "rate": "18",
+                "expires": "28"
+                        },
+            {
+                "name": "Alison",
+                "provider": "Sainsburys",
+                "rate": "18.9",
+                "expires": "52"
+                        },
+            {
+                "name": "Christian",
+                "provider": "Tesco",
+                "rate": "18.9",
+                "expires": "28"
+                        },
+            {
+                "name": "Sarah",
+                "provider": "Halifax",
+                "rate": "18.9",
+                "expires": "28"
+            },
+            {
+                "name": "Gemma",
+                "provider": "Virgin",
+                "rate": "18.9",
+                "expires": "28"
+                    }];
+        var userId = localStorage.getItem("userId");
+        document.getElementById('page-content').className = userInfo[userId].provider.toLowerCase();
+        document.getElementById('name').textContent = userInfo[userId].name;
+        document.getElementById('provider').textContent = userInfo[userId].provider;
+        document.getElementById('promo').className = document.getElementById('promo').className + " " + userInfo[userId].provider.toLowerCase();
+        document.getElementById('promo').setAttribute('data-provider', userInfo[userId].provider);
+        document.getElementById('provider-img').setAttribute('src', userInfo[userId].provider.toLowerCase() + '.png');
+
+        var detailedRowsArray = document.getElementsByClassName('details-row');
+
+        var grid = document.getElementById('results-grid');
+        grid.addEventListener('click', function (evt) {
+            //console.log(evt.target.offsetParent);
+            //populateDetailsPanel(evt.target.offsetParent.getAttribute('data-ref'));
+            var targetEl = evt.target.offsetParent;
+            var targetElTag = targetEl.tagName;
+            console.log(targetElTag);
+
+
+            if (targetElTag == "svg") {
+                targetEl = targetEl.offsetParent.offsetParent;
+            }
+
+            var targetElClass = targetEl.className;
+
+            console.log(targetElClass);
+            if (targetElClass == 'ratings-circle') {
+                targetEl = targetEl.offsetParent;
+            } else if (targetElClass == "SVGAnimatedString {}") {
+                targetEl = targetEl.offsetParent.offsetParent;
+            } else if (targetElClass == 'actions') {
+                targetEl = targetEl.offsetParent;
+            }
+
+            populateDetailsPanel(targetEl);
+            document.body.classList.toggle('details-open');
+        });
+
+        var promoCards = document.getElementById('promo-cards');
+        promoCards.addEventListener('click', function (evt) {
+            var providerRef = evt.target.offsetParent.getAttribute('data-provider');
+            console.log(providerRef);
+            if (providerRef == "Barclaycard") {
+                populateDetailsPanel(document.getElementById('bc'));
+            } else {
+                console.log(providerRef);
+                console.log(document.getElementById(providerRef));
+                populateDetailsPanel(document.getElementById(providerRef));
+                document.getElementById('providerImg').setAttribute('src', providerRef.toLowerCase() + ".png");
+                document.getElementById('card-details').className = 'cards-details current-provider';
+            }
+
+            /*if (evt.target.offsetParent.getAttribute('data-provider') == "Barclaycard") {
+                populateDetailsPanel(evt.target.offsetParent);
+            }*/
+
+            document.body.classList.toggle('details-open');
+        });
+
+
+        document.getElementById('overlay').addEventListener(interactionType, function (evt) {
+            document.body.classList.toggle('details-open');
+        });
+        document.getElementById('details-overlay__close-trigger').addEventListener(interactionType, function (evt) {
+            document.body.classList.toggle('details-open');
+        });
+
+
+        var imageMatcher = function (ref) {
+            console.log(ref);
+            var imgUrl;
+            if (ref == "Post Office") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h52/hf9/8871198916638.png"
+            } else if (ref == "Fluid") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/hb5/h7c/8842236297246/FluidCard.png"
+            } else if (ref == "Virgin") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/he8/h03/8860550299678.png"
+            } else if (ref == "Tesco") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h68/ha6/8857618481182.png"
+            } else if (ref == "Halifax") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/hb0/h6b/8850683461662/halifax_20_mths.png"
+            } else if (ref == "TSB") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h3f/h04/8821898444830/TSB-platinum-MSM-2.png"
+            } else if (ref == "Barclaycard") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h04/hc3/8836383637534/bcard_plat_20_month.png"
+            } else if (ref == "MBNA") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h5c/he9/8825967869982/MBNA-BT-platinum-MSM.png"
+            } else if (ref == "Sainsburys") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/h50/hdb/8806522683422/sainsburys_card.png"
+            } else if (ref == "HSBC") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/hcf/hd8/8806501679134/hsbc_card.png"
+            } else if (ref == "Lloyds") {
+                imgUrl = "http://www.moneysupermarket.com/medias/sys_master/hb9/h43/8841758277662/lloyds-Platinum-MSM-2.png"
+            } else if (ref == "Co-Op") {
+                imgUrl = "coop.png"
+            } else if (ref == "Virgin") {
+                imgUrl = "virgin.png"
+            }
+            return imgUrl;
+        };
+
+
+        var populateDetailsPanel = function (ref) {
+            console.log(ref);
+            document.getElementById('card-details').className = 'cards-details application';
+            document.getElementById('providerImg').setAttribute('src', imageMatcher(ref.getAttribute("data-provider")));
+            document.getElementById('providerName').textContent = ref.getAttribute("data-provider");
+            document.getElementById('dealName').textContent = ref.getAttribute("data-deal-length") + " Months 0% Balance Transfer";
+            document.getElementById('rating-span').setAttribute('data-rating', ref.getAttribute('data-coa'));
+            document.getElementById('rating-span').innerHTML = ref.getAttribute('data-coa') + "<sup>%</sup>";
+            document.getElementById('standardBTRate').textContent = ref.getAttribute('data-standard-rate') + "%";
+            document.getElementById('transferFee').textContent = ref.getAttribute('data-fees') + "%";
+            document.getElementById('promoDuration').textContent = ref.getAttribute('data-deal-length');
+            document.getElementById('purchaseRate1').textContent = ref.getAttribute('data-apr') + "%";
+            document.getElementById('purchaseRate2').textContent = ref.getAttribute('data-apr') + "%";
+        };
+    </script>
+
+</body>
+
+</html>

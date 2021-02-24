@@ -1,0 +1,724 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900|Open+Sans:300,500,600,700');
+
+/* RESET */
+body,
+div,
+section,
+main,
+header,
+footer,
+figure,
+img,
+svg,
+span,
+strong,
+small,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+fieldset,
+legend,
+input,
+select,
+label,
+button,
+a {
+    margin: 0;
+    border: 0 none;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+input,textarea,select,button {
+    font: normal 14px/1 'Open Sans';
+}
+input:focus,textarea:focus,select:focus,button:focus {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    line-height: 1.8;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font: 500 1.6em/1.4 'Open Sans', 'Arial', 'Helvetica', 'Sans-Serif';
+    -webkit-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background-color: #FFF;
+    color: #2b3133;
+}
+
+/* Page header */
+body > header {
+    background-color: #FFF;
+    border-bottom: 1px solid #C6CACC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 10;
+}
+body > header .site-logo {
+    width: 49px;
+    margin: 10px 0 1px 10px;
+}
+
+
+/* Page footer */
+.site-footer {
+    background-color: #2B3133;
+    padding: 35px 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.site-footer li a {
+    color: #C6CACC;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: block;
+    border-bottom: 1px solid #566266;
+    padding: 13px 0;
+    text-decoration: none;
+}
+
+.site-footer li a:hover,
+.site-footer li a:focus {
+    color: #FFF;
+    text-decoration: underline;
+}
+
+.site-footer .site-logo {
+    margin: 30px 0 28px;
+    width: 56px;
+    height: 56px;
+    position: relative;
+    display: block;
+}
+
+.site-footer .site-logo svg {
+    position: relative;
+    top: 14px;
+    left: 8px;
+}
+
+.site-footer .site-logo:before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 57px;
+    height: 57px;
+    content: '';
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+}
+
+.site-footer .footer-information p {
+    display: block;
+    color: #949899;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 17px;
+    padding-bottom: 9px;
+}
+
+.footer-information a {
+    color: #00AEEF;
+}
+
+@media (min-width: 700px) {
+    .site-footer .site-logo {
+        position: absolute;
+        top: 20px;
+        z-index: 0;
+    }
+    .site-footer ul {
+        margin: 24px 0 0 90px;
+    }
+    .site-footer li {
+        display: inline-block;
+    }
+    .site-footer li a {
+        display: block;
+        border-bottom: 0 none;
+        padding: 2px 20px 3px 0;
+        font-weight: bold;
+    }
+    .site-footer .footer-information {
+        padding-top: 35px;
+    }
+}
+
+@media (min-width: 980px) {
+    .site-footer ul {
+        margin-top: 32px;
+    }
+}
+
+@media (min-width: 1180px) {
+    .site-footer > div {
+        width: 1180px;
+        margin: 0 auto;
+    }
+}
+
+/* Main page content */
+body > main {
+    padding-top: 45px;
+}
+
+
+
+/* FORM STYLES */
+/* Form - wrappers */
+.central-form fieldset > ol > li {
+    margin: 0;
+    padding: 10px 20px 10px 15px;
+    border-left: 5px solid rgba(255, 255, 255, 0);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.central-form .form-inline-radios,
+.central-form .form-grid-radios {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.central-form .form-grid-radios {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.central-form .form-inline-radios > li,
+.central-form .form-grid-radios > li {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.central-form .form-inline-radios > li:nth-child(odd),
+.central-form .form-grid-radios > li:nth-child(odd) {
+    padding-right: 3px;
+}
+.central-form .form-inline-radios > li:nth-child(even),
+.central-form .form-grid-radios > li:nth-child(even) {
+    padding-left: 3px;
+}
+
+/* Form - text content */
+.central-form legend {
+    font-size: 24px;
+    line-height: 1.33;
+    font-weight: 300;
+    padding: 20px;
+    display: block;
+    max-width: 748px;
+}
+.central-form .form-hint {
+    display: block;
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: 300;
+    padding: 0 50px 10px 0;
+    color: #566266;
+    margin-top: -10px;
+}
+
+.central-form .form-message {
+    border-left-color: #C6CACC;
+    background-color: #F2F8FA;
+    font-size: 14px;
+    line-height: 1.29;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.central-form .form-message h2 {
+    font-weight: 700;
+    padding-bottom: 10px
+}
+
+.central-form .form-message p + h2 {
+    padding: 10px 0;
+}
+
+.central-form .form-message p {
+    max-width: 748px;
+}
+
+.central-form .form-message a {
+    color: #00AEEF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.central-form .form-message a:hover,
+.central-form .form-message a:focus {
+    text-decoration: underline;
+    color: #0083b3;
+}
+
+.central-form .form-message-error {
+    border-left-color: #ed1c24;
+    background-color: #fde8e9;
+    padding-left: 65px;
+}
+
+.central-form .form-message-error:before {
+    content: '';
+    width: 35px;
+    height: 30px;
+    display: block;
+    background: #fde8e9 url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><g fill="none" stroke="#ED1C24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><line  x1="50" y1="29" x2="50" y2="47.5"/><line x1="50" y1="56.3" x2="50" y2="56.4"/><polygon points="91,70 8.9,70 49.8,3.5"/></g></svg>') 1px 1px no-repeat;
+    background-size: 35px;
+    position: absolute;
+    top: 20px;
+    left: 14px;
+}
+
+.central-form .form-message-error a {
+    color: hsl(358, 85%, 52%);
+}
+
+.central-form .form-message-error a:hover,
+.central-form .form-message-error a:focus {
+    color: #c61016;
+}
+
+.central-form button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0 none;
+    color: #00AEEF;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+/* Form - Inputs */
+.central-form input[type=text],
+.central-form input[type=email],
+.central-form input[type=number],
+.central-form input[type=tel]{
+    padding: 16px 10px 17px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 0 0 #c6cacc;
+    box-sizing: border-box;
+    background-color: #ebf0f2;
+    display: block;
+    color: #566266;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+.central-form input:focus {
+    box-shadow: 0 0 4px 2px #00AEEF;
+}
+.central-form input:placeholder-shown {
+    color: #949899;
+    font-weight: 400;
+}
+
+.central-form input[type=radio],
+.central-form input[type=checkbox] {
+    -webkit-appearance: none;
+    border: 0 none;
+    background-color: transparent;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 0;
+    height: 0;
+}
+.central-form input[type=radio]:focus,
+.central-form input[type=checkbox]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.central-form .form-pseudo-select {
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 #c6cacc;
+    box-sizing: border-box;
+    background-color: #ebf0f2;
+    position: relative;
+    z-index: 0;
+}
+
+.central-form .form-pseudo-select:before {
+    content: '';
+    height: 50px;
+    width: 1px;
+    background-color: #DFE3E5;
+    position: absolute;
+    top: 0;
+    right: 40px;
+}
+
+.central-form .form-pseudo-select:after {
+    content: '';
+    height: 24px;
+    width: 24px;
+    background: transparent url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke="#00AEEF" points="41.5,67 58.5,50 41.5,33"/></svg>') center center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 14px;
+    right: 9px;
+    transform: rotate(90deg);
+    transform-origin: center;
+    z-index: 0;
+}
+
+.central-form .form-pseudo-select select {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: normal 600 14px/1.5 'Open Sans';
+    color: #566266;
+    padding: 15px 51px 14px 15px;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* Form - labels - standard */
+.central-form label,
+.central-form .label {
+    font-size: 16px;
+    line-height: 1.38;
+    font-weight: 300;
+    padding: 0 30px 10px 0;
+    display: block;
+}
+.central-form label small {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 3px;
+}
+.central-form label small b {
+    font-weight: 600;
+}
+
+/* Form - labels - radio/checkbox */
+.central-form input[type=radio] + label,
+.central-form input[type=checkbox] + label {
+    padding: 15px 10px 15px 50px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 rgb(198, 202, 204);
+    box-sizing: border-box;
+    background-color: #ebf0f2;
+    display: block;
+    color: #566266;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    margin: 0 0 10px;
+}
+
+.central-form ul li:last-of-type input[type=radio] + label,
+.central-form ul li:last-of-type input[type=checkbox] + label {
+    margin: 0;
+}
+.central-form input[type=radio] + label:hover,
+.central-form input[type=radio]:focus + label,
+.central-form input[type=checkbox] + label:hover,
+.central-form input[type=checkbox]:focus + label {
+    background-color: #99dff9;
+    box-shadow: 0 2px 0 0 rgba(198,202,204,0);
+}
+
+.central-form input[type=radio]:checked + label,
+.central-form input[type=radio]:checked:focus + label,
+.central-form input[type=checkbox]:checked + label,
+.central-form input[type=checkbox]:checked:focus + label{
+    background-color: #00AEEF;
+    box-shadow: inset 0 2px 0 0 #0082b5;
+    color: #FFF;
+}
+
+.central-form input[type=radio]:checked + label:hover,
+.central-form input[type=radio]:checked:focus + label,
+.central-form input[type=checkbox]:checked + label:hover,
+.central-form input[type=checkbox]:checked:focus + label {
+    background-color: #0083b3;
+    box-shadow: inset 0 2px 0 0 #005778;
+}
+
+/* Form - labels - radio/checkbox - specific differences */
+.central-form input[type=radio] + label:before,
+.central-form input[type=radio] + label:after {
+    content: '';
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+    transform-origin: center;
+}
+.central-form input[type=radio] + label:before {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #C6CACC;
+    top: 13px;
+    left: 13px;
+    box-shadow: inset 0 0 0 2px #FFF;
+}
+.central-form input[type=radio]:checked + label:before {
+    border-color: rgba(255,255,255,0);
+}
+.central-form input[type=radio] + label:after {
+    width: 22px;
+    height: 22px;
+    top: 14px;
+    left: 14px;
+    background-color: #FFF;
+}
+.central-form input[type=radio]:checked + label:after {
+    transform: scale(0.4);
+}
+
+
+.central-form input[type=checkbox] + label:before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 1px solid #C6CACC;
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: #FFF url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline stroke="#FFF" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" points="70.5,35.5 41.5,64.5 29.5,52.5"/></svg>') center center no-repeat;
+    background-size: 24px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+.central-form input[type=checkbox]:checked + label:before {
+    background-color: transparent;
+    border: 3px solid #FFF;
+}
+
+
+.central-form input[type=checkbox] + label:before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 1px solid #C6CACC;
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: #FFF url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline stroke="#FFF" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" points="70.5,35.5 41.5,64.5 29.5,52.5"/></svg>') center center no-repeat;
+    background-size: 24px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+.central-form input[type=checkbox]:checked + label:before {
+    background-color: transparent;
+    border: 3px solid #FFF;
+}
+
+.central-form button.btn {
+    position: relative;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 12px 20px 10px;
+    box-sizing: border-box;
+}
+
+.central-form button.btn.disabled {
+    background-color: #C6CACC;
+}
+
+.central-form button.btn__primary {
+    color: #FFF;
+    background-color: #48a415;
+    box-shadow: rgb(198, 202, 204) 0 2px 0 0;
+    text-transform: uppercase;
+    border-color: #48a415;
+    box-shadow: rgb(198, 202, 204) 0 2px 0 0;
+}
+
+.central-form button.btn__secondary {
+    color: #00AEEF;
+    border: 2px solid #00AEEF;
+    background-color: #FFF;
+}
+
+@media all and ( min-width: 340px) {
+    .central-form {
+        margin: 0;
+    }
+    .central-form .form-message {
+        margin: 0 20px;
+    }
+}
+
+@media all and ( min-width: 420px) {
+    .central-form {
+        margin: 0 auto;
+        width: 380px;
+    }
+}
+
+@media all and ( min-width: 620px) {
+    .central-form {
+        margin: 0 auto;
+        width: 100%;
+    }
+    .central-form fieldset > ol > li {
+        padding-left: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        border-left-width: 10px;
+    }
+    .central-form fieldset > ol > li > div {
+        width: 50%;
+        vertical-align: top;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .central-form fieldset > ol > li > div:nth-of-type(1) {
+        padding-right: 12px;
+    }
+    .central-form fieldset > ol > li > div:nth-of-type(2) {
+        padding-left: 12px;
+    }
+    .central-form .form-message {
+        display: block;
+    }
+    .central-form .form-message div {
+        width: 100%;
+    }
+    .central-form .form-message {
+        border-left-width: 10px;
+        padding-left: 20px;
+    }
+    .central-form .form-message-error,
+    .central-form .form-message-success {
+        padding-left: 65px;
+    }
+    .central-form fieldset > ol > li > div:nth-of-type(1) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .central-form label,
+    .central-form .label {
+        
+        font-size: 18px;
+        padding-top: 9px;
+        line-height: 1.56;
+    }
+}
+
+@media all and ( min-width: 768px) {
+    .central-form legend {
+        font-size: 28px;
+        line-height: 1.38;
+    }
+}
+
+@media all and ( min-width: 824px) {
+    .central-form {
+        margin: 0 auto;
+        width: 780px;
+    }
+    .central-form legend {
+        font-size: 32px;
+    }
+}
+
+.central-form fieldset > ol .skip {
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+.central-form div[data-status="extras-selected"] .skip {
+    display: none;
+}
+
+.central-form fieldset > ol .skip button {
+    margin: 0 20px 20px;
+    color: #0AAEEF;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.central-form fieldset > ol .add {
+    display: none;
+}
+
+.central-form div[data-status="extras-selected"] .add {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+
+
+fieldset {
+    display: block;
+    margin-bottom: 40px;
+}
+
+footer + svg {
+    height: 0
+}

@@ -1,0 +1,42 @@
+.central-form .logo {
+    display: block;
+    height: 28px;
+    width: 73px;
+    position: absolute;
+    z-index: 1;
+    background: transparent url(https://msmux.github.io/testing/src/assets/img/big-six-sprite.png) 0 0 no-repeat;
+    background-size: 147px 168px;
+    top: 12px;
+    right: 12px;
+}
+
+.central-form input:focus + label .logo,
+.central-form input label .logo:hover,
+.central-form input:hover label .logo,
+.central-form input:checked + label .logo {
+    background-position-x: right;
+}
+
+.central-form .logo.bri {
+    background-position-y: 0px;
+}
+
+.central-form .logo.eon {
+    background-position-y: -28px;
+}
+
+.central-form .logo.edf {
+    background-position-y: -56px;
+}
+
+.central-form .logo.sse {
+    background-position-y: -84px;
+}
+
+.central-form .logo.npo {
+    background-position-y: -112px;
+}
+
+.central-form .logo.sco {
+    background-position-y: -140px;
+}

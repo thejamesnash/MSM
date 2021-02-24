@@ -1,0 +1,92 @@
+
+<html>
+
+<head>
+
+
+<script>
+        var ajax = function (method, url, data, callback) {
+            var request = new XMLHttpRequest();
+            request.open(method, url, true);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    callback(response);
+                }
+            }
+            request.send(JSON.stringify(data));
+     };
+    
+    /*
+    request.setRequestHeader("client_id", "kG8gfeV92yEHrdXtdTuAGXtGXarLjqLc");
+            request.setRequestHeader("Client-ID", "10");
+            request.setRequestHeader("Activity-Type-ID", "2");
+            request.setRequestHeader("Organisation-ID", "1");
+            request.setRequestHeader("Channel-ID", "201");
+            request.setRequestHeader("Visitor-IP-Address", "168.1.1.0");
+            request.setRequestHeader("Is-Authenticated", "1");
+            
+    */
+
+var data = {
+      "smart-search": {
+        "user": {
+          "sourceCode": "MS"
+        },
+        "userAgent": "Chrome",
+        "goalCode": "CC_ALLCARDS",
+        "payload": {
+          "customerDetails": {
+            "titleId": 1,
+            "firstName": "Kulbir",
+            "lastName": "Jeep",
+            "dateOfBirth": "1975-08-14",
+            "employmentStatusId": 3,
+            "employmentContractTypeId": 1,
+            "annualIncome": 50000,
+            "bankCode": 1003,
+            "email": "test@moneysupermarket.com",
+            "immediateCashWithdrawal": true,
+            "maritalStatusId": 1,
+            "additionalHouseholdIncome": 0,
+            "monthlyAccommodationCosts": 800,
+            "numberOfDependants": 0,
+            "childcareCost": 0,
+            "currentResidence": {
+              "yearsAtAddress": 5,
+              "residentialStatusId": 1,
+              "address": {
+                "addressProviderId": 3,
+                "buildingName": "Moneysupermarket House",
+                "county": "Clwyd",
+                "dependantLocality": "Ewloe",
+                "thoroughfare": "St. Davids Park",
+                "town": "Deeside",
+                "country": "GB",
+                "postcode": "CH5 3UZ",
+                "udprn": "04636699",
+                "addressOriginId": 1
+              }
+            }
+          }
+        }
+      }
+    };
+
+    var d = JSON.stringify(data);
+    console.log(d);
+
+    var logResponse = function(obj){
+        console.log(obj);
+    };
+
+    ajax('POST', 'https://moneysupermarket-dev.apigee.net/gb/money/credit-cards/v1/smart-search', data, logResponse);
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

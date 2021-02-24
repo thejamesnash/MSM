@@ -1,0 +1,106 @@
+[16/03/2018, 14:26:23] James Nash: Skype chat, yes. Call, no
+[16/03/2018, 14:26:30] James Nash: Stupid workshops
+[16/03/2018, 14:26:56] Chris Owen: Ok, I’m getting there. Give me a few secs
+[16/03/2018, 14:27:01] James Nash: Magic
+[16/03/2018, 14:32:26] Chris Owen: Getting an error with a constraint validation - but doesn’t tell me what the constraint is…..
+[16/03/2018, 14:32:35] Chris Owen: Checking the longly logs
+[16/03/2018, 14:34:59] James Nash: Damn those longly logs
+[16/03/2018, 14:36:37] Chris Owen: Every example JSON the team have documented is rejected
+[16/03/2018, 14:37:07] James Nash: Does it give any reason?
+[16/03/2018, 14:37:32] Chris Owen: Just says fails the schema validation - but doesn’t tell me why
+[16/03/2018, 14:37:41] James Nash: Useful
+[16/03/2018, 14:44:37] Chris Owen: I may have to come over there and hurt you
+[16/03/2018, 14:44:47] Chris Owen: You’re nots ending any data in the post
+[16/03/2018, 14:45:03] James Nash: Hahah that’d do it
+[16/03/2018, 14:45:05] Chris Owen: So you’re doing a POST request but not sending any actual JSON
+[16/03/2018, 14:45:17] Chris Owen: No wonder it’s not telling me the problem
+[16/03/2018, 14:45:28] James Nash: Is it not pushing it through with the data var?
+[16/03/2018, 14:45:48] James Nash: Consoling it returns valid JSON?
+[16/03/2018, 14:46:26] Chris Owen: Doesn’t seem to be anything in the actual request
+[16/03/2018, 14:46:44] Chris Owen: At least not with the HTMl you sent me
+[16/03/2018, 14:46:58] James Nash: Have you got a fragment that works?
+[16/03/2018, 14:47:51] Chris Owen: This works
+[16/03/2018, 14:47:55] James Nash: Fucking hell, I haven’t stringyified
+[16/03/2018, 14:48:36] James Nash: Go on..
+[16/03/2018, 14:48:36] Chris Owen: <html>
+
+<head>
+    
+
+<script>
+        var ajax = function (method, url, data, callback) {
+            var request = new XMLHttpRequest();
+            request.open(method, url, true);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.setRequestHeader("client_id", "kG8gfeV92yEHrdXtdTuAGXtGXarLjqLc");
+            request.setRequestHeader("Client-ID", "10");
+            request.setRequestHeader("Activity-Type-ID", "2");
+            request.setRequestHeader("Organisation-ID", "1");
+            request.setRequestHeader("Channel-ID", "201");
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    callback(response);
+                }
+            }
+            request.send(data);
+     };
+
+var data = {
+      "smart-search": {
+        "user": {
+          "sourceCode": "MS"
+        },
+        "userAgent": "Chrome",
+        "goalCode": "CC_ALLCARDS",
+        "payload": {
+          "customerDetails": {
+            "titleId": 1,
+            "firstName": "Kulbir",
+            "lastName": "Jeep",
+            "dateOfBirth": "1975-08-14",
+            "employmentStatusId": 3,
+            "employmentContractTypeId": 1,
+            "annualIncome": 50000,
+            "bankCode": 1003,
+            "email": "test@moneysupermarket.com",
+            "immediateCashWithdrawal": true,
+            "maritalStatusId": 1,
+            "additionalHouseholdIncome": 0,
+            "monthlyAccommodationCosts": 800,
+            "numberOfDependants": 0,
+            "childcareCost": 0,
+            "currentResidence": {
+              "yearsAtAddress": 5,
+              "residentialStatusId": 1,
+              "address": {
+                "addressProviderId": 3,
+                "buildingName": "Moneysupermarket House",
+                "county": "Clwyd",
+                "dependantLocality": "Ewloe",
+                "thoroughfare": "St. Davids Park",
+                "town": "Deeside",
+                "country": "GB",
+                "postcode": "CH5 3UZ",
+                "udprn": "04636699",
+                "addressOriginId": 1
+              }
+            }
+          }
+        }
+      }
+    };
+
+
+    var logResponse = function(obj){
+        console.log(obj);
+    };
+
+    aja (angry) 'POST', 'https://moneysupermarket-dev.apigee.net/gb/money/credit-cards/v1/smart-search', data, logResponse);
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

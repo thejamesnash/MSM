@@ -1,0 +1,270 @@
+.central-form fieldset::-webkit-input-placeholder {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #949899;
+    font-weight: normal;
+}
+
+.body-scroll {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    position: fixed;
+}
+
+.central-form > header {
+    background-color: #00AEEF;
+    padding: 0;
+    border-bottom: 1px solid #dfe3e5;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color: #FFF;
+    box-sizing: border-box;
+    padding: 40px 50px;
+    text-align: left;
+}
+
+.central-form > header h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.central-form > header h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.central-form > header p {
+    padding-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.central-form > header .btn {
+    background-color: #FFF;
+    display: block;
+    margin: 20px auto 0;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    color: #FFF;
+    border: 0 none;
+    transition: all 0.2s ease-in-out;
+    order: 1;
+    padding: 18px 30px;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-radius: 30px;
+    width: 100%;
+    background-color: #EC008C;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+    transition: all 0.2s ease-in-out;
+    transform: translate3d(100vw, 0, 0);
+    overflow: hidden;
+}
+
+.started .form-wrapper {
+    transform: translate3d(0, 0, 0);
+}
+
+.form-wrapper .question-actions {
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    width: 100vw;
+    padding-bottom: 20px;
+    margin-top: -40px;
+}
+
+.form-wrapper .question-actions button {
+    background-color: #FFF;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    border-radius: 0;
+    border: 0 none;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-wrapper .question-actions button.previous {
+    background-color: #00AEEF;
+    order: 2;
+    margin: 0 auto 15px;
+}
+
+.form-wrapper .question-actions button.next {
+    order: 1;
+    text-align: center;
+    padding: 18px 30px;
+    box-sizing: border-box;
+    color: #FFF;
+    font-weight: 700;
+    border-radius: 30px;
+    width: 200px;
+    margin: 0 auto 15px;
+}
+
+.form-wrapper .question-actions button.next.disabled {
+    background-color: #c6cacc;
+}
+
+.form-wrapper .question-actions button.next.enabled {
+    background-color: #EC008C;
+}
+
+.form-wrapper .question-actions button.previous.disabled {
+    color: #c6cacc;
+}
+
+.form-wrapper .question-actions button.previous.enabled {
+    color: #00AEEF;
+}
+
+.form-wrapper .question-actions button:after {
+    content: '';
+    height: 24px;
+    width: 24px;
+    background: transparent url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke="#566266" points="41.5,67 58.5,50 41.5,33"/></svg>') center center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 15px;
+    transform: rotate(0deg);
+    transform-origin: center;
+    z-index: 0;
+}
+
+.form-wrapper .question-actions button.previous:after {
+    left: -27px;
+    transform: rotate(180deg);
+    top: -2px;
+}
+
+.form-wrapper .question-actions button:last-of-type:after {
+    right: 13px;
+}
+
+.form-wrapper .question-actions button.disabled:after {
+    background: transparent url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke="#c6cacc" points="41.5,67 58.5,50 41.5,33"/></svg>') center center no-repeat;
+}
+
+.form-wrapper .question-actions button.enabled:after {
+    background: transparent url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 100 100"><polyline fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF" points="41.5,67 58.5,50 41.5,33"/></svg>') center center no-repeat;
+}
+
+
+.form-wrapper fieldset legend {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #FFF;
+    font-weight: 700;
+}
+
+.form-wrapper fieldset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh);
+    overflow: hidden;
+    /*    overflow-y: scroll;*/
+    background-color: #00AEEF;
+    transition: all 0.2s ease-in-out;
+    transform: translate3d(100vw, 0, 0);
+}
+
+.form-wrapper fieldset label,
+.form-wrapper fieldset .label {
+    color: #FFF;
+}
+
+.form-wrapper fieldset.active {
+    transform: translate3d(0, 0, 0);
+}
+
+.form-wrapper fieldset.complete {
+    transform: translate3d(-100vw, 0, 0);
+}
+
+.central-form .dependant {
+    display: block;
+}
+
+.central-form .dependant.hidden {
+    display: none;
+}
+
+li.dependant[data-dependant-id='btq'] {
+    border-left-color: #FFF;
+}
+.form-wrapper fieldset > p {
+    
+    font-size: 16px;
+    padding: 0 20px 0;
+    color: #FFF;
+}
+.form-wrapper fieldset > p strong {
+    text-transform: uppercase;
+    display: block;
+}
+.form-wrapper fieldset > ol {
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 190px);
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: all 0.2s ease-in-out;
+    transform: translate3d(100vw, 0, 0);
+}
+
+.form-wrapper fieldset > ol.active {
+    transform: translate3d(0, 0, 0);
+}
+
+.form-wrapper fieldset> ol.complete {
+    transform: translate3d(-100vw, 0, 0);
+}
+
+.central-form fieldset > ol > li {
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+.central-form label, .central-form .label {
+    padding-bottom: 0;
+}
+ol.final div > strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: 300;
+    padding: 30px 50px 10px 0;
+    color: #566266;
+}
+.central-form .form-date-wrap input:hover, .central-form .form-date-wrap input:focus {
+    box-shadow: 0 none;
+}

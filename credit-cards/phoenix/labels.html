@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Phoenix</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <style>
+            @inport url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+            body {
+                 font: normal 400 16px/1 'Open Sans';
+            }
+            .placeholder {
+                position: relative;
+            }
+            .placeholder label {
+                display: block;
+                padding-top: 24px;
+            }
+            .placeholder label span {
+                position: absolute;
+                line-height: 20px;
+                display: block;
+                top: 30px;
+                left: 6px;
+                width: 100%;
+                z-index: -1;
+                transition: all 0.2s ease-in-out;
+                font-size: 18px;
+                font-weight: 300;
+            }
+            .placeholder label.focus span {
+                top: 0;
+                left: 0;
+                font-weight: 700;
+                font-size: 14px;
+            }
+            .placeholder input {
+                background-color: transparent;
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 300;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="placeholder">
+            <label for="input1"><span>This is the label</span></label>
+            <input type="text" id="input1" />
+        </p>
+        <script>
+            document.body.querySelectorAll('.placeholder input').forEach(function(el){
+                console.log(el);
+                el.addEventListener('focus',function(){
+                    el.previousElementSibling.classList.add('focus');
+                });
+                el.addEventListener('blur',function(){
+                    if( el.value == '' ){
+                        el.previousElementSibling.classList.remove('focus');    
+                    }
+                    
+                });
+            });
+        </script>
+    </body>
+</html>

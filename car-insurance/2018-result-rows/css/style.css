@@ -1,0 +1,86 @@
+/*
+:after {
+    content: '';
+    height: 24px;
+    width: 24px;
+    background: transparent url(data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/sv…linejoin="round" stroke="#00AEEF" points="41.5,67 58.5,50 41.5,33"/></svg>) center center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 14px;
+    right: 9px;
+    transform: rotate(90deg);
+    transform-origin: center;
+    z-index: 0;
+}
+*/
+/*
+section {
+    width: 100vw;
+    overflow: auto;
+    
+}
+table {
+    background-color: #C6CACC;
+    table-layout: fixed;
+    width: 1000px;
+    margin-left: 100px;
+    
+}
+.fixed {
+    position: absolute;
+    left: 0;
+    background-color: #333;
+    color: #FFF;
+    width: 100px;
+}
+
+thead {
+    background-color: #000;
+    color: #FFF;
+    display: block;
+}
+tbody {
+    overflow: auto;
+    height: 300px;
+    display: block;
+}
+tr {
+    display: block;
+    width: 1000px;
+}
+*/
+section {
+    overflow: auto;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100vw
+}
+table {
+    border-collapse: collapse;
+}
+th, td { 
+    border: 1px solid #C6CACC;
+    padding: 5px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.fixed-header {
+    table-layout: fixed;
+}
+.fixed-header thead {
+    display: block;
+}
+.fixed-header tbody {
+    display: block;
+    max-height: calc(100vh - 33px);
+    overflow: auto;
+}
+.highlight {
+    position: absolute;
+    background-color: #FFF;
+    top: 0;
+    left: 0;
+}
+

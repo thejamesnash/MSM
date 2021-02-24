@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Phoenix</title>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <style>
+            @inport url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+            body {
+                 font: normal 400 16px/1 'Open Sans';
+                padding: 0;
+                margin: 0;
+            }
+            .progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 10px 40px 0;
+            }
+            .progress ol {
+                list-style: none;
+                display: flex;
+                counter-reset: li;
+                justify-content: space-between;
+                padding: 0;
+                width: calc( 100vw - 100px);
+            }
+            
+            
+            .progress li {
+                font-size: 10px;
+                text-align: left;
+                position: relative;
+                transition: all 0.2s ease-in-out;
+                width: 0%;
+            }
+            .progress li:nth-of-type(1).active {
+                width: calc( 100vw - 170px );
+            }
+            .progress li:nth-of-type(2).active {
+                width: calc( 100vw - 170px );
+            }
+            .progress li:nth-of-type(3).active {
+                width: calc( 100vw - 170px );
+            }
+            .progress li:before {
+                content: counter(li);
+                counter-increment: li;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: -27px;
+                left: 0;
+                border-radius: 50%;
+                background-color: #333;
+                font: 700 12px/20px 'Open Sans';
+                text-align: center;
+                z-index: 1;
+                color: #FFF;
+            }
+            .progress li.active ~ li:before {
+                background-color: #C6CACC;
+            }
+            
+            .progress li b {
+                font-weight: 300;
+                position: absolute;
+                width: 100px;
+                left: 24px;
+                top: -32px;
+                display: none;
+            }
+            .progress li.active b {
+                display: block;
+            }
+            .progress li.active ~ li b {
+                display: none;
+            }
+            
+            
+            
+            
+            
+            
+            
+            .progress progress {
+                width: 100%;
+                height: 2px;
+            }
+            .progress progress[value] {
+              -webkit-appearance: none;
+               appearance: none;
+            }
+            .progress progress[value]::-webkit-progress-bar {
+                background-color: #C6CACC;
+                border-radius: 3px;
+            }
+            .progress progress[value]::-webkit-progress-value {
+                background-color: #000;
+                border-radius: 3px;
+                transition: all 0.2s ease-in-out;
+            }
+            section {
+                padding-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <aside class="progress">
+            <progress max="100" value="40" id="progress"></progress>
+            <ol>
+                <li class="active"><b>Account setup</b></li>
+                <li><b>Credit file details</b></li>
+                <li><b>Security questions</b></li>
+            </ol>
+        </aside>
+        <section>
+            <ul>
+                <li><button data-progress="40" data-active-progress="0">Section 1 - part 1</button></li>
+                <li><button data-progress="80" data-active-progress="0">Section 1 - part 2</button></li>
+                <li><button data-progress="30" data-active-progress="1">Section 2 - part 1</button></li>
+                <li><button data-progress="50" data-active-progress="1">Section 2 - part 2</button></li>
+                <li><button data-progress="70" data-active-progress="1">Section 2 - part 3</button></li>
+                <li><button data-progress="90" data-active-progress="1">Section 2 - part 4</button></li>
+                <li><button data-progress="50" data-active-progress="2">Section 3 - part 1</button></li>
+                <li><button data-progress="90" data-active-progress="2">Section 3 - part 2</button></li>
+            </ul>
+        </section>
+        <script>
+            
+            var progressEl = document.getElementById('progress');
+            var buttons = document.body.querySelectorAll('button');
+            
+            
+            var updateProgress = function(sectionProgress,activeSection){
+                var progressLis = document.body.querySelectorAll('.progress > ol > li');
+                progressLis.forEach(function(li){
+                    li.classList.remove('active');
+                });
+                progressLis[activeSection].classList.add('active');
+                progressEl.value = sectionProgress;
+            };
+            
+            buttons.forEach(function(el){
+                el.addEventListener('click',function(evt){
+                    evt.preventDefault();
+                    var activeSection = el.getAttribute('data-active-progress');
+                    var sectionProgress = el.getAttribute('data-progress');
+                    updateProgress(sectionProgress,activeSection);
+                });
+            });
+            
+        </script>
+    </body>
+</html>
